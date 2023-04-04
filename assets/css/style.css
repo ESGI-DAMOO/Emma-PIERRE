@@ -5,13 +5,108 @@ font-family: 'Noto Serif', serif;
 
 /* HEADER */
 
-.btn{
-    
+#container{
+   max-width: 1400px;
+   margin: auto;
 }
 
- .cards_cat{
+.btn{
+    padding: 1rem 0.8rem;
+    border-radius: 10px;
+}
 
+.btn-bleu{
+   border: 1px solid #1D5F6B;
+   background-color: transparent;
+   color: var(--main-color);
+   width: fit-content;
+   margin: auto;
+}
+
+p{
+   line-height: 32px;
+   font-size: 16px;
+}
+
+#hero_banner{
+   margin-bottom: 5rem;
+}
+ .cards_cat{
+   display: flex;
+   align-items: center;
+   justify-content: center;
  }
  .card_cat{
-
+    width: 25%;
+    text-align: center;
+    min-height: 500px;
  }
+ .one{
+    background: url('../img/france.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+ }
+ .two{
+    background: url('../img/france.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+ }
+ .tree{
+    background: url('../img/france.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+ }
+ .for{
+    background: url('../img/france.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+ }
+
+
+/* TEXTE INTRO */
+ #texte_intro{
+   text-align: center;
+   max-width: 800px;
+   margin: auto;
+   margin-bottom: 5rem;
+ }
+
+
+
+ /* BLOC PROPOS */
+ #propos{
+   display: flex;
+   align-items: center;
+ }
+
+ #propos p{
+   margin-bottom: 4rem;
+ }
+
+ #propos p:last-of-type{
+   margin-bottom: 0;
+ }
+
+.image_propos img{
+   height: 500px;
+   width: 500px;
+   object-fit: cover;
+}
+
+
+/*FEED INSTA */
+#feed_insta{
+   display: flex;
+   align-items: center;
+}
+#feed_insta .img_insta{
+   width: 25%;
+}
+#feed_insta .img_insta img{
+   margin: 0 5px;
+   width: 100%;
+}
