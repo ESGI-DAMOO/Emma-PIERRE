@@ -3,9 +3,9 @@ var header = $('#img-header');
 var headerHeight = header.height();
 $(window).scroll(function() {
     if ($(this).scrollTop() > 10) {
-        header.stop().animate({height: headerHeight * 0.7}, 100);
+        header.stop().animate({height: headerHeight * 0.7}, 500);
     } else {
-        header.stop().animate({height: headerHeight}, 100);
+        header.stop().animate({height: headerHeight}, 500);
     }
 });
 

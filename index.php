@@ -21,9 +21,6 @@
     <body>
         <?php require('partial/header.html') ?>
 
-        <!-- Insérer contenu page accueil -->
-        <div class="xtra"></div>
-
         <div id="hero_banner">
             <div class="cards_cat">
                 <div class="card_cat one">
