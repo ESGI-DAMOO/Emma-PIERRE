@@ -13,7 +13,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400&family=Noto+Serif&display=swap" rel="stylesheet">
 
         <link rel="stylesheet" href="assets/css/normalize.css">
-        <link rel="stylesheet" href="assets/css/variabes-color.css">
+        <link rel="stylesheet" href="assets/css/variables-color.css">
         <link rel="stylesheet" href="assets/css/style.css">
 
         <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
@@ -64,7 +64,7 @@
 
            <div id="propos">
                 <div class="image_propos">
-                    <img src="assets/img/france.png" alt="Création de Bijoux"/>
+                    <img src="https://picsum.photos/200/301" alt="Création de Bijoux"/>
                 </div>
                 <div class="contenu_propos">
                     <h2>Qui sommes-nous ?</h2>
@@ -77,9 +77,11 @@
            </div>
 
            <div id="banniere_devis">
-                <h2>Demandez votre devis personnalisé</h2>
-                <div class="btn btn-bleu">
-                    Contactez-nous
+                <div class="content">
+                    <h2>Demandez votre devis personnalisé</h2>
+                    <div class="btn btn-bleu">
+                        Contactez-nous
+                    </div>
                 </div>
            </div>
 
@@ -92,16 +94,16 @@
 
             <div id="feed_insta">
                 <div class="img_insta">
-                    <img src="assets/img/france.png" alt="Création de Bijoux"/>
+                    <img src="https://picsum.photos/seed/picsum/200/300" alt="Création de Bijoux"/>
                 </div>
                 <div class="img_insta">
-                    <img src="assets/img/france.png" alt="Création de Bijoux"/>
+                    <img src="https://picsum.photos/id/237/200/300" alt="Création de Bijoux"/>
                 </div>
                 <div class="img_insta">
-                    <img src="assets/img/france.png" alt="Création de Bijoux"/>
+                    <img src="https://picsum.photos/200/300" alt="Création de Bijoux"/>
                 </div>
                 <div class="img_insta">
-                    <img src="assets/img/france.png" alt="Création de Bijoux"/>
+                    <img src="https://picsum.photos/200/300/" alt="Création de Bijoux"/>
                 </div>
             </div>
         </div>

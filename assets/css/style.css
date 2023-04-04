@@ -140,6 +140,18 @@ p{
    font-size: 16px;
 }
 
+h1{
+    font-size: 48px;
+    font-weight: 500;
+}
+
+h2{
+    font-size: 40px;
+    font-weight: 500;
+}
+
+
+/*HERO BANNER TOP*/
 #hero_banner{
    margin-bottom: 5rem;
 }
@@ -148,6 +160,7 @@ p{
    display: flex;
    align-items: center;
    justify-content: center;
+   margin-top: 5rem;
  }
  .card_cat{
     width: 25%;
@@ -180,6 +193,7 @@ p{
  }
 
 
+
 /* TEXTE INTRO */
  #texte_intro{
    text-align: center;
@@ -189,15 +203,37 @@ p{
  }
 
 
+ /* BANNIERE DEVIS */
+#banniere_devis{
+    background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)), url('https://picsum.photos/id/870/200/300');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 5rem;
+}
+#banniere_devis .content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem 6rem;
+}
+#banniere_devis .btn{
+    margin: inherit;
+}
+#banniere_devis h2{
+    color: white;
+}
+
 
  /* BLOC PROPOS */
  #propos{
    display: flex;
    align-items: center;
+   margin-bottom: 8rem;
  }
 
  #propos p{
-   margin-bottom: 4rem;
+   margin-bottom: 2rem;
  }
 
  #propos p:last-of-type{
@@ -210,15 +246,22 @@ p{
    object-fit: cover;
 }
 
+
+
 /*FEED INSTA */
 #feed_insta{
-   display: flex;
-   align-items: center;
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
 }
 #feed_insta .img_insta{
-   width: 25%;
+    margin: 0 5px;
+    width: 100%;
 }
 #feed_insta .img_insta img{
-   margin: 0 5px;
-   width: 100%;
+    margin: 0 5px;
+    width: 100%;
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
 }
