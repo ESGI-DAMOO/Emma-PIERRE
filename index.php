@@ -50,7 +50,7 @@
             </div>
         </div>
 
-        <div id="container">
+        <div class="container">
             <div id="texte_intro">
                 <div class="chapo">
                     <h1>EMMA PIERRE Création</h1>
