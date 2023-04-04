@@ -20,6 +20,21 @@
 
         <!-- Insérer contenu page accueil -->
 
+        <div class="cards_cat">
+            <div class="card_cat">
+                <p>Les précieuses</p>
+            </div>
+            <div class="card_cat">
+                <p>Les impertinantes</p>
+            </div>
+            <div class="card_cat">
+                <p>Les uniques</p>
+            </div>
+            <div class="card_cat">
+                <p>Les colorées</p>
+            </div>
+        </div>
+
         <?php require('partial/footer.html') ?>
     </body>
 </html>
