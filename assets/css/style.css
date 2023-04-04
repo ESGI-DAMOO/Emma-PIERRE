@@ -3,5 +3,114 @@ font-family: 'Jost', sans-serif;
 font-family: 'Noto Serif', serif;
  */
 
-/* HEADER */
+/* NORMALIZE PERSO */
+* {
+    font-family: 'Jost', sans-serif;
+}
 
+a {
+    color: #11373F;
+    text-decoration: inherit;
+    position: relative;
+}
+
+div.xtra {
+    height: 200vh;
+    content: '';
+    background-color: yellow;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    -webkit-box-shadow: 0px 2px 20px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 2px 20px 0px rgba(0,0,0,0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    box-sizing: border-box;
+    background: white;
+}
+
+header .header-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header ul {
+    display: flex;
+
+}
+
+header ul li {
+    list-style: none;
+    padding: 0 2rem;
+}
+
+header div.header-icon {
+    display: flex;
+    align-items: center;
+}
+
+header div.header-icon .cart-icon {
+    position: relative;
+}
+
+header div.header-icon .cart-icon span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.1rem;
+    bottom: 0;
+    left: 0;
+
+
+    position: absolute;
+    background-color: #F7645D;
+    color: white;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    font-size: 0.8rem;
+
+}
+
+header div.header-icon input[type='search'] {
+    border: none;
+    border-bottom: 1px solid #11373F;
+    height: 32px;
+    width: 0px;
+    padding: 0rem;
+}
+
+header div.header-icon a img {
+    width: 32px;
+    padding: 0 0.5rem;
+}
+
+header nav a:after {
+    display: block;
+    content: '';
+    width: 0px;
+    position: absolute;
+    left: 50%;
+    bottom: -7px;
+    transform: translateX(-50%);
+    border-bottom: 2px solid #1D5F6B;
+    -webkit-box-shadow: 0px 1px 4px 0px #1D5F6B;
+    box-shadow: 0px 1px 4px 0px #1D5F6B;
+    transition: all 0.3s;
+}
+
+header nav a:hover::after {
+    width: 100px;
+}
+
+header .search-container {
+    display: flex;
+}

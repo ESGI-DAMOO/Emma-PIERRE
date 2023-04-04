@@ -14,12 +14,16 @@
 
         <link rel="stylesheet" href="assets/css/normalize.css">
         <link rel="stylesheet" href="assets/css/style.css">
+
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     </head>
     <body>
         <?php require('partial/header.html') ?>
 
         <!-- Insérer contenu page accueil -->
+        <div class="xtra"></div>
 
         <?php require('partial/footer.html') ?>
+        <script src="assets/js/scripts.js"></script>
     </body>
 </html>
