@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Jost:wght@300;400&family=Noto+Serif&family=Roboto:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=Noto+Serif&family=Roboto:wght@300&display=swap");
 @import url("normalize.css");
 @import url(variables-color.css);
 /* NORMALIZE PERSO */
@@ -142,8 +142,18 @@ header .search-container {
 .btn-bleu {
   border: 1px solid var(--primary);
   background-color: var(--primary);
-  color: white;
   width: fit-content;
+}
+.btn-bleu a{
+  color: beige;
+}
+.btn-bleu:hover a{
+  color: var(--primary);
+}
+.btn-bleu:hover {
+  color: var(--primary);
+  border: 1px solid beige;
+  background-color: beige;
 }
 .btn-bleu-transp {
   border: 1px solid var(--primary);
@@ -151,14 +161,25 @@ header .search-container {
   color: var(--primary);
   width: fit-content;
 }
+.btn-bleu-transp a{
+  color: var(--primary);
+}
+.btn-bleu-transp:hover {
+  background-color: var(--primary);
+  color: white;
+  width: fit-content;
+}
+.btn-bleu-transp:hover a{
+  color: white;
+}
 .btn-rouge {
   border: 1px solid var(--secondary);
   background-color: var(--secondary);
   color: white;
   width: fit-content;
 }
-.btn-rouge p {
-  margin: 0;
+.btn-rouge a {
+  color: white;
 }
 
 p {
@@ -170,6 +191,7 @@ h1 {
   font-family: Jost, sans-serif;
   font-size: 48px;
   font-weight: 400;
+  color: var(--primary);
 }
 
 h2 {
@@ -178,6 +200,7 @@ h2 {
   font-weight: 400;
   margin-top: 0;
   margin-bottom: 2rem;
+  color: var(--primary);
 }
 
 h3 {
@@ -188,6 +211,11 @@ h3 {
 
 main {
   margin-top: 10rem;
+}
+
+.lien{
+  font-weight: 500;
+  font-size: 18px;
 }
 
 /*HERO BANNER TOP*/
@@ -213,6 +241,7 @@ main {
 }
 .card_cat p {
   margin-top: 8rem;
+  margin-bottom: 40px;
 }
 .one {
   background: url("https://picsum.photos/1080/1920");
@@ -255,12 +284,13 @@ main {
 #produits .products_cards {
   display: flex;
   align-items: flex-start;
+  column-gap: 7rem;
 }
 #produits .big_product_card img{
-  height: 700px;
+  height: 550px;
 }
 #produits .small_product_card img{
-  height: 450px;
+  height: 350px;
 }
 #produits .infos{
   display: flex;
@@ -279,7 +309,7 @@ main {
 
 /* BANNIERE DEVIS */
 #banniere_devis {
-  background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)), url("https://picsum.photos/id/870/200/300");
+  background-image: linear-gradient(to right, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)), url("https://picsum.photos/id/870/200/300");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -297,6 +327,7 @@ main {
 }
 #banniere_devis h2 {
   color: white;
+  margin-bottom: 0;
 }
 .circle_2{
   height: 650px;
@@ -312,24 +343,44 @@ main {
 
 /* ARTICLES */
 #articles {
+  margin-bottom: 5rem;
+}
+#articles .articles{
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  margin-bottom: 5rem;
+  column-gap: 7rem;
+}
+#articles .chapo{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .big_card {
   display: flex;
   flex-direction: column;
+  max-width: 600px;
 }
 .big_card img {
-  max-height: 700px;
+  margin-bottom: 0.5rem;
+  max-height: 450px;
+}
+.big_card h2{
+  margin-bottom: 0;
+}
+.big_card p{
+  margin-bottom: 2rem;
 }
 .small_card {
   display: flex;
   flex-direction: column;
 }
-.small_card img:first-of-type {
-  margin: 0 5rem;
+.small_card img{
+  height: 200px;
+  width: 100%;
+}
+.small_card h2{
+  font-size: 24px;
 }
 
 /* BLOC PROPOS */
@@ -342,7 +393,7 @@ main {
   margin-bottom: 2rem;
 }
 #propos p:last-of-type {
-  margin-bottom: 0;
+  margin-bottom: 2.5rem;
 }
 #propos .contenu_propos {
   padding-left: 6rem;

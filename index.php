@@ -21,59 +21,31 @@
             <div id="hero_banner">
                 <div class="cards_cat">
                     <div class="card_cat one">
-                        <p>Les précieuses</p>
+                        <p class="title-h1">Les précieuses</p>
                         <div class="btn btn-bleu-transp">
-                            Voir les produits
+                           <a href="#" target="_blank">Voir les produits</a>
                         </div>
                     </div>
                     <div class="card_cat two">
-                        <p>Les impertinantes</p>
+                        <p class="title-h1">Les impertinantes</p>
                         <div class="btn btn-bleu-transp">
-                            Voir les produits
+                            <a href="#" target="_blank">Voir les produits</a>
                         </div>
                     </div>
                     <div class="card_cat tree">
-                        <p>Les uniques</p>
+                        <p class="title-h1">Les uniques</p>
                         <div class="btn btn-bleu-transp">
-                            Voir les produits
+                            <a href="#" target="_blank">Voir les produits</a>
                         </div>
                     </div>
                     <div class="card_cat for">
-                        <p>Les colorées</p>
+                        <p class="title-h1">Les colorées</p>
                         <div class="btn btn-bleu-transp">
-                            Voir les produits
+                            <a href="#" target="_blank">Voir les produits</a>
                         </div>
                     </div>
                 </div>
             </div>
-        <div id="hero_banner">
-            <div class="cards_cat">
-                <div class="card_cat one">
-                    <p class="title-h1">Les précieuses</p>
-                    <div class="btn btn-bleu">
-                        Voir les produits
-                    </div>
-                </div>
-                <div class="card_cat two">
-                    <p class="title-h1">Les impertinantes</p>
-                    <div class="btn btn-bleu">
-                        Voir les produits
-                    </div>
-                </div>
-                <div class="card_cat tree">
-                    <p class="title-h1">Les uniques</p>
-                    <div class="btn btn-bleu">
-                        Voir les produits
-                    </div>
-                </div>
-                <div class="card_cat for">
-                    <p class="title-h1">Les colorées</p>
-                    <div class="btn btn-bleu">
-                        Voir les produits
-                    </div>
-                </div>
-            </div>
-        </div>
 
             <div class="container">
                 <div id="texte_intro">
@@ -143,7 +115,7 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porta commodo velit in tristique. Donec lacus ex, dignissim nec ultricies et, feugiat at felis. Fusce placerat neque eget elit pretium vestibulum a nec diam.</p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porta commodo velit in tristique. Donec lacus ex, dignissim nec ultricies et, feugiat at felis. Fusce placerat neque eget elit pretium vestibulum a nec diam.</p>
                         <div class="btn btn-bleu">
-                            En savoir plus
+                            <a href="#" target="_blank">En savoir plus</a>
                         </div>
                     </div>
                 </div>
@@ -152,7 +124,7 @@
                     <div class="content">
                         <h2>Demandez votre devis personnalisé</h2>
                         <div class="btn btn-bleu">
-                            Contactez-nous
+                            <a href="#" target="_blank">Contactez-nous</a>
                         </div>
                     </div>
                     <div class="circle_2"></div>
@@ -166,43 +138,47 @@
                 </div>
 
                 <div id="articles">
-                    <article class="big_card">
-                        <img src="https://picsum.photos/200/301" alt="Création de Bijoux"/>
-                        <h2>Des bijoux uniques</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porta commodo velit in tristique. Donec lacus ex, dignissim nec ultricies et, feugiat at felis...</p>
-                        <div class="btn btn-bleu">Lire l'article</div>
-                    </article>
-                    <article class="small_card">
-                        <img src="https://picsum.photos/200/301" alt="Création de Bijoux"/>
-                        <h2>Visite de nos locaux</h2>
-                        <div class="btn btn-bleu">Lire l'article</div>
-                    </article>
-                    <article class="small_card">
-                        <img src="https://picsum.photos/200/301" alt="Création de Bijoux"/>
-                        <h2>Journée porte ouverte</h2>
-                        <div class="btn btn-bleu">Lire l'article</div>
-                    </article>
+                    <div class="chapo">
+                        <h2>Nos derniers articles</h2>
+                        <a href="#" class="lien">Voir plus</a>
+                    </div>
+                    <div class="articles">
+                        <article class="big_card">
+                            <img src="https://picsum.photos/200/301" alt="Création de Bijoux"/>
+                            <h2>Des bijoux uniques</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porta commodo velit in tristique. Donec lacus ex, dignissim nec ultricies et, feugiat at felis...</p>
+                            <div class="btn btn-bleu"><a href="#" target="_blank">Lire l'article</a></div>
+                        </article>
+                        <article class="small_card">
+                            <img src="https://picsum.photos/200/301" alt="Création de Bijoux"/>
+                            <h2>Visite de nos locaux</h2>
+                            <div class="btn btn-bleu"><a href="#" target="_blank">Lire l'article</a></div>
+                        </article>
+                        <article class="small_card">
+                            <img src="https://picsum.photos/200/301" alt="Création de Bijoux"/>
+                            <h2>Journée porte ouverte</h2>
+                            <div class="btn btn-bleu"><a href="#" target="_blank">Lire l'article</a></div>
+                        </article>
+                    </div>
                 </div>
 
                 <div id="feed_insta">
                     <div class="img_insta">
                         <img src="https://picsum.photos/seed/picsum/200/300" alt="Création de Bijoux"/>
-                        <div class="btn btn-rouge"><p>Voir sur instagram</p></div>
+                        <div class="btn btn-rouge"><a href="#" target="_blank">Voir sur instagram</a></div>
                     </div>
                     <div class="img_insta">
                         <img src="https://picsum.photos/id/237/200/300" alt="Création de Bijoux"/>
-                        <div class="btn btn-rouge"><p>Voir sur instagram</p></div>
+                        <div class="btn btn-rouge"><a href="#" target="_blank">Voir sur instagram</a></div>
                     </div>
                     <div class="img_insta">
                         <img src="https://picsum.photos/200/300" alt="Création de Bijoux"/>
-                        <div class="btn btn-rouge"><p>Voir sur instagram</p></div>
+                        <div class="btn btn-rouge"><a href="#" target="_blank">Voir sur instagram</a></div>
                     </div>
                     <div class="img_insta">
                         <img src="https://picsum.photos/200/300/" alt="Création de Bijoux"/>
-                        <div class="btn btn-rouge"><p>Voir sur instagram</p></div>
+                        <div class="btn btn-rouge"><a href="#" target="_blank">Voir sur instagram</a></div>
                     </div>
-                    <img src="img/instagram-icon.svg" alt="Icone Instagram">
-                    <object data="img/instagram-icon.svg" width="300" height="300"> </object>
                 </div>
             </div>
         </main>
