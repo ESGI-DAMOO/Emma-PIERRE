@@ -22,10 +22,9 @@ div.xtra {
 
 .title-h1 {
   font-size: 3rem;
-  color: #1D5F6B;
+  color: #1d5f6b;
   text-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
   margin: 1rem auto;
-
 }
 
 /* HEADER */
@@ -132,6 +131,7 @@ header .search-container {
 .btn {
   padding: 1rem 0.8rem;
   border-radius: 3px;
+  margin: 5px 0;
 }
 
 .btn-bleu {
@@ -141,7 +141,7 @@ header .search-container {
   width: fit-content;
   margin: auto;
 }
-.btn-bleu-transp{
+.btn-bleu-transp {
   border: 1px solid var(--primary);
   background-color: transparent;
   color: var(--primary);
@@ -154,7 +154,7 @@ header .search-container {
   width: fit-content;
   margin: auto;
 }
-.btn-rouge p{
+.btn-rouge p {
   margin: 0;
 }
 
@@ -175,7 +175,7 @@ h2 {
   margin-bottom: 0.5rem;
 }
 
-main{
+main {
   margin-top: 10rem;
 }
 
@@ -228,23 +228,19 @@ main{
   margin-bottom: 5rem;
 }
 
-
 /* PRODUITS */
-#produits{
+#produits {
   margin-bottom: 5rem;
 }
-#produits .products_cards{
+#produits .products_cards {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
 }
-#produits .big_product_card{
-
+#produits .big_product_card {
 }
-#produits .small_product_card{
-
+#produits .small_product_card {
 }
-
 
 /* BANNIERE DEVIS */
 #banniere_devis {
@@ -267,26 +263,25 @@ main{
   color: white;
 }
 
-
 /* ARTICLES */
-#articles{
+#articles {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   margin-bottom: 5rem;
 }
-.big_card{
+.big_card {
   display: flex;
   flex-direction: column;
 }
-.big_card img{
+.big_card img {
   max-height: 700px;
 }
-.small_card{
+.small_card {
   display: flex;
   flex-direction: column;
 }
-.small_card img:first-of-type{
+.small_card img:first-of-type {
   margin: 0 5rem;
 }
 
@@ -302,7 +297,7 @@ main{
 #propos p:last-of-type {
   margin-bottom: 0;
 }
-#propos .contenu_propos{
+#propos .contenu_propos {
   padding-left: 6rem;
 }
 .image_propos img {
@@ -320,7 +315,7 @@ main{
 #feed_insta .img_insta {
   margin: 0 5px;
   width: 100%;
-  transition: .3s all ease-in-out ;
+  transition: 0.3s all ease-in-out;
   position: relative;
 }
 #feed_insta .img_insta:hover {
@@ -333,7 +328,7 @@ main{
   max-height: 350px;
   object-fit: cover;
 }
-#feed_insta .btn{
+#feed_insta .btn {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -426,9 +421,9 @@ footer ul li {
 }
 
 .banner-desc {
-  font-family: 'Noto Serif', serif;
+  font-family: "Noto Serif", serif;
   font-size: 1.2rem;
-  color: #3E3943;
+  color: #3e3943;
 }
 
 .mini_cat {
@@ -437,11 +432,11 @@ footer ul li {
   margin-bottom: 7rem;
 }
 .mini_cat > div {
-  width: 25%
+  width: 25%;
 }
 
 .mini_cat > div p {
-  color: #1D5F6B;
+  color: #1d5f6b;
   font-weight: bold;
   font-size: 1.2rem;
 }
@@ -466,28 +461,28 @@ footer ul li {
   width: 75%;
 }
 
-
-
-
 /* PRODUCT */
 /* css de la section de classe product de la page product.php */
-.product__container {
+#product {
+  margin-top: 170px;
+}
+
+#product .product__container {
   display: flex;
   align-items: center;
   justify-content: space-around;
   margin-bottom: 5rem;
-  margin-top: 170px;
 }
-.product__container .product__container__img {
+#product .product__container .product__container__img {
   width: 30%;
 }
-.product__container .product__container__img img {
+#product .product__container .product__container__img img {
   width: 100%;
   min-width: 300px;
   height: 500px;
   object-fit: cover;
 }
-.product__container .product__container__description {
+#product .product__container .product__container__description {
   width: 40%;
 }
 .product__container .circle {
@@ -497,7 +492,30 @@ footer ul li {
   display: inline-block;
   vertical-align: middle;
 }
-.product__container__description span.prix {
+#product .product__container__description span.prix {
   font-size: 1.5rem;
   font-weight: 500;
+}
+.prix-sign {
+  display: inline-block;
+  font-size: 22px;
+  font-weight: 400;
+  vertical-align: middle;
+}
+.prix-currency {
+  font-size: 35px;
+  font-weight: 300;
+  letter-spacing: -2px;
+  line-height: 35px;
+  padding: 0;
+  vertical-align: middle;
+}
+.prix-cent {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 400;
+  vertical-align: bottom;
+}
+#product .product__container button {
+  width: 100%;
 }
