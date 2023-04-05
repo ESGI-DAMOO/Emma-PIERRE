@@ -22,35 +22,27 @@
                 <div class="cards_cat">
                     <div class="card_cat one">
                         <p class="title-h1">Les précieuses</p>
-                        <a href="#" target="_blank">
-                            <div class="btn btn-bleu-transp">
-                                Voir les produits
-                            </div>
-                        </a>
+                        <div class="btn btn-bleu-transp">
+                           <a href="#" target="_blank">Voir les produits</a>
+                        </div>
                     </div>
                     <div class="card_cat two">
                         <p class="title-h1">Les impertinantes</p>
-                        <a href="#" target="_blank">
-                            <div class="btn btn-bleu-transp">
-                                Voir les produits
-                            </div>
-                        </a>
+                        <div class="btn btn-bleu-transp">
+                            <a href="#" target="_blank">Voir les produits</a>
+                        </div>
                     </div>
                     <div class="card_cat tree">
                         <p class="title-h1">Les uniques</p>
-                        <a href="#" target="_blank">
-                            <div class="btn btn-bleu-transp">
-                                Voir les produits
-                            </div>
-                        </a>
+                        <div class="btn btn-bleu-transp">
+                            <a href="#" target="_blank">Voir les produits</a>
+                        </div>
                     </div>
                     <div class="card_cat for">
                         <p class="title-h1">Les colorées</p>
-                        <a href="#" target="_blank">
-                            <div class="btn btn-bleu-transp">
-                                Voir les produits
-                            </div>
-                        </a>
+                        <div class="btn btn-bleu-transp">
+                            <a href="#" target="_blank">Voir les produits</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -67,46 +59,54 @@
                     <h2>Produits du moment</h2>
                     <div class="products_cards">
                         <div class="big_product_card">
-                            <img src="assets/img/products/CollierAlexandra.jpg" alt="Création de Bijoux"/>
+                            <img src="https://picsum.photos/200/301" alt="Création de Bijoux"/>
                             <div class="infos">
+                                <div class="infos">
                                 <div class="titre_produit">
-                                    <p>Collier Alexandra</p>
+                                        <p>Collier Alexandra</p>
+                                    </div>
+                                    <div class="prix_produit">
+                                        <p>49.3€</p>
+                                    </div>
                                 </div>
-                                <div class="prix_produit">
-                                    <p>49.3€</p>
-                                </div>
-                            </div>
+                        </div>
                         </div>
                         <div class="small_product_card">
-                            <img src="assets/img/products/CollierBlancFeuilles.jpg" alt="Création de Bijoux"/>
+                            <img src="https://picsum.photos/200/301" alt="Création de Bijoux"/>
                             <div class="infos">
+                                <div class="infos">
                                 <div class="titre_produit">
-                                    <p>Collier Alexandra</p>
+                                        <p>Collier Alexandra</p>
+                                    </div>
+                                    <div class="prix_produit">
+                                        <p>49.3€</p>
+                                    </div>
                                 </div>
-                                <div class="prix_produit">
-                                    <p>49.3€</p>
-                                </div>
-                            </div>
+                        </div>
                         </div>
                         <div class="small_product_card">
-                            <img src="assets/img/products/BouclesRose.jpg" alt="Création de Bijoux"/>
+                            <img src="https://picsum.photos/200/301" alt="Création de Bijoux"/>
                             <div class="infos">
+                                <div class="infos">
                                 <div class="titre_produit">
-                                    <p>Collier Alexandra</p>
+                                        <p>Collier Alexandra</p>
+                                    </div>
+                                    <div class="prix_produit">
+                                        <p>49.3€</p>
+                                    </div>
                                 </div>
-                                <div class="prix_produit">
-                                    <p>49.3€</p>
-                                </div>
-                            </div>
+                        </div>
                         </div>
                         <div class="small_product_card">
-                            <img src="assets/img/products/CollierPerleNoirOr.jpg" alt="Création de Bijoux"/>
+                            <img src="https://picsum.photos/200/301" alt="Création de Bijoux"/>
                             <div class="infos">
+                                <div class="infos">
                                 <div class="titre_produit">
-                                    <p>Collier Alexandra</p>
-                                </div>
-                                <div class="prix_produit">
-                                    <p>49.3€</p>
+                                        <p>Collier Alexandra</p>
+                                    </div>
+                                    <div class="prix_produit">
+                                        <p>49.3€</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -117,28 +117,24 @@
 
                 <div id="propos">
                     <div class="image_propos">
-                        <img src="assets/img/atelier.jpeg" alt="Création de Bijoux"/>
+                        <img src="https://picsum.photos/200/301" alt="Création de Bijoux"/>
                     </div>
                     <div class="contenu_propos">
                         <h2>Qui sommes-nous ?</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porta commodo velit in tristique. Donec lacus ex, dignissim nec ultricies et, feugiat at felis. Fusce placerat neque eget elit pretium vestibulum a nec diam.</p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porta commodo velit in tristique. Donec lacus ex, dignissim nec ultricies et, feugiat at felis. Fusce placerat neque eget elit pretium vestibulum a nec diam.</p>
-                        <a href="#" target="_blank">
-                            <div class="btn btn-bleu">
-                                En savoir plus
-                            </div>
-                        </a>
+                        <div class="btn btn-bleu">
+                            <a href="#" target="_blank">En savoir plus</a>
+                        </div>
                     </div>
                 </div>
 
                 <div id="banniere_devis">
                     <div class="content">
                         <h2>Demandez votre devis personnalisé</h2>
-                        <a href="#" target="_blank">
-                            <div class="btn btn-bleu">
-                                Contactez-nous
-                            </div>
-                        </a>
+                        <div class="btn btn-bleu">
+                            <a href="#" target="_blank">Contactez-nous</a>
+                        </div>
                     </div>
                     <div class="circle_2"></div>
                     <div class="circle_2"></div>
@@ -147,7 +143,7 @@
                 <div id="texte_intro">
                     <div class="chapo">
                         <h2>Nos concevons également des bijoux sur-mesure</h2>
-                        <p class="lead">La créativité ne connaît pas de limites. Nous sommes fiers de concevoir des bijoux uniques et sur-mesure pour nos clients, en utilisant les meilleurs matériaux et en combinant notre savoir-faire avec leurs idées et préférences. Si vous cherchez à offrir un cadeau spécial à un être cher, ou si vous voulez vous faire plaisir en vous offrant un bijou unique, n'hésitez pas à nous contacter. Nous serons ravis de vous aider à créer quelque chose de beau et de précieux qui durera toute une vie.</p>
+                        <p class="lead">la créativité ne connaît pas de limites. Nous sommes fiers de concevoir des bijoux uniques et sur-mesure pour nos clients, en utilisant les meilleurs matériaux et en combinant notre savoir-faire avec leurs idées et préférences. Si vous cherchez à offrir un cadeau spécial à un être cher, ou si vous voulez vous faire plaisir en vous offrant un bijou unique, n'hésitez pas à nous contacter. Nous serons ravis de vous aider à créer quelque chose de beau et de précieux qui durera toute une vie.</p>
                     </div>
                 </div>
 
@@ -160,45 +156,41 @@
                         <article class="big_card">
                             <img src="https://picsum.photos/200/301" alt="Création de Bijoux"/>
                             <h2>Des bijoux uniques</h2>
-                            <p>Des bijoux uniques pour une touche personnelle et originale à votre style. Portez quelque chose de spécial et de différent qui reflète votre personnalité et votre goût distinctif.</p>
-                            <a href="#" target="_blank">
-                                <div class="btn btn-bleu">Lire l'article</div>
-                            </a>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porta commodo velit in tristique. Donec lacus ex, dignissim nec ultricies et, feugiat at felis...</p>
+                            <div class="btn btn-bleu"><a href="#" target="_blank">Lire l'article</a></div>
                         </article>
                         <article class="small_card">
                             <img src="https://picsum.photos/200/301" alt="Création de Bijoux"/>
                             <h2>Visite de nos locaux</h2>
-                            <a href="#" target="_blank">
-                                <div class="btn btn-bleu">Lire l'article</div>
-                            </a>
+                            <div class="btn btn-bleu"><a href="#" target="_blank">Lire l'article</a></div>
                         </article>
                         <article class="small_card">
                             <img src="https://picsum.photos/200/301" alt="Création de Bijoux"/>
                             <h2>Journée porte ouverte</h2>
-                            <a href="#" target="_blank">
-                                <div class="btn btn-bleu">Lire l'article</div>
-                            </a>
+                            <div class="btn btn-bleu"><a href="#" target="_blank">Lire l'article</a></div>
                         </article>
                     </div>
                 </div>
 
                 <div id="feed_insta">
                     <div class="img_insta">
-                        <img src="assets/img/products/CollierBlancFeuilles.jpg" alt="Création de Bijoux"/>
+                        <img src="https://picsum.photos/seed/picsum/200/300" alt="Création de Bijoux"/>
                         <div class="btn btn-rouge"><a href="#" target="_blank">Voir sur instagram</a></div>
                     </div>
                     <div class="img_insta">
-                        <img src="assets/img/products/BouquetRose.jpg" alt="Création de Bijoux"/>
+                        <img src="https://picsum.photos/id/237/200/300" alt="Création de Bijoux"/>
                         <div class="btn btn-rouge"><a href="#" target="_blank">Voir sur instagram</a></div>
                     </div>
                     <div class="img_insta">
-                        <img src="assets/img/products/MultiplesRoses.jpg" alt="Création de Bijoux"/>
+                        <img src="https://picsum.photos/200/300" alt="Création de Bijoux"/>
                         <div class="btn btn-rouge"><a href="#" target="_blank">Voir sur instagram</a></div>
                     </div>
                     <div class="img_insta">
-                        <img src="assets/img/products/CollierPerleSable.jpg" alt="Création de Bijoux"/>
+                        <img src="https://picsum.photos/200/300/" alt="Création de Bijoux"/>
                         <div class="btn btn-rouge"><a href="#" target="_blank">Voir sur instagram</a></div>
                     </div>
+                    <img src="img/instagram-icon.svg" alt="Icone Instagram">
+                    <object data="img/instagram-icon.svg" width="300" height="300"> </object>
                 </div>
             </div>
         </main>
