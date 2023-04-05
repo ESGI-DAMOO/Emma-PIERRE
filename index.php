@@ -88,41 +88,50 @@
                     <div class="products_cards">
                         <div class="big_product_card">
                             <img src="https://picsum.photos/200/301" alt="Création de Bijoux"/>
-                            <div class="titre_produit">
-                                <p>Collier Alexandra</p>
-                            </div>
-                            <div class="prix_produit">
-                                <p>49.3€</p>
-                            </div>
-                        </div>
-                        <div class="small_product_card">
-                            <img src="https://picsum.photos/200/301" alt="Création de Bijoux"/>
-                            <div class="titre_produit">
-                                <p>Collier Alexandra</p>
-                            </div>
-                            <div class="prix_produit">
-                                <p>49.3€</p>
+                            <div class="infos">
+                                <div class="titre_produit">
+                                    <p>Collier Alexandra</p>
+                                </div>
+                                <div class="prix_produit">
+                                    <p>49.3€</p>
+                                </div>
                             </div>
                         </div>
                         <div class="small_product_card">
                             <img src="https://picsum.photos/200/301" alt="Création de Bijoux"/>
-                            <div class="titre_produit">
-                                <p>Collier Alexandra</p>
-                            </div>
-                            <div class="prix_produit">
-                                <p>49.3€</p>
+                            <div class="infos">
+                                <div class="titre_produit">
+                                    <p>Collier Alexandra</p>
+                                </div>
+                                <div class="prix_produit">
+                                    <p>49.3€</p>
+                                </div>
                             </div>
                         </div>
                         <div class="small_product_card">
                             <img src="https://picsum.photos/200/301" alt="Création de Bijoux"/>
-                            <div class="titre_produit">
-                                <p>Collier Alexandra</p>
+                            <div class="infos">
+                                <div class="titre_produit">
+                                    <p>Collier Alexandra</p>
+                                </div>
+                                <div class="prix_produit">
+                                    <p>49.3€</p>
+                                </div>
                             </div>
-                            <div class="prix_produit">
-                                <p>49.3€</p>
+                        </div>
+                        <div class="small_product_card">
+                            <img src="https://picsum.photos/200/301" alt="Création de Bijoux"/>
+                            <div class="infos">
+                                <div class="titre_produit">
+                                    <p>Collier Alexandra</p>
+                                </div>
+                                <div class="prix_produit">
+                                    <p>49.3€</p>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div class="circle_1"></div>
                 </div>
 
                 <div id="propos">
@@ -146,6 +155,7 @@
                             Contactez-nous
                         </div>
                     </div>
+                    <div class="circle_2"></div>
                 </div>
 
                 <div id="texte_intro">
@@ -191,6 +201,8 @@
                         <img src="https://picsum.photos/200/300/" alt="Création de Bijoux"/>
                         <div class="btn btn-rouge"><p>Voir sur instagram</p></div>
                     </div>
+                    <img src="img/instagram-icon.svg" alt="Icone Instagram">
+                    <object data="img/instagram-icon.svg" width="300" height="300"> </object>
                 </div>
             </div>
         </main>
