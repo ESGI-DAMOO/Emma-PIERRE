@@ -122,7 +122,7 @@ header .search-container {
 
 .btn {
   padding: 1rem 0.8rem;
-  border-radius: 10px;
+  border-radius: 3px;
 }
 
 .btn-bleu {
@@ -331,5 +331,28 @@ footer ul li {
   align-items: center;
   justify-content: space-around;
   margin-bottom: 5rem;
-  margin-top: 5rem;
+  margin-top: 170px;
+}
+.product__container .product__container__img {
+  width: 30%;
+}
+.product__container .product__container__img img {
+  width: 100%;
+  min-width: 300px;
+  height: 500px;
+  object-fit: cover;
+}
+.product__container .product__container__description {
+  width: 40%;
+}
+.product__container .circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+}
+.product__container__description span.prix {
+  font-size: 1.5rem;
+  font-weight: 500;
 }
