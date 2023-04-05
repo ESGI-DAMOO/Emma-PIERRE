@@ -54,10 +54,45 @@
             <div class="product-list-container">
                 <asside>
                     <p>Type de produit</p>
-                    <input type="checkbox" />
-                    <label></label>
+                    <div>
+                        <input type="checkbox" />
+                        <label>Collier</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" />
+                        <label>Boucles d'oreilles</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" />
+                        <label>Bracelets</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" />
+                        <label>Raz-du-cou</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" />
+                        <label>Sautoir</label>
+                    </div>
+
                     <p>Matériaux</p>
+
+                    <span class="circle" style="background-color: pink;"></span>
+                    <span class="circle" style="background-color: #4CB7A5;"></span>
+                    <span class="circle" style="background-color: #F7645D;"></span>
+                    <span class="circle" style="background-color: #C3B89C;"></span>
+                    <span class="circle" style="background: linear-gradient(90deg, #FF0000 0%, #FFA800 10.42%, #ADFF00 20.83%, #00FF85 32.81%, #00F0FF 45.83%, #0057FF 58.85%, #6100FF 70.83%, #FF00B8 83.33%, #FF0000 100%);"></span>
+                    <span class="circle" style="background: url('assets/img/plus.svg')"></span>
+
                     <p>Prix</p>
+                    <div>
+                        <input id="range-price" type="range" step="10" max="200" min="0" value="200"/>
+                    </div>
+                    <div class="input-number-container">
+                        <span class="input-number-prefix">€</span>
+                        <input id="input-number" class="input-number" type="number" value="200"/>
+                    </div>
+
                     <p>Disponibilité</p>
                 </asside>
                 <div class="product-list">
