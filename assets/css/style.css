@@ -50,6 +50,11 @@ header {
   z-index: 100;
 }
 
+header img.logo {
+  width: 100px;
+  padding: 2.5rem 2rem;
+}
+
 header .header-nav {
   display: flex;
   align-items: center;
