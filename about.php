@@ -42,7 +42,7 @@
                     sélection exquise de bijoux faits à la main qui captivent l'œil et ravissent l'âme.
                 </p>
             </article>
-            <div class="texte-image-droite">
+            <div class="texte-image texte-image-droite">
                 <article>
                     <h2>Nous mettons à l’oeuvre notre savoir faire</h2>
                     <p>
@@ -77,7 +77,7 @@
             </div>
         </div>
         <section class="container">
-            <div class="texte-image-gauche">
+            <div class="texte-image texte-image-gauche">
                 <img src="./assets/img/atelier.jpeg" alt="image diamant sous une loupe">
                 <article>
                     <h2>Notre atelier</h2>
@@ -99,12 +99,14 @@
                     </p>
                 </article>
             </div>
-            <p class="citation">
-                Les bijoux sont des œuvres d'art que l'on peut porter - ils doivent refléter la personnalité et
-                l'élégance de celui ou
-                celle qui les porte.
-            </p>
-            <div class="texte-image-droite">
+            <div class="citation">
+                <p>
+                    Les bijoux sont des œuvres d'art que l'on peut porter - ils doivent refléter la personnalité et
+                    l'élégance de celui ou
+                    celle qui les porte.
+                </p>
+            </div>
+            <div class="texte-image texte-image-droite">
                 <article>
                     <h2>Votre satisfaction est notre priorité</h2>
                     <p>

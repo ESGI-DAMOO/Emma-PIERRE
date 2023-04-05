@@ -8,6 +8,10 @@
   font-size: 16px;
 }
 
+body {
+  max-width: none !important; /* override du maxwidth du normalize */
+}
+
 a {
   color: #11373f;
   text-decoration: inherit;
@@ -134,7 +138,7 @@ header .search-container {
 }
 
 .container {
-  width: 1400px;
+  max-width: 1400px;
   margin: auto;
 }
 
@@ -633,15 +637,13 @@ footer ul li {
 #about div.banniere {
   background-image: url("../img/greenstone.jpeg");
   background-position: center;
-  width: 100vw;
+  width: 100%;
   height: 220px;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
 }
 #about div.banniere .carre {
-  position: absolute;
   background-color: white;
   margin: auto;
   padding: 20px 60px;
@@ -649,7 +651,6 @@ footer ul li {
 #about div.banniere h1 {
   background-image: url("../img/greenstone.jpeg");
   background-position: center;
-  background-size: 100vw;
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
@@ -657,6 +658,66 @@ footer ul li {
   text-transform: uppercase;
   font-size: 48px;
   font-weight: bold;
+}
+
+#about h2 {
+  margin-bottom: 10px;
+}
+#about .center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 600px;
+  width: 70%;
+  margin: 30px auto;
+  text-align: center;
+}
+#about .texte-image {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin: 30px auto;
+}
+#about .texte-image article {
+  width: 60%;
+  text-align: left;
+  padding: 10px;
+}
+#about .texte-image img {
+  width: 40%;
+  max-width: 350px;
+  object-fit: cover;
+}
+#about .citation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 30px auto;
+  padding-inline: 20px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-style: italic;
+}
+#about .citation {
   position: relative;
-  z-index: 2;
+  /* width: 70%;
+  min-width: 600px; */
+  width: fit-content;
+}
+#about .citation p::before {
+  content: "“";
+  font-size: 6rem;
+  color: #1d5f6b;
+  position: absolute;
+  left: -20px;
+}
+#about .citation p::after {
+  content: "”";
+  font-size: 6rem;
+  color: #1d5f6b;
+  position: absolute;
+  right: 0;
+  bottom: -40px;
 }
