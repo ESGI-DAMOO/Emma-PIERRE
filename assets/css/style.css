@@ -47,7 +47,6 @@ header {
   width: 100vw;
   box-sizing: border-box;
   background: white;
-  z-index: 100;
 }
 
 header .header-nav {
@@ -144,18 +143,21 @@ header .search-container {
   background-color: var(--primary);
   color: white;
   width: fit-content;
+  margin: auto;
 }
 .btn-bleu-transp {
   border: 1px solid var(--primary);
   background-color: transparent;
   color: var(--primary);
   width: fit-content;
+  margin: auto;
 }
 .btn-rouge {
   border: 1px solid var(--secondary);
   background-color: var(--secondary);
   color: white;
   width: fit-content;
+  margin: auto;
 }
 .btn-rouge p {
   margin: 0;
@@ -203,16 +205,8 @@ main {
 }
 .card_cat {
   width: 25%;
-  height: 100%;
   text-align: center;
-  min-height: 650px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.card_cat p {
-  margin-top: 8rem;
+  min-height: 500px;
 }
 .one {
   background: url("https://picsum.photos/1080/1920");
@@ -250,20 +244,10 @@ main {
 /* PRODUITS */
 #produits {
   margin-bottom: 5rem;
-  position: relative;
 }
 #produits .products_cards {
   display: flex;
   align-items: flex-start;
-}
-#produits .big_product_card img{
-  height: 700px;
-}
-#produits .small_product_card img{
-  height: 450px;
-}
-#produits .infos{
-  display: flex;
   justify-content: space-between;
 }
 #produits .big_product_card {
@@ -277,14 +261,13 @@ main {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  margin-bottom: 8rem;
-  position: relative;
+  margin-bottom: 5rem;
 }
 #banniere_devis .content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5rem 6rem;
+  padding: 4rem 6rem;
 }
 #banniere_devis .btn {
   margin: inherit;
@@ -358,11 +341,8 @@ main {
   transition: 0.3s all ease-in-out;
   position: relative;
 }
-#feed_insta .img_insta:hover img{
+#feed_insta .img_insta:hover {
   background-color: rgba(0, 0, 0, 0.5);
-}
-#feed_insta .img_insta:hover .btn{
-  display: block;
 }
 #feed_insta .img_insta img {
   margin: 0 5px;
