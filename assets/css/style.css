@@ -122,15 +122,36 @@ header .search-container {
 
 .btn {
   padding: 1rem 0.8rem;
+<<<<<<< Updated upstream
   border-radius: 3px;
+=======
+  border-radius: 4px;
+>>>>>>> Stashed changes
 }
 
 .btn-bleu {
-  border: 1px solid #1d5f6b;
-  background-color: transparent;
-  color: var(--main-color);
+  border: 1px solid var(--primary);
+  background-color: var(--primary);
+  color: white;
   width: fit-content;
   margin: auto;
+}
+.btn-bleu-transp{
+  border: 1px solid var(--primary);
+  background-color: transparent;
+  color: var(--primary);
+  width: fit-content;
+  margin: auto;
+}
+.btn-rouge {
+  border: 1px solid var(--secondary);
+  background-color: var(--secondary);
+  color: white;
+  width: fit-content;
+  margin: auto;
+}
+.btn-rouge p{
+  margin: 0;
 }
 
 p {
@@ -146,6 +167,12 @@ h1 {
 h2 {
   font-size: 40px;
   font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+main{
+  margin-top: 10rem;
 }
 
 /*HERO BANNER TOP*/
@@ -165,25 +192,25 @@ h2 {
   min-height: 500px;
 }
 .one {
-  background: url("../img/france.png");
+  background: url("https://picsum.photos/seed/picsum/200/300");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 .two {
-  background: url("../img/france.png");
+  background: url("https://picsum.photos/seed/picsum/201/300");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 .tree {
-  background: url("../img/france.png");
+  background: url("https://picsum.photos/seed/picsum/200/301");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 .for {
-  background: url("../img/france.png");
+  background: url("https://picsum.photos/seed/picsum/200/299");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -196,6 +223,24 @@ h2 {
   margin: auto;
   margin-bottom: 5rem;
 }
+
+
+/* PRODUITS */
+#produits{
+  margin-bottom: 5rem;
+}
+#produits .products_cards{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+#produits .big_product_card{
+
+}
+#produits .small_product_card{
+  
+}
+
 
 /* BANNIERE DEVIS */
 #banniere_devis {
@@ -218,21 +263,44 @@ h2 {
   color: white;
 }
 
+
+/* ARTICLES */
+#articles{
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-bottom: 5rem;
+}
+.big_card{
+  display: flex;
+  flex-direction: column;
+}
+.big_card img{
+  max-height: 700px;
+}
+.small_card{
+  display: flex;
+  flex-direction: column;
+}
+.small_card img:first-of-type{
+  margin: 0 5rem;
+}
+
 /* BLOC PROPOS */
 #propos {
   display: flex;
   align-items: center;
   margin-bottom: 8rem;
 }
-
 #propos p {
   margin-bottom: 2rem;
 }
-
 #propos p:last-of-type {
   margin-bottom: 0;
 }
-
+#propos .contenu_propos{
+  padding-left: 6rem;
+}
 .image_propos img {
   height: 500px;
   width: 500px;
@@ -248,6 +316,11 @@ h2 {
 #feed_insta .img_insta {
   margin: 0 5px;
   width: 100%;
+  transition: .3s all ease-in-out ;
+  position: relative;
+}
+#feed_insta .img_insta:hover {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 #feed_insta .img_insta img {
   margin: 0 5px;
@@ -255,6 +328,16 @@ h2 {
   width: 100%;
   max-height: 350px;
   object-fit: cover;
+}
+#feed_insta .btn{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+#feed_insta .img_insta:hover + #feed_insta .btn {
+  display: block;
 }
 
 /* FOOTER */
