@@ -180,7 +180,8 @@ h2 {
   margin-bottom: 2rem;
 }
 
-h3 {
+h3,
+.path p {
   font-family: Jost, sans-serif;
   font-size: 20px;
   font-weight: 300;
@@ -256,17 +257,17 @@ main {
   display: flex;
   align-items: flex-start;
 }
-#produits .big_product_card img{
+#produits .big_product_card img {
   height: 700px;
 }
-#produits .small_product_card img{
+#produits .small_product_card img {
   height: 450px;
 }
-#produits .infos{
+#produits .infos {
   display: flex;
   justify-content: space-between;
 }
-.circle_1{
+.circle_1 {
   height: 1000px;
   width: 1000px;
   background-color: #1d5f6b0f;
@@ -298,7 +299,7 @@ main {
 #banniere_devis h2 {
   color: white;
 }
-.circle_2{
+.circle_2 {
   height: 650px;
   width: 650px;
   background-color: #1d5f6b0f;
@@ -308,7 +309,6 @@ main {
   top: -150px;
   z-index: -1;
 }
-
 
 /* ARTICLES */
 #articles {
@@ -365,10 +365,10 @@ main {
   transition: 0.3s all ease-in-out;
   position: relative;
 }
-#feed_insta .img_insta:hover img{
+#feed_insta .img_insta:hover img {
   background-color: rgba(0, 0, 0, 0.5);
 }
-#feed_insta .img_insta:hover .btn{
+#feed_insta .img_insta:hover .btn {
   display: block;
 }
 #feed_insta .img_insta img {
@@ -568,4 +568,39 @@ footer ul li {
 }
 #product .product__container button {
   width: 100%;
+}
+
+/* ABOUT */
+#about {
+  margin-top: 170px;
+}
+#about div.banniere {
+  background-image: url("../img/greenstone.jpeg");
+  background-position: center;
+  width: 100vw;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+#about div.banniere .carre {
+  position: absolute;
+  background-color: white;
+  margin: auto;
+  padding: 20px 60px;
+}
+#about div.banniere h1 {
+  background-image: url("../img/greenstone.jpeg");
+  background-position: center;
+  background-size: 100vw;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 48px;
+  font-weight: bold;
+  position: relative;
+  z-index: 2;
 }
