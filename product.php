@@ -37,10 +37,11 @@
                         composants en plaqué
                         or 24 carats, longeur d'environ 41 à 44 cms, vous serez séduite par son côté précieux</p>
                     <p>Matière : Opale & quartz rose</p>
-                    <p>Couleur : Rose doudou</p>
+                    <p><span class="circle" style="background-color: pink;"></span> Rose doudou </p>
                     <p>Longueur du collier : 45 cm</p>
-                    <p>Prix : 65€</p>
-                    <button class="btn btn--primary">Ajouter au panier</button>
+                    <p>Prix : <span class="prix">65€</span></p>
+                    <button class="btn btn-bleu">Ajouter au panier</button>
+                    <button class="btn btn-bleu">Ajouter à ma wishlist</button>
                 </div>
             </div>
         </section>
