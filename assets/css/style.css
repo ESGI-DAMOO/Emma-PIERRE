@@ -1,17 +1,22 @@
-/*
-font-family: 'Jost', sans-serif;
-font-family: 'Noto Serif', serif;
- */
-
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@300;400&family=Noto+Serif&family=Roboto:wght@300&display=swap");
+@import url("normalize.css");
+@import url(variables-color.css);
 /* NORMALIZE PERSO */
 * {
-  font-family: "Jost", sans-serif;
+  font-family: Roboto, Jost, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
 }
 
 a {
   color: #11373f;
   text-decoration: inherit;
   position: relative;
+}
+nav li {
+  font-family: "Noto Serif", serif;
+  font-weight: 400;
+  font-size: 18px;
 }
 
 div.xtra {
@@ -164,15 +169,23 @@ p {
 }
 
 h1 {
+  font-family: Jost, sans-serif;
   font-size: 48px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 h2 {
+  font-family: Jost, sans-serif;
   font-size: 40px;
-  font-weight: 500;
+  font-weight: 400;
   margin-top: 0;
   margin-bottom: 0.5rem;
+}
+
+h3 {
+  font-family: Jost, sans-serif;
+  font-size: 20px;
+  font-weight: 300;
 }
 
 main {
