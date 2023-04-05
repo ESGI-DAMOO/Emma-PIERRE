@@ -9,13 +9,8 @@
 
     <title>Emma Pierre - Collier Alexandra</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400&family=Noto+Serif&display=swap"
-        rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
-    <link rel="stylesheet" href="assets/css/normalize.css">
-    <link rel="stylesheet" href="assets/css/variables-color.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"
@@ -25,8 +20,12 @@
 <body>
     <?php require('partial/header.html') ?>
 
-    <main>
-        <section id="product">
+    <main id="product" class="container">
+        <div class="path">
+            <p><a href="./index.php">Accueil </a> > <a href="./listing-product.php">Tous les produits </a> > <a
+                    href="#">Collier Alexandra</a></p>
+        </div>
+        <section>
             <div class="product__container">
                 <div class="product__container__img">
                     <img src="./assets/img/products/Collier Alexandra.jpg" alt="Collier Alexandra">
@@ -39,9 +38,14 @@
                     <p>Matière : Opale & quartz rose</p>
                     <p><span class="circle" style="background-color: pink;"></span> Rose doudou </p>
                     <p>Longueur du collier : 45 cm</p>
-                    <p>Prix : <span class="prix">65€</span></p>
-                    <button class="btn btn-bleu">Ajouter au panier</button>
-                    <button class="btn btn-bleu">Ajouter à ma wishlist</button>
+                    <p>
+
+                        <span class="prix-sign">€</span>
+                        <span class="prix-currency">65</span>
+                        <span class="prix-cent">.00</span>
+                    </p>
+                    <button class="btn btn-bleu">Ajouter au panier</button><br>
+                    <button class="btn btn-bleu-transp">Ajouter à ma wishlist</button>
                 </div>
             </div>
         </section>
