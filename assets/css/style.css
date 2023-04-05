@@ -144,10 +144,10 @@ header .search-container {
   background-color: var(--primary);
   width: fit-content;
 }
-.btn-bleu a{
+.btn-bleu a {
   color: beige;
 }
-.btn-bleu:hover a{
+.btn-bleu:hover a {
   color: var(--primary);
 }
 .btn-bleu:hover {
@@ -161,7 +161,7 @@ header .search-container {
   color: var(--primary);
   width: fit-content;
 }
-.btn-bleu-transp a{
+.btn-bleu-transp a {
   color: var(--primary);
 }
 .btn-bleu-transp:hover {
@@ -169,7 +169,7 @@ header .search-container {
   color: white;
   width: fit-content;
 }
-.btn-bleu-transp:hover a{
+.btn-bleu-transp:hover a {
   color: white;
 }
 .btn-rouge {
@@ -203,7 +203,8 @@ h2 {
   color: var(--primary);
 }
 
-h3 {
+h3,
+.path p {
   font-family: Jost, sans-serif;
   font-size: 20px;
   font-weight: 300;
@@ -213,7 +214,7 @@ main {
   margin-top: 10rem;
 }
 
-.lien{
+.lien {
   font-weight: 500;
   font-size: 18px;
 }
@@ -286,17 +287,17 @@ main {
   align-items: flex-start;
   column-gap: 7rem;
 }
-#produits .big_product_card img{
+#produits .big_product_card img {
   height: 550px;
 }
-#produits .small_product_card img{
+#produits .small_product_card img {
   height: 350px;
 }
-#produits .infos{
+#produits .infos {
   display: flex;
   justify-content: space-between;
 }
-.circle_1{
+.circle_1 {
   height: 1000px;
   width: 1000px;
   background-color: #1d5f6b0f;
@@ -329,7 +330,7 @@ main {
   color: white;
   margin-bottom: 0;
 }
-.circle_2{
+.circle_2 {
   height: 650px;
   width: 650px;
   background-color: #1d5f6b0f;
@@ -340,18 +341,17 @@ main {
   z-index: -1;
 }
 
-
 /* ARTICLES */
 #articles {
   margin-bottom: 5rem;
 }
-#articles .articles{
+#articles .articles {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   column-gap: 7rem;
 }
-#articles .chapo{
+#articles .chapo {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -365,21 +365,21 @@ main {
   margin-bottom: 0.5rem;
   max-height: 450px;
 }
-.big_card h2{
+.big_card h2 {
   margin-bottom: 0;
 }
-.big_card p{
+.big_card p {
   margin-bottom: 2rem;
 }
 .small_card {
   display: flex;
   flex-direction: column;
 }
-.small_card img{
+.small_card img {
   height: 200px;
   width: 100%;
 }
-.small_card h2{
+.small_card h2 {
   font-size: 24px;
 }
 
@@ -416,10 +416,10 @@ main {
   transition: 0.3s all ease-in-out;
   position: relative;
 }
-#feed_insta .img_insta:hover img{
+#feed_insta .img_insta:hover img {
   background-color: rgba(0, 0, 0, 0.5);
 }
-#feed_insta .img_insta:hover .btn{
+#feed_insta .img_insta:hover .btn {
   display: block;
 }
 #feed_insta .img_insta img {
@@ -619,4 +619,39 @@ footer ul li {
 }
 #product .product__container button {
   width: 100%;
+}
+
+/* ABOUT */
+#about {
+  margin-top: 170px;
+}
+#about div.banniere {
+  background-image: url("../img/greenstone.jpeg");
+  background-position: center;
+  width: 100vw;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+#about div.banniere .carre {
+  position: absolute;
+  background-color: white;
+  margin: auto;
+  padding: 20px 60px;
+}
+#about div.banniere h1 {
+  background-image: url("../img/greenstone.jpeg");
+  background-position: center;
+  background-size: 100vw;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 48px;
+  font-weight: bold;
+  position: relative;
+  z-index: 2;
 }
