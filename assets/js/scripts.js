@@ -25,3 +25,8 @@ $('#search-loupe').on('click', function () {
     }
 });
 
+$('#range-price').on('change', function (){
+    let rangeValue = $(this).value;
+    console.dir(rangeValue);
+});
+

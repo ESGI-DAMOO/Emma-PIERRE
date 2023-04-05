@@ -578,6 +578,124 @@ footer ul li {
   width: 75%;
 }
 
+.input-number {
+  width: 100%;
+  text-align: right;
+  height: 2.5rem;
+  background: transparent;
+  border: none;
+
+}
+
+.input-number-container {
+  border: 1px solid #1D5F6B;
+  border-radius: 10px;
+  width: 20%;
+  padding: 0 0.5rem;
+  position: relative;
+}
+
+.input-number-prefix {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+input[type=range] {
+  height: 25px;
+  -webkit-appearance: none;
+  margin: 10px 0;
+  width: 80%;
+  background: transparent;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 0px 0px 0px #000000;
+  background: #1D5F6B;
+  border-radius: 1px;
+  border: 0px solid #000000;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px #000000;
+  border: 1px solid #1D5F6B;
+  height: 18px;
+  width: 18px;
+  border-radius: 25px;
+  background: #1D5F6B;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -7px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #1D5F6B;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 0px 0px 0px #000000;
+  background: #1D5F6B;
+  border-radius: 1px;
+  border: 0px solid #000000;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 0px 0px 0px #000000;
+  border: 1px solid #1D5F6B;
+  height: 18px;
+  width: 18px;
+  border-radius: 25px;
+  background: #1D5F6B;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #1D5F6B;
+  border: 0px solid #000000;
+  border-radius: 2px;
+  box-shadow: 0px 0px 0px #000000;
+}
+input[type=range]::-ms-fill-upper {
+  background: #1D5F6B;
+  border: 0px solid #000000;
+  border-radius: 2px;
+  box-shadow: 0px 0px 0px #000000;
+}
+input[type=range]::-ms-thumb {
+  margin-top: 1px;
+  box-shadow: 0px 0px 0px #000000;
+  border: 1px solid #1D5F6B;
+  height: 18px;
+  width: 18px;
+  border-radius: 25px;
+  background: #1D5F6B;
+  cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #1D5F6B;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #1D5F6B;
+}
+
+
+
+
+
 /* PRODUCT */
 /* css de la section de classe product de la page product.php */
 #product {
@@ -602,7 +720,7 @@ footer ul li {
 #product .product__container .product__container__description {
   width: 40%;
 }
-.product__container .circle {
+.circle {
   width: 30px;
   height: 30px;
   border-radius: 50%;
