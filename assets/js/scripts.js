@@ -2,7 +2,8 @@
 var header = $('#img-header');
 var headerHeight = header.height();
 $(window).scroll(function() {
-    if ($(this).scrollTop() > 10) {
+    if ($(this).scrollTop() > 50) {
+        console.log($(this).scrollTop())
         header.stop().animate({height: headerHeight * 0.7}, 500);
     } else {
         header.stop().animate({height: headerHeight}, 500);

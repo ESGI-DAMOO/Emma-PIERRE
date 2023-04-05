@@ -20,6 +20,14 @@ div.xtra {
   background-color: yellow;
 }
 
+.title-h1 {
+  font-size: 3rem;
+  color: #1D5F6B;
+  text-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+  margin: 1rem auto;
+
+}
+
 /* HEADER */
 
 header {
@@ -35,6 +43,7 @@ header {
   width: 100vw;
   box-sizing: border-box;
   background: white;
+  z-index: 100;
 }
 
 header .header-nav {
@@ -116,7 +125,7 @@ header .search-container {
 }
 
 .container {
-  max-width: 1400px;
+  width: 1400px;
   margin: auto;
 }
 
@@ -130,7 +139,6 @@ header .search-container {
   background-color: transparent;
   color: var(--main-color);
   width: fit-content;
-  margin: auto;
 }
 
 p {
@@ -165,25 +173,25 @@ h2 {
   min-height: 500px;
 }
 .one {
-  background: url("../img/france.png");
+  background: url("https://picsum.photos/1080/1920");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 .two {
-  background: url("../img/france.png");
+  background: url("https://picsum.photos/1080/1921");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 .tree {
-  background: url("../img/france.png");
+  background: url("https://picsum.photos/1080/1919");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 .for {
-  background: url("../img/france.png");
+  background: url("https://picsum.photos/1080/1922");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -318,11 +326,69 @@ footer ul li {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 140%;
 }
 
 .social a li img {
   width: 32px;
 }
+
+/* LISTING PRODUCT */
+.banner-top {
+  background-image: url("https://picsum.photos/1920/1080");
+  width: 100vw;
+  margin-top: 5rem;
+  height: 600px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 2rem;
+}
+
+.banner-desc {
+  font-family: 'Noto Serif', serif;
+  font-size: 1.2rem;
+  color: #3E3943;
+}
+
+.mini_cat {
+  display: flex;
+  text-align: center;
+  margin-bottom: 7rem;
+}
+.mini_cat > div {
+  width: 25%
+}
+
+.mini_cat > div p {
+  color: #1D5F6B;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.product-list-container {
+  display: flex;
+}
+
+.product-list-container h2 {
+  margin: 0;
+}
+
+.product-list-container asside {
+  width: 25%;
+  background-color: rgba(29, 95, 107, 0.05);
+  padding: 4rem 0rem 2rem 2rem;
+  margin: 0 2rem 0 0;
+  box-sizing: border-box;
+}
+
+.product-list-container .product-list {
+  width: 75%;
+}
+
+
+
 
 /* PRODUCT */
 /* css de la section de classe product de la page product.php */

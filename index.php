@@ -24,25 +24,25 @@
         <div id="hero_banner">
             <div class="cards_cat">
                 <div class="card_cat one">
-                    <p>Les précieuses</p>
+                    <p class="title-h1">Les précieuses</p>
                     <div class="btn btn-bleu">
                         Voir les produits
                     </div>
                 </div>
                 <div class="card_cat two">
-                    <p>Les impertinantes</p>
+                    <p class="title-h1">Les impertinantes</p>
                     <div class="btn btn-bleu">
                         Voir les produits
                     </div>
                 </div>
                 <div class="card_cat tree">
-                    <p>Les uniques</p>
+                    <p class="title-h1">Les uniques</p>
                     <div class="btn btn-bleu">
                         Voir les produits
                     </div>
                 </div>
                 <div class="card_cat for">
-                    <p>Les colorées</p>
+                    <p class="title-h1">Les colorées</p>
                     <div class="btn btn-bleu">
                         Voir les produits
                     </div>
