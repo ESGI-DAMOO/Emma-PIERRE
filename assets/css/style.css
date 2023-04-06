@@ -433,6 +433,10 @@ footer .social a li img {
   margin-bottom: 5rem;
   position: relative;
 }
+#produits .chapo{
+  display: flex;
+  justify-content: space-between;
+}
 #produits .products_cards {
   display: flex;
   align-items: flex-start;
@@ -453,7 +457,7 @@ footer .social a li img {
 .circle_1 {
   height: 1000px;
   width: 1000px;
-  background-color: #1d5f6b0f;
+  background-color: rgba(29, 95, 107, 0.05);
   border-radius: 50%;
   position: absolute;
   z-index: -1;
@@ -487,7 +491,7 @@ footer .social a li img {
 .circle_2 {
   height: 650px;
   width: 650px;
-  background-color: #1d5f6b0f;
+  background-color: rgba(29, 95, 107, 0.05);
   border-radius: 50%;
   position: absolute;
   left: -380px;

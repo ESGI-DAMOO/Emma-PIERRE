@@ -64,7 +64,10 @@
                 </div>
 
                 <div id="produits">
-                    <h2>Produits du moment</h2>
+                    <div class="chapo">
+                        <h2>Produits du moment</h2>
+                        <a href="#" class="lien">Voir plus</a>
+                    </div>
                     <div class="products_cards">
                         <div class="big_product_card">
                             <img src="assets/img/products/CollierAlexandra.jpg" alt="Création de Bijoux"/>
