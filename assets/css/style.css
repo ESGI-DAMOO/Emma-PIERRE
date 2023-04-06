@@ -127,6 +127,39 @@ main {
   font-weight: 500;
   font-size: 18px;
 }
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pagination ul {
+  display: flex;
+  padding: 0;
+}
+
+.pagination ul li {
+  list-style: none;
+  background: rgba(217, 217, 217, 0.2);
+  padding: 1rem;
+  margin: 0 0.5rem;
+  min-width: 1rem;
+  aspect-ratio: 1 / 1;
+  text-align: center;
+
+}
+
+.pagination-current {
+  background: #F0E5D3 !important;
+}
+
+.arrow-prev {
+  content: url("../img/chevron-double-left.svg");
+}
+
+.arrow-next {
+  content: url("../img/chevron-double-right.svg");
+}
 /* END GLOBAL */
 
 /* HEADER */

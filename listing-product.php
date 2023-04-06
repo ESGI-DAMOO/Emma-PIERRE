@@ -204,6 +204,19 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="pagination">
+                        <span class="arrow-prev"></span>
+                        <ul>
+                            <a href="#"><li class="pagination-current">1</li></a>
+                            <a href="#"><li>1</li></a>
+                            <a href="#"><li>1</li></a>
+                            <li>...</li>
+                            <a href="#"><li>15</li></a>
+                        </ul>
+                        <span class="arrow-next"></span>
+                    </div>
+
                 </div>
             </div>
         </div>
