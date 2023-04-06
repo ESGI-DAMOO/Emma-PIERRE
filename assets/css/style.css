@@ -1,5 +1,5 @@
 /* IMPORTATIONS */
-@import url("https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=Noto+Serif&family=Roboto:wght@300;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=Noto+Serif&family=Roboto:wght@300&display=swap");
 @import url("normalize.css");
 @import url(variables-color.css);
 
@@ -152,6 +152,7 @@ main {
   min-width: 1rem;
   aspect-ratio: 1 / 1;
   text-align: center;
+
 }
 
 .pagination-current {
@@ -1173,7 +1174,7 @@ input[type="range"]:focus::-ms-fill-upper {
 /* CONTACT */
 
 #contact article {
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 #contact .map {
@@ -1190,11 +1191,23 @@ input[type="range"]:focus::-ms-fill-upper {
   width: 100%;
 }
 
-#contact form input {
+#contact form input:not(.submit) {
   width: 100%;
+  box-sizing: border-box;
 }
 
-#contact section {
+#contact .submit {
+  text-align: center;
+  margin-top: 10px;
+}
+
+#contact form textarea{
+  width: 100%;
+  box-sizing: border-box;
+  color: gray;
+}
+
+#contact .sectionFlex {
   display: flex;
   justify-content: space-around;
 }
