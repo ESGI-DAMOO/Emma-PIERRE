@@ -1129,7 +1129,7 @@ input[type="range"]:focus::-ms-fill-upper {
 #cart .articles_panier {
   width: 60%;
 }
-.header_articles {
+#cart .header_articles {
   display: grid;
   grid-template-columns: repeat(2, 3fr) 2fr 1fr;
   grid-template-rows: 1fr;
@@ -1139,16 +1139,16 @@ input[type="range"]:focus::-ms-fill-upper {
   border-bottom: #1d5f6b 1px solid;
   height: 68px;
 }
-.header_articles div {
+#cart .header_articles div {
   font-weight: 500;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.titre1 {
+#cart .header_articles .titre1 {
   grid-area: 1 / 2 / 2 / 3;
 }
-.titre2 {
+#cart .header_articles .titre2 {
   grid-area: 1 / 3 / 2 / 4;
 }
 #cart .article_panier {
@@ -1195,6 +1195,88 @@ input[type="range"]:focus::-ms-fill-upper {
 #cart .panier_delete_article img {
   width: 40px;
 }
+#cart .form_panier {
+  width: 35%;
+}
+#cart .form_panier > p,
+#cart .form_panier h2 {
+  text-align: center;
+  margin-inline: auto;
+}
+#cart .form_livraison {
+  background: rgba(29, 95, 107, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 20px;
+  margin-bottom: 20px;
+  justify-content: space-between;
+}
+#cart .form_livraison label {
+  width: 40%;
+}
+#cart .form_livraison input:not([type="radio"]),
+#cart .form_livraison textarea {
+  background-color: white;
+  border: none;
+  padding: 10px;
+  width: 60%;
+}
+#cart .form_livraison > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 5px 0;
+}
+#cart .form_payement {
+  background: rgba(29, 95, 107, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+#cart .form_payement > div {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 20px;
+}
+#cart .form_payement label {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  padding: 5px 0;
+}
+#cart .form_payement .cb {
+  width: 100%;
+}
+#cart .form_payement .cb img {
+  width: 50px;
+}
+#cart .form_payement input[type="submit"] {
+  width: 100%;
+}
+#cart .form_choix_livr {
+  margin: 30px 0;
+  display: flex;
+}
+#cart .form_choix_livr legend {
+  text-align: center;
+  padding-inline: 20px;
+}
+#cart .form_choix_livr > div {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
 /* END PANIER */
 
 /* CONTACT */
