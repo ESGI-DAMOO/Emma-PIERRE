@@ -27,29 +27,22 @@
     <h1>Votre panier</h1>
     <form class="content" action="#">
       <section class="articles_panier">
-        <table>
-          <tr class="header_articles">
-            <th></th>
-            <th>Produits</th>
-            <th>Prix</th>
-            <th></th>
-          </tr>
-          <tr>
-            <td class="panier_image_article"><img src="assets/img/products/CollierAlexandra.jpg"
-                alt="Collier Alexandra"></td>
-            <td class="panier_description_article">
-              <h2>Collier Alexandra</h2>
-              <p>Qté</p>
-              <div class="input-number-container">
-
-                <input id="input-number" class="input-number" type="number" value="2" />
-              </div>
-              <p>P.U 49.3€</p>
-            </td>
-            <td class="panier_prix_article">98.60€</td>
-            <td class="panier_delete_article"><img src="assets/img/delete.svg" alt=""></td>
-          </tr>
-        </table>
+        <div class="article_panier">
+          <div class="panier_image_article"><img src="assets/img/products/CollierAlexandra.jpg" alt="Collier Alexandra">
+          </div>
+          <div class="panier_titre_article">
+            <h2>Collier Alexandra</h2>
+          </div>
+          <div class="panier_qte_article">
+            <p>Qté</p>
+            <div class="input-number-container">
+              <input id="input-number" class="input-number" type="number" value="2" />
+            </div>
+            <p>P.U 49.3€</p>
+          </div>
+          <div class="panier_prix_article">98.60€</div>
+          <div class="panier_delete_article"><img src="assets/img/delete.svg" alt=""></div>
+        </div>
       </section>
       <section class="form_panier">
 
