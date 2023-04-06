@@ -86,12 +86,12 @@
                     <div class="price-choose">
                         <div class="input-number-container">
                             <span class="input-number-prefix">€</span>
-                            <input id="" class="input-number" type="number" value="0" disabled/>
+                            <input id="" class="input-number" type="number" max="200" value="0" disabled/>
                         </div>
                         <span>-</span>
                         <div class="input-number-container">
                             <span class="input-number-prefix">€</span>
-                            <input id="input-number" class="input-number" type="number" value="200"/>
+                            <input id="input-number" class="input-number" max="200" type="number" value="200"/>
                         </div>
                     </div>
 
@@ -117,6 +117,93 @@
                 </asside>
                 <div class="product-list">
                     <h2>Produits du moment</h2>
+
+                    <div class="container-list-produit">
+                        <div class="produit-card">
+                            <div class="product-hover">
+                                <img src="assets/img/products/CollierBlancFeuilles.jpg" alt="Création de Bijoux"/>
+                                <div class="product-hover-contain">
+                                    <a href="product.php" class="product-hover-button btn btn-bleu">Voir le produit</a>
+                                </div>
+                            </div>
+                            <div class="infos">
+                                <div class="titre_produit">
+                                    <p>Collier Alexandra</p>
+                                </div>
+                                <div class="prix_produit">
+                                    <p>49.3€</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="produit-card">
+                            <div class="product-hover">
+                                <img src="assets/img/products/CollierBlancFeuilles.jpg" alt="Création de Bijoux"/>
+                                <div class="product-hover-contain">
+                                    <a href="product.php" class="product-hover-button btn btn-bleu">Voir le produit</a>
+                                </div>
+                            </div>
+                            <div class="infos">
+                                <div class="titre_produit">
+                                    <p>Collier Alexandra</p>
+                                </div>
+                                <div class="prix_produit">
+                                    <p>49.3€</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="produit-card">
+                            <div class="product-hover">
+                                <img src="assets/img/products/CollierBlancFeuilles.jpg" alt="Création de Bijoux"/>
+                                <div class="product-hover-contain">
+                                    <a href="product.php" class="product-hover-button btn btn-bleu">Voir le produit</a>
+                                </div>
+                            </div>
+                            <div class="infos">
+                                <div class="titre_produit">
+                                    <p>Collier Alexandra</p>
+                                </div>
+                                <div class="prix_produit">
+                                    <p>49.3€</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="produit-card">
+                            <div class="product-hover">
+                                <img src="assets/img/products/CollierBlancFeuilles.jpg" alt="Création de Bijoux"/>
+                                <div class="product-hover-contain">
+                                    <a href="product.php" class="product-hover-button btn btn-bleu">Voir le produit</a>
+                                </div>
+                            </div>
+                            <div class="infos">
+                                <div class="titre_produit">
+                                    <p>Collier Alexandra</p>
+                                </div>
+                                <div class="prix_produit">
+                                    <p>49.3€</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="produit-card">
+                            <div class="product-hover">
+                                <img src="assets/img/products/CollierBlancFeuilles.jpg" alt="Création de Bijoux"/>
+                                <div class="product-hover-contain">
+                                    <a href="product.php" class="product-hover-button btn btn-bleu">Voir le produit</a>
+                                </div>
+                            </div>
+                            <div class="infos">
+                                <div class="titre_produit">
+                                    <p>Collier Alexandra</p>
+                                </div>
+                                <div class="prix_produit">
+                                    <p>49.3€</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
