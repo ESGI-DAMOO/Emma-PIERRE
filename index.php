@@ -184,28 +184,9 @@
                         </article>
                     </div>
                 </div>
-
-                <div id="feed_insta">
-                    <div class="img_insta">
-                        <img src="assets/img/products/CollierBlancFeuilles.jpg" alt="Création de Bijoux"/>
-                        <div class="btn btn-rouge"><a href="#" target="_blank">Voir sur instagram</a></div>
-                    </div>
-                    <div class="img_insta">
-                        <img src="assets/img/products/BouquetRose.jpg" alt="Création de Bijoux"/>
-                        <div class="btn btn-rouge"><a href="#" target="_blank">Voir sur instagram</a></div>
-                    </div>
-                    <div class="img_insta">
-                        <img src="assets/img/products/MultiplesRoses.jpg" alt="Création de Bijoux"/>
-                        <div class="btn btn-rouge"><a href="#" target="_blank">Voir sur instagram</a></div>
-                    </div>
-                    <div class="img_insta">
-                        <img src="assets/img/products/CollierPerleSable.jpg" alt="Création de Bijoux"/>
-                        <div class="btn btn-rouge"><a href="#" target="_blank">Voir sur instagram</a></div>
-                    </div>
-                </div>
             </div>
         </main>
-
+        <?php require('partial/feed_insta.html') ?>
         <?php require('partial/footer.html') ?>
         <script src="assets/js/scripts.js"></script>
     </body>

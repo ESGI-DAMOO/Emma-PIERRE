@@ -1005,6 +1005,107 @@ input[type="range"]:focus::-ms-fill-upper {
 }
 /* END ABOUT */
 
+
+/* BLOG */
+#blog div.banniere {
+  background-image: url("../img/greenstone.jpeg");
+  background-position: center;
+  width: 100%;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#blog div.banniere .carre {
+  background-color: white;
+  margin: auto;
+  padding: 20px 60px;
+}
+#blog div.banniere h1 {
+  background-image: url("../img/greenstone.jpeg");
+  background-position: center;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 48px;
+  font-weight: bold;
+}
+#blog .path{
+  margin-bottom: 4rem;
+}
+#blog #presentation{
+  display: flex;
+  align-items: center;
+  margin-bottom: 10rem;
+}
+#blog #presentation .image{
+  width: 60%;
+}
+#blog #presentation .image img{
+  width: 100%;
+  max-height: 650px;
+}
+#blog #presentation .content{
+  width: 40%;
+  text-align: center;
+}
+#blog .articles{
+  margin-bottom: 8rem;
+}
+#blog .articles .card_article_x3{
+  display: flex;
+  justify-content: space-between;
+}
+#blog .articles .card_article_x3 .card_inner{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  max-width: 400px;
+}
+#blog .articles .card_article_x3 .card_inner .btn{
+  margin: auto;
+}
+#blog .articles .card_article_x3 .card_inner img{
+  max-height: 430px;
+  max-width: 400px;
+}
+#blog .articles_ligne .card_inner{
+  display: flex;
+  align-items: center;
+}
+#blog .articles_ligne{
+  margin-bottom: 2rem;
+}
+#blog .btn-seul{
+  margin-bottom: 15rem;
+}
+#blog .btn-seul .btn{
+  margin: auto;
+}
+#blog .articles_ligne .card_inner .image img{
+  max-height: 250px;
+  width: 100%;
+}
+#blog .articles_ligne .card_inner .image{
+  width: 30%;
+}
+#blog .articles_ligne .card_inner .content{
+  width: 70%;
+  text-align: center;
+  padding: 0 3.5rem;
+}
+#blog .articles_ligne .card_inner .content .btn{
+  margin: auto;
+}
+#blog hr{
+  border: 1px solid #e7e7e7;
+  border-top: none;
+  margin: 2rem 0;
+}
+/* END BLOG */
+
 /* CONTACT */
 
 #contact article {
