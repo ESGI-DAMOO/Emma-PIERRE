@@ -161,7 +161,7 @@
                     </div>
                     <div class="articles">
                         <article class="big_card">
-                            <img src="img/products/Collier3Perles.jpg" alt="Création de Bijoux"/>
+                            <img src="assets/img/products/Collier3Perles.jpg" alt="Création de Bijoux"/>
                             <h2>Des bijoux uniques</h2>
                             <p>Des bijoux uniques pour une touche personnelle et originale à votre style. Portez quelque chose de spécial et de différent qui reflète votre personnalité et votre goût distinctif.</p>
                             <a href="#" target="_blank">

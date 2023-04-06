@@ -32,7 +32,7 @@
             </div>
             <div id="presentation">
                 <div class="image">
-                    <img src="assets/img/products/CollierToile.jpg" alt="Création de Bijoux"/>
+                    <img src="assets/img/products/CollierPerleNoeud.jpg" alt="Création de Bijoux"/>
                 </div>
                 <div class="content">
                     <h2>Bienvenue sur notre blog</h2>
@@ -43,7 +43,7 @@
                 <h2>Nos Derniers articles</h2>
                 <div class="card_article_x3">
                     <div class="card_inner">
-                        <img src="assets/img/products/CollierAlexandra.jpg" alt="Création de Bijoux"/>
+                        <img src="assets/img/products/CollierContrePlongee.jpg" alt="Création de Bijoux"/>
                         <h3>Choisir sa bague</h3>
                         <p>Les bagues en pierres précieuses sont un choix populaire pour les occasions spéciales, comme les fiançailles ou les anniversaires.</p>
                         <a href="#" target="_blank">
@@ -53,7 +53,7 @@
                         </a>
                     </div>
                     <div class="card_inner">
-                        <img src="assets/img/products/CollierAlexandra.jpg" alt="Création de Bijoux"/>
+                        <img src="assets/img/products/CollierFondBeige.jpg" alt="Création de Bijoux"/>
                         <h3>Nos choix de colliers</h3>
                         <p>Les colliers de perles sont des bijoux intemporels qui apportent une touche d'élégance à n'importe quelle tenue. Les perles sont disponibles dans une variété de tailles, de formes et de couleurs, ce qui permet de créer des colliers uniques et personnalisés.</p>
                         <a href="#" target="_blank">
@@ -63,9 +63,9 @@
                         </a>
                     </div>
                     <div class="card_inner">
-                        <img src="assets/img/products/CollierAlexandra.jpg" alt="Création de Bijoux"/>
+                        <img src="assets/img/products/BoucleBroderie.jpg" alt="Création de Bijoux"/>
                         <h3>Prquoi choisir l'argent ?</h3>
-                        <p>Les boucles d'oreilles en argent sterling sont un choix polyvalent et élégant pour les femmes de tous âges. Les boucles d'oreilles en argent sterling sont faciles à assortir avec d'autres bijoux, et peuvent être portées avec des tenues décontractées ou formelles. </p>
+                        <p>Les boucles d'oreilles en argent sterling sont un choix polyvalent et élégant pour les femmes de tous âges. Les boucles d'oreilles en argent sterling sont faciles à assortir avec d'autres bijoux.</p>
                         <a href="#" target="_blank">
                             <div class="btn btn-bleu">
                                 Lire plus
@@ -77,7 +77,7 @@
             <div class="articles_ligne">
                 <div class="card_inner">
                     <div class="image">
-                        <img src="assets/img/products/CollierAlexandra.jpg" alt="Création de Bijoux"/>
+                        <img src="assets/img/products/PierresNature.jpg" alt="Création de Bijoux"/>
                     </div>
                     <div class="content">
                         <h3>Choisir sa bague</h3>
@@ -92,7 +92,7 @@
                 <hr>
                 <div class="card_inner">
                     <div class="image">
-                        <img src="assets/img/products/CollierAlexandra.jpg" alt="Création de Bijoux"/>
+                        <img src="assets/img/products/PerleJaune.jpg" alt="Création de Bijoux"/>
                     </div>
                     <div class="content">
                         <h3>Choisir sa bague</h3>
