@@ -161,23 +161,23 @@
                     </div>
                     <div class="articles">
                         <article class="big_card">
-                            <img src="assets/img/products/Collier3Perles.jpg" alt="Création de Bijoux"/>
-                            <h2>Des bijoux uniques</h2>
+                            <img src="assets/img/products/AtelierBague.jpg" alt="Création de Bijoux"/>
+                            <h3>Des bijoux uniques</h3>
                             <p>Des bijoux uniques pour une touche personnelle et originale à votre style. Portez quelque chose de spécial et de différent qui reflète votre personnalité et votre goût distinctif.</p>
                             <a href="#" target="_blank">
                                 <div class="btn btn-bleu">Lire l'article</div>
                             </a>
                         </article>
                         <article class="small_card">
-                            <img src="https://picsum.photos/200/301" alt="Création de Bijoux"/>
-                            <h2>Visite de nos locaux</h2>
+                            <img src="assets/img/products/BagueMiroir.jpg" alt="Création de Bijoux"/>
+                            <h3>Visite de nos locaux</h3>
                             <a href="#" target="_blank">
                                 <div class="btn btn-bleu">Lire l'article</div>
                             </a>
                         </article>
                         <article class="small_card">
-                            <img src="https://picsum.photos/200/301" alt="Création de Bijoux"/>
-                            <h2>Journée porte ouverte</h2>
+                            <img src="assets/img/products/ModelBoucle.jpg" alt="Création de Bijoux"/>
+                            <h3>Journée porte ouverte</h3>
                             <a href="#" target="_blank">
                                 <div class="btn btn-bleu">Lire l'article</div>
                             </a>

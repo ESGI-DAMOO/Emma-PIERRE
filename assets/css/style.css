@@ -38,7 +38,8 @@ div.xtra {
 }
 
 .title-h1 {
-  font-size: 3rem;
+  font-size: 40px;
+  font-weight: 400;
   color: #1d5f6b;
   text-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
   margin: 1rem auto;
@@ -48,12 +49,22 @@ div.xtra {
   max-width: 1400px;
   margin: auto;
 }
+@media screen and (max-width: 400px) {
+  .container{
+    padding: 0 1rem;
+  }
+}
 
 .btn {
   padding: 1rem 0.8rem;
   border-radius: 3px;
   margin: 5px 0;
   transition: 0.3s all ease-in-out;
+}
+@media screen and (max-width: 400px) {
+  .btn{
+    font-size: 14px;
+  }
 }
 
 .btn-bleu {
@@ -108,6 +119,11 @@ h1 {
   font-weight: 400;
   color: var(--primary);
 }
+@media screen and (max-width: 400px) {
+  h1  {
+    font-size: 40px;
+  }
+}
 
 h2 {
   font-family: Jost, sans-serif;
@@ -116,6 +132,11 @@ h2 {
   margin-top: 0;
   margin-bottom: 2rem;
   color: var(--primary);
+}
+@media screen and (max-width: 400px) {
+  h2  {
+    font-size: 32px;
+  }
 }
 
 h3,
@@ -355,11 +376,21 @@ footer .social img {
   align-items: center;
   margin-bottom: 3rem;
 }
+@media screen and (max-width: 400px) {
+  #feed_insta  {
+    flex-direction: column;
+  }
+}
 #feed_insta .img_insta {
   margin: 0 5px;
   width: 100%;
   transition: 0.3s all ease-in-out;
   position: relative;
+}
+@media screen and (max-width: 400px) {
+  #feed_insta .img_insta  {
+    margin-bottom: 1rem;
+  }
 }
 #feed_insta .img_insta:hover img {
   background-color: rgba(0, 0, 0, 0.5);
@@ -397,40 +428,57 @@ footer .social img {
   justify-content: center;
   margin-top: 5rem;
 }
+@media screen and (max-width: 400px) {
+  .cards_cat {
+    flex-direction: column;
+  }
+}
 .card_cat {
   width: 25%;
   height: 100%;
   text-align: center;
-  min-height: 650px;
+  min-height: 777px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
+@media screen and (max-width: 400px) {
+  .card_cat {
+    width: 100%;
+    min-height: inherit;
+    height: 300px;
+  }
+}
 .card_cat p {
   margin-top: 8rem;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+}
+@media screen and (max-width: 400px) {
+  .card_cat p {
+    margin-top: inherit;
+  }
 }
 .one {
-  background: url("../img/products/CollierPerleNoirOr.jpg");
+  background: url("../img/products/DiamantBrut.jpeg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 .two {
-  background: url("https://picsum.photos/1080/1921");
+  background: url("../img/products/BouclesFondOrange.jpeg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 .tree {
-  background: url("https://picsum.photos/1080/1919");
+  background: url("../img/products/BouclesFondBleu.jpeg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 .for {
-  background: url("https://picsum.photos/1080/1922");
+  background: url("../img/products/BouclesFondRose.jpeg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -448,21 +496,54 @@ footer .social img {
 
 /* HOME PRODUITS */
 #produits {
-  margin-bottom: 5rem;
+  margin-bottom: 10rem;
   position: relative;
+}
+@media screen and (max-width: 400px) {
+  #produits  {
+    margin-bottom: 8rem;
+  }
 }
 #produits .chapo {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+@media screen and (max-width: 400px) {
+  #produits .chapo  {
+    flex-direction: column;
+  }
+}
+#produits h2{
+  margin-bottom: 0;
+}
+@media screen and (max-width: 400px) {
+  #produits h2  {
+    margin-bottom: 1rem;
+  }
 }
 #produits .products_cards {
   display: flex;
   align-items: flex-start;
   column-gap: 5rem;
 }
+@media screen and (max-width: 400px) {
+  #produits .products_cards  {
+    align-items: center;
+    flex-direction: column;
+  }
+}
 #produits .big_product_card img {
   height: 550px;
   max-width: 420px;
+}
+@media screen and (max-width: 400px) {
+  #produits .big_product_card img  {
+    max-width: 300px;
+    height: 400px;
+    object-fit: cover;
+  }
 }
 #produits .small_product_card img {
   height: 350px;
@@ -486,12 +567,17 @@ footer .social img {
 
 /* HOME BANNIERE DEVIS */
 #banniere_devis {
-  background-image: linear-gradient(to right, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)), url("https://picsum.photos/id/870/200/300");
+  background-image: linear-gradient(to right, rgba(29, 95, 107, 0.5), rgba(247, 100, 93, 0.5)), url("../img/products/QuartzBrut.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   margin-bottom: 8rem;
   position: relative;
+}
+@media screen and (max-width: 400px) {
+  #banniere_devis  {
+    margin-bottom: 6rem;
+  }
 }
 #banniere_devis .content {
   display: flex;
@@ -499,12 +585,24 @@ footer .social img {
   align-items: center;
   padding: 5rem 6rem;
 }
+@media screen and (max-width: 400px) {
+  #banniere_devis .content  {
+    flex-direction: column;
+    padding: 2rem;
+    align-items: flex-start;
+  }
+}
 #banniere_devis .btn {
   margin: inherit;
 }
 #banniere_devis h2 {
   color: white;
   margin-bottom: 0;
+}
+@media screen and (max-width: 400px) {
+  #banniere_devis h2  {
+    margin-bottom: 1.5rem;
+  }
 }
 .circle_2 {
   height: 650px;
@@ -520,7 +618,20 @@ footer .social img {
 
 /* HOME ARTICLES */
 #articles {
-  margin-bottom: 5rem;
+  margin-bottom: 15rem;
+}
+@media screen and (max-width: 400px) {
+  #articles  {
+    margin-bottom: 8rem;
+  }
+}
+#articles h2{
+  margin-bottom: 0;
+}
+@media screen and (max-width: 400px) {
+  #articles h2  {
+    margin-bottom: 1rem;
+  }
 }
 #articles .articles {
   display: flex;
@@ -528,39 +639,85 @@ footer .social img {
   justify-content: flex-start;
   column-gap: 7rem;
 }
+@media screen and (max-width: 400px) {
+  #articles .articles  {
+    flex-direction: column;
+  }
+}
 #articles .chapo {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 2rem;
+}
+@media screen and (max-width: 400px) {
+  #articles .chapo  {
+    flex-direction: column;
+  }
 }
 #articles .btn {
   padding: 0.7rem 0.8rem;
 }
-.big_card {
+#articles .big_card {
   display: flex;
   flex-direction: column;
   max-width: 600px;
 }
-.big_card img {
+@media screen and (max-width: 400px) {
+  #articles .big_card {
+    margin-bottom: 2.5rem;
+  }
+}
+#articles .big_card img {
   margin-bottom: 0.5rem;
   max-height: 450px;
 }
-.big_card h2 {
+@media screen and (max-width: 400px) {
+  #articles .big_card img {
+    max-height: 400px;
+    height: 400px;
+    max-width: 350px;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+#articles .big_card h2 {
   margin-bottom: 0;
 }
-.big_card p {
+#articles .big_card h3{
+  font-size: 40px;
+  color: var(--primary);
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 400;
+}
+#articles .small_card h3{
+  font-size: 24px;
+  color: var(--primary);
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+#articles .big_card p {
   margin-bottom: 2rem;
 }
-.small_card {
+#articles .small_card {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
-.small_card img {
+@media screen and (max-width: 400px) {
+  #articles .small_card {
+    margin-bottom: 2.5rem;
+  }
+}
+#articles .small_card img {
   height: 200px;
   width: 100%;
   margin-bottom: 0.5rem;
+  object-fit: cover;
 }
-.small_card h2 {
+#articles .small_card h2 {
   font-size: 24px;
   margin-bottom: 1rem;
 }
@@ -570,7 +727,13 @@ footer .social img {
 #propos {
   display: flex;
   align-items: center;
-  margin-bottom: 8rem;
+  margin-bottom: 10rem;
+}
+@media screen and (max-width: 400px) {
+  #propos {
+    flex-direction: column;
+    margin-bottom: 8rem;
+  }
 }
 #propos p {
   margin-bottom: 2rem;
@@ -581,10 +744,21 @@ footer .social img {
 #propos .contenu_propos {
   padding-left: 6rem;
 }
+@media screen and (max-width: 400px) {
+  #propos .contenu_propos {
+    padding: 0;
+  }
+}
 .image_propos img {
   height: 500px;
   width: 500px;
   object-fit: cover;
+}
+@media screen and (max-width: 400px) {
+  .image_propos img {
+    height: 400px;
+    margin-bottom: 0.5rem;
+  }
 }
 /* END HOME BLOC PROPOS */
 
@@ -1060,8 +1234,19 @@ input[type="range"]:focus::-ms-fill-upper {
   align-items: center;
   margin-bottom: 10rem;
 }
+@media screen and (max-width: 400px) {
+  #blog #presentation {
+    flex-direction: column;
+    margin-bottom: 6rem;
+  }
+}
 #blog #presentation .image {
   width: 50%;
+}
+@media screen and (max-width: 400px) {
+  #blog #presentation .image {
+    width: 100%;
+  }
 }
 #blog #presentation .image img {
   width: 100%;
@@ -1071,6 +1256,12 @@ input[type="range"]:focus::-ms-fill-upper {
   width: 50%;
   text-align: center;
   padding: 0 5rem;
+}
+@media screen and (max-width: 400px) {
+  #blog #presentation .content {
+    width: 100%;
+    padding: 0;
+  }
 }
 #blog .articles {
   margin-bottom: 8rem;
@@ -1096,6 +1287,11 @@ input[type="range"]:focus::-ms-fill-upper {
   display: flex;
   align-items: center;
 }
+@media screen and (max-width: 400px) {
+  #blog .articles_ligne .card_inner  {
+    flex-direction: column;
+  }
+}
 #blog .articles_ligne {
   margin-bottom: 2rem;
 }
@@ -1111,6 +1307,11 @@ input[type="range"]:focus::-ms-fill-upper {
 }
 #blog .articles_ligne .card_inner .image {
   width: 30%;
+}
+@media screen and (max-width: 400px) {
+  #blog .articles_ligne .card_inner .image  {
+    width: 100%;
+  }
 }
 #blog .articles_ligne .card_inner .content {
   width: 70%;
