@@ -146,11 +146,10 @@ main {
   min-width: 1rem;
   aspect-ratio: 1 / 1;
   text-align: center;
-
 }
 
 .pagination-current {
-  background: #F0E5D3 !important;
+  background: #f0e5d3 !important;
 }
 
 .arrow-prev {
@@ -783,7 +782,6 @@ input[type="range"]:focus::-ms-fill-upper {
 .product-hover-contain:hover {
   background: rgba(255, 255, 255, 0.4);
   cursor: pointer;
-
 }
 
 .product-hover-button {
@@ -830,7 +828,6 @@ input[type="range"]:focus::-ms-fill-upper {
 .product-hover-contain:hover {
   background: rgba(255, 255, 255, 0.4);
   cursor: pointer;
-
 }
 
 .product-hover-button {
@@ -846,9 +843,6 @@ input[type="range"]:focus::-ms-fill-upper {
 }
 
 /* END LIST PRODUCT */
-
-
-
 
 /* PRODUCT */
 #product {
@@ -1009,68 +1003,68 @@ input[type="range"]:focus::-ms-fill-upper {
 
 /* CONTACT */
 
-article {
+#contact article {
   margin-top: 100px;
 }
 
-.map {
+#contact .map {
   display: flex;
   justify-content: center;
 }
 
-.form-inline {
+#contact .form-inline {
   display: flex;
   justify-content: space-between;
 }
 
-form {
+#contact form {
   width: 100%;
 }
 
-form input {
+#contact form input {
   width: 100%;
 }
 
-section {
+#contact section {
   display: flex;
   justify-content: space-around;
 }
 
-.nom {
+#contact .nom {
   width: 40%;
   margin-right: 20px;
 }
 
-.prenom {
+#contact .prenom {
   width: 40%;
 }
 
-.objet {
+#contact .objet {
   margin-bottom: 20px;
 }
 
-.message {
+#contact .message {
   height: 70px;
   text-align: start;
 }
 
-.infos {
+#contact .infos {
   display: flex;
   justify-content: space-between;
 }
 
-.jour {
+#contact .jour {
   margin-right: 10px;
 }
 
-h3 {
+#contact h3 {
   text-align: center;
 }
 
-.coordonnees {
+#contact .coordonnees {
   margin-left: 50px;
 }
 
-.horairesFlex {
+#contact .horairesFlex {
   display: flex;
 }
