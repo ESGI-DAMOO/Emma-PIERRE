@@ -758,6 +758,56 @@ input[type="range"]:focus::-ms-fill-upper {
   transition: opacity 0.2s;
 }
 
+/*---*/
+
+.product-list h2 {
+  margin-bottom: 1rem;
+}
+
+.container-list-produit {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.produit-card {
+  flex: 0 0 30%;
+  margin: 1rem;
+}
+
+.produit-card img {
+  width: 100%;
+}
+
+.product-hover {
+  position: relative;
+}
+
+.product-hover-contain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.2s;
+}
+
+.product-hover-contain:hover {
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+
+}
+
+.product-hover-button {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.product-hover-contain:hover > .product-hover-button {
+  opacity: 1;
+}
 .product-hover-contain:hover > .product-hover-button {
   opacity: 1;
 }
