@@ -1250,3 +1250,16 @@ input[type="range"]:focus::-ms-fill-upper {
 #contact .horairesFlex {
   display: flex;
 }
+
+@media screen and (max-width: 850px) {
+
+  .sectionFlex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sectionFlex article {
+    width: 90%;
+  }
+}
