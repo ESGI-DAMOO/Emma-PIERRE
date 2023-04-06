@@ -333,3 +333,71 @@ footer ul li {
   margin-bottom: 5rem;
   margin-top: 5rem;
 }
+
+/* CONTACT */
+
+article {
+  margin-top: 100px;
+}
+
+.map {
+  display: flex;
+  justify-content: center;
+}
+
+.form-inline {
+  display: flex;
+  justify-content: space-between;
+}
+
+form {
+  width: 100%;
+}
+
+form input {
+  width: 100%;
+}
+
+section {
+  display: flex;
+  justify-content: space-around;
+}
+
+.nom {
+  width: 40%;
+  margin-right: 20px;
+}
+
+.prenom {
+  width: 40%;
+}
+
+.objet {
+  margin-bottom: 20px;
+}
+
+.message {
+  height: 70px;
+  text-align: start;
+}
+
+.infos {
+  display: flex;
+  justify-content: space-between;
+}
+
+.jour {
+  margin-right: 10px;
+}
+
+h3 {
+  text-align: center;
+}
+
+.coordonnees {
+  margin-left: 50px;
+}
+
+.horairesFlex {
+  display: flex;
+}
