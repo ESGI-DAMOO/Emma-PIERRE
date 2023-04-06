@@ -28,7 +28,7 @@
         <section>
             <div class="product__container">
                 <div class="product__container__img">
-                    <img src="./assets/img/products/Collier Alexandra.jpg" alt="Collier Alexandra">
+                    <img src="./assets/img/products/CollierAlexandra.jpg" alt="Collier Alexandra">
                 </div>
                 <div class="product__container__description">
                     <h1>Collier Alexandra</h1>
