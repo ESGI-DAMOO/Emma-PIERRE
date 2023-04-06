@@ -617,6 +617,7 @@ footer .social img {
   display: flex;
   text-align: center;
   margin-bottom: 7rem;
+  background-color: rgba(29, 95, 107, 0.05);
 }
 .mini_cat > div {
   width: 25%;

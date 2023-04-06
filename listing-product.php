@@ -32,16 +32,16 @@
                 <p><a href="#">Accueil </a> > <a href="#">Tous les produits </a></p>
             </div>
             <div class="mini_cat">
-                <div class="one">
+                <div>
                     <p>Précieuses</p>
                 </div>
-                <div class="two">
+                <div>
                     <p>Impertinantes</p>
                 </div>
-                <div class="tree">
+                <div>
                     <p>Uniques</p>
                 </div>
-                <div class="for">
+                <div>
                     <p>Colorées</p>
                 </div>
             </div>
