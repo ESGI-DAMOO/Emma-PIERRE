@@ -3,7 +3,6 @@ var header = $('#img-header');
 var headerHeight = header.height();
 $(window).scroll(function() {
     if ($(this).scrollTop() > 50) {
-        console.log($(this).scrollTop())
         header.stop().animate({height: headerHeight * 0.7}, 500);
     } else {
         header.stop().animate({height: headerHeight}, 500);
@@ -25,8 +24,15 @@ $('#search-loupe').on('click', function () {
     }
 });
 
-$('#range-price').on('change', function (){
-    let rangeValue = $(this).value;
-    console.dir(rangeValue);
+//Prix filtre tous produits
+$('#range-price').on('input change', function (){
+    let rangeValue = $(this).val();
+    $('#input-number').val(rangeValue);
 });
+$('#input-number').on('keydown mousedown keyup mouseup input change', function (){
+    let rangeValued = $(this).val();
+    $('#range-price').val(rangeValued);
+});
+
+
 

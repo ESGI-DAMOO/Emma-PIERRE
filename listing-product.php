@@ -50,29 +50,29 @@
                 <asside>
                     <p>Type de produit</p>
                     <div>
-                        <input type="checkbox" />
-                        <label>Collier</label>
+                        <input id="collier" type="checkbox" />
+                        <label for="collier">Collier</label>
                     </div>
                     <div>
-                        <input type="checkbox" />
-                        <label>Boucles d'oreilles</label>
+                        <input id="bo" type="checkbox" />
+                        <label for="bo">Boucles d'oreilles</label>
                     </div>
                     <div>
-                        <input type="checkbox" />
-                        <label>Bracelets</label>
+                        <input id="bracelets" type="checkbox" />
+                        <label for="bracelets">Bracelets</label>
                     </div>
                     <div>
-                        <input type="checkbox" />
-                        <label>Raz-du-cou</label>
+                        <input id="razducoup" type="checkbox" />
+                        <label for="razducoup">Raz-du-cou</label>
                     </div>
                     <div>
-                        <input type="checkbox" />
-                        <label>Sautoir</label>
+                        <input id="sautoir" type="checkbox" />
+                        <label for="sautoir">Sautoir</label>
                     </div>
 
                     <p>Matériaux</p>
 
-                    <span class="circle" style="background-color: pink;"></span>
+                    <span class="circle selected" style="background-color: pink;"></span>
                     <span class="circle" style="background-color: #4CB7A5;"></span>
                     <span class="circle" style="background-color: #F7645D;"></span>
                     <span class="circle" style="background-color: #C3B89C;"></span>
@@ -81,14 +81,39 @@
 
                     <p>Prix</p>
                     <div>
-                        <input id="range-price" type="range" step="10" max="200" min="0" value="200"/>
+                        <input id="range-price" type="range" step="1" max="200" min="0" value="200"/>
                     </div>
-                    <div class="input-number-container">
-                        <span class="input-number-prefix">€</span>
-                        <input id="input-number" class="input-number" type="number" value="200"/>
+                    <div class="price-choose">
+                        <div class="input-number-container">
+                            <span class="input-number-prefix">€</span>
+                            <input id="" class="input-number" type="number" value="0" disabled/>
+                        </div>
+                        <span>-</span>
+                        <div class="input-number-container">
+                            <span class="input-number-prefix">€</span>
+                            <input id="input-number" class="input-number" type="number" value="200"/>
+                        </div>
                     </div>
 
                     <p>Disponibilité</p>
+                    <div>
+                        <input id="dispo" type="checkbox" />
+                        <label for="dispo">Disponible</label>
+                    </div>
+                    <div>
+                        <input id="hstock" type="checkbox" />
+                        <label for="hstock">Hors stock</label>
+                    </div>
+
+                    <p>Promotion</p>
+                    <div>
+                        <input id="promo" type="checkbox" />
+                        <label for="promo">Promotion</label>
+                    </div>
+                    <div>
+                        <input id="remises" type="checkbox" />
+                        <label for="remises">Remises spéciales</label>
+                    </div>
                 </asside>
                 <div class="product-list">
                     <h2>Produits du moment</h2>
