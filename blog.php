@@ -32,7 +32,7 @@
             </div>
             <div id="presentation">
                 <div class="image">
-                    <img src="assets/img/products/CollierAlexandra.jpg" alt="Création de Bijoux"/>
+                    <img src="assets/img/products/CollierToile.jpg" alt="Création de Bijoux"/>
                 </div>
                 <div class="content">
                     <h2>Bienvenue sur notre blog</h2>
