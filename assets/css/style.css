@@ -1,5 +1,5 @@
 /* IMPORTATIONS */
-@import url("https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=Noto+Serif&family=Roboto:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=Noto+Serif&family=Roboto:wght@300;500&display=swap");
 @import url("normalize.css");
 @import url(variables-color.css);
 
@@ -18,6 +18,12 @@ a {
   color: #11373f;
   text-decoration: inherit;
   position: relative;
+}
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 nav li {
   font-family: "Noto Serif", serif;
@@ -433,7 +439,7 @@ footer .social a li img {
   margin-bottom: 5rem;
   position: relative;
 }
-#produits .chapo{
+#produits .chapo {
   display: flex;
   justify-content: space-between;
 }
@@ -1005,7 +1011,6 @@ input[type="range"]:focus::-ms-fill-upper {
 }
 /* END ABOUT */
 
-
 /* BLOG */
 #blog div.banniere {
   background-image: url("../img/products/CollierToile.jpg");
@@ -1032,83 +1037,138 @@ input[type="range"]:focus::-ms-fill-upper {
   font-size: 48px;
   font-weight: bold;
 }
-#blog .path{
+#blog .path {
   margin-bottom: 4rem;
 }
-#blog img{
+#blog img {
   object-fit: cover;
 }
-#blog #presentation{
+#blog #presentation {
   display: flex;
   align-items: center;
   margin-bottom: 10rem;
 }
-#blog #presentation .image{
+#blog #presentation .image {
   width: 50%;
 }
-#blog #presentation .image img{
+#blog #presentation .image img {
   width: 100%;
   max-height: 650px;
 }
-#blog #presentation .content{
+#blog #presentation .content {
   width: 50%;
   text-align: center;
   padding: 0 5rem;
 }
-#blog .articles{
+#blog .articles {
   margin-bottom: 8rem;
 }
-#blog .articles .card_article_x3{
+#blog .articles .card_article_x3 {
   display: flex;
   justify-content: space-between;
 }
-#blog .articles .card_article_x3 .card_inner{
+#blog .articles .card_article_x3 .card_inner {
   display: flex;
   flex-direction: column;
   text-align: center;
   max-width: 400px;
 }
-#blog .articles .card_article_x3 .card_inner .btn{
+#blog .articles .card_article_x3 .card_inner .btn {
   margin: auto;
 }
-#blog .articles .card_article_x3 .card_inner img{
+#blog .articles .card_article_x3 .card_inner img {
   max-height: 430px;
   max-width: 400px;
 }
-#blog .articles_ligne .card_inner{
+#blog .articles_ligne .card_inner {
   display: flex;
   align-items: center;
 }
-#blog .articles_ligne{
+#blog .articles_ligne {
   margin-bottom: 2rem;
 }
-#blog .btn-seul{
+#blog .btn-seul {
   margin-bottom: 15rem;
 }
-#blog .btn-seul .btn{
+#blog .btn-seul .btn {
   margin: auto;
 }
-#blog .articles_ligne .card_inner .image img{
+#blog .articles_ligne .card_inner .image img {
   max-height: 250px;
   width: 100%;
 }
-#blog .articles_ligne .card_inner .image{
+#blog .articles_ligne .card_inner .image {
   width: 30%;
 }
-#blog .articles_ligne .card_inner .content{
+#blog .articles_ligne .card_inner .content {
   width: 70%;
   text-align: center;
   padding: 0 3.5rem;
 }
-#blog .articles_ligne .card_inner .content .btn{
+#blog .articles_ligne .card_inner .content .btn {
   margin: auto;
 }
-#blog hr{
+#blog hr {
   border: 1px solid #e7e7e7;
   border-top: none;
   margin: 2rem 0;
 }
 /* END BLOG */
+
+/* PANIER */
+#cart {
+  margin-top: 170px;
+}
+#cart .content {
+  display: flex;
+  justify-content: space-between;
+}
+#cart h2 {
+  font-size: 30px;
+}
+#cart .articles_panier {
+  width: 60%;
+}
+#cart .article_panier {
+  display: grid;
+  grid-template-columns: repeat(2, 3fr) 2fr 1fr;
+  grid-template-rows: 1fr 2fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+#cart .panier_image_article {
+  grid-area: 1 / 1 / 5 / 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#cart .panier_image_article img {
+  width: 200px;
+  object-fit: cover;
+}
+#cart .panier_titre_article {
+  grid-area: 1 / 2 / 2 / 3;
+}
+#cart .panier_qte_article {
+  grid-area: 2 / 2 / 3 / 3;
+}
+#cart .panier_prix_article {
+  grid-area: 1 / 3 / 3 / 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#cart .panier_delete_article {
+  grid-area: 1 / 4 / 3 / 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#cart .panier_delete_article img {
+  width: 40px;
+}
+/* END PANIER */
 
 /* CONTACT */
 
