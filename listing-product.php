@@ -121,14 +121,14 @@
                     <div class="container-list-produit">
                         <div class="produit-card">
                             <div class="product-hover">
-                                <img src="assets/img/products/CollierBlancFeuilles.jpg" alt="Création de Bijoux"/>
+                                <img class="boucle-doreilles" src="assets/img/products/25142.jpg" alt="Création de Bijoux"/>
                                 <div class="product-hover-contain">
                                     <a href="product.php" class="product-hover-button btn btn-bleu">Voir le produit</a>
                                 </div>
                             </div>
                             <div class="infos">
                                 <div class="titre_produit">
-                                    <p>Collier Alexandra</p>
+                                    <p>Boucle d'oreilles</p>
                                 </div>
                                 <div class="prix_produit">
                                     <p>49.3€</p>
@@ -138,14 +138,14 @@
 
                         <div class="produit-card">
                             <div class="product-hover">
-                                <img src="assets/img/products/CollierBlancFeuilles.jpg" alt="Création de Bijoux"/>
+                                <img class="boucle-doreilles" src="assets/img/products/25143.jpg" alt="Création de Bijoux"/>
                                 <div class="product-hover-contain">
                                     <a href="product.php" class="product-hover-button btn btn-bleu">Voir le produit</a>
                                 </div>
                             </div>
                             <div class="infos">
                                 <div class="titre_produit">
-                                    <p>Collier Alexandra</p>
+                                    <p>Boucle d'oreilles</p>
                                 </div>
                                 <div class="prix_produit">
                                     <p>49.3€</p>
@@ -155,14 +155,14 @@
 
                         <div class="produit-card">
                             <div class="product-hover">
-                                <img src="assets/img/products/CollierBlancFeuilles.jpg" alt="Création de Bijoux"/>
+                                <img class="boucle-doreilles" src="assets/img/products/25144.jpg" alt="Création de Bijoux"/>
                                 <div class="product-hover-contain">
                                     <a href="product.php" class="product-hover-button btn btn-bleu">Voir le produit</a>
                                 </div>
                             </div>
                             <div class="infos">
                                 <div class="titre_produit">
-                                    <p>Collier Alexandra</p>
+                                    <p>Boucle d'oreilles</p>
                                 </div>
                                 <div class="prix_produit">
                                     <p>49.3€</p>
@@ -172,14 +172,14 @@
 
                         <div class="produit-card">
                             <div class="product-hover">
-                                <img src="assets/img/products/CollierBlancFeuilles.jpg" alt="Création de Bijoux"/>
+                                <img class="boucle-doreilles" src="assets/img/products/25145.jpg" alt="Création de Bijoux"/>
                                 <div class="product-hover-contain">
                                     <a href="product.php" class="product-hover-button btn btn-bleu">Voir le produit</a>
                                 </div>
                             </div>
                             <div class="infos">
                                 <div class="titre_produit">
-                                    <p>Collier Alexandra</p>
+                                    <p>Boucle d'oreilles</p>
                                 </div>
                                 <div class="prix_produit">
                                     <p>49.3€</p>
@@ -189,14 +189,14 @@
 
                         <div class="produit-card">
                             <div class="product-hover">
-                                <img src="assets/img/products/CollierBlancFeuilles.jpg" alt="Création de Bijoux"/>
+                                <img class="boucle-doreilles" src="assets/img/products/25146.jpg" alt="Création de Bijoux"/>
                                 <div class="product-hover-contain">
                                     <a href="product.php" class="product-hover-button btn btn-bleu">Voir le produit</a>
                                 </div>
                             </div>
                             <div class="infos">
                                 <div class="titre_produit">
-                                    <p>Collier Alexandra</p>
+                                    <p>Boucle d'oreilles</p>
                                 </div>
                                 <div class="prix_produit">
                                     <p>49.3€</p>
