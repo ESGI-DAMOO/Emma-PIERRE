@@ -57,6 +57,7 @@ header {
 header img.logo {
   width: 100px;
   padding: 2.5rem 2rem;
+  z-index: 100;
 }
 
 header .header-nav {
@@ -146,14 +147,13 @@ header .search-container {
   padding: 1rem 0.8rem;
   border-radius: 3px;
   margin: 5px 0;
+  transition: .3s all ease-in-out;
 }
 
 .btn-bleu {
   border: 1px solid var(--primary);
   background-color: var(--primary);
   width: fit-content;
-}
-.btn-bleu a {
   color: beige;
 }
 .btn-bleu:hover a {
@@ -254,7 +254,7 @@ main {
   margin-bottom: 40px;
 }
 .one {
-  background: url("https://picsum.photos/1080/1920");
+  background: url("../img/products/CollierPerleNoirOr.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -294,13 +294,15 @@ main {
 #produits .products_cards {
   display: flex;
   align-items: flex-start;
-  column-gap: 7rem;
+  column-gap: 5rem;
 }
 #produits .big_product_card img {
   height: 550px;
+  max-width: 420px;
 }
 #produits .small_product_card img {
   height: 350px;
+  max-width: 290px;
 }
 #produits .infos {
   display: flex;
@@ -365,6 +367,9 @@ main {
   align-items: center;
   justify-content: space-between;
 }
+#articles .btn{
+  padding: 0.7rem 0.8rem;
+}
 .big_card {
   display: flex;
   flex-direction: column;
@@ -387,9 +392,11 @@ main {
 .small_card img {
   height: 200px;
   width: 100%;
+  margin-bottom: 0.5rem;
 }
 .small_card h2 {
   font-size: 24px;
+  margin-bottom: 1rem;
 }
 
 /* BLOC PROPOS */
