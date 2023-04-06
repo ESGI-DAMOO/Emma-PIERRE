@@ -65,7 +65,7 @@
                     <div class="card_inner">
                         <img src="assets/img/products/BoucleBroderie.jpg" alt="Création de Bijoux"/>
                         <h3>Prquoi choisir l'argent ?</h3>
-                        <p>Les boucles d'oreilles en argent sterling sont un choix polyvalent et élégant pour les femmes de tous âges. Les boucles d'oreilles en argent sterling sont faciles à assortir avec d'autres bijoux, et peuvent être portées avec des tenues décontractées ou formelles. </p>
+                        <p>Les boucles d'oreilles en argent sterling sont un choix polyvalent et élégant pour les femmes de tous âges. Les boucles d'oreilles en argent sterling sont faciles à assortir avec d'autres bijoux.</p>
                         <a href="#" target="_blank">
                             <div class="btn btn-bleu">
                                 Lire plus
