@@ -134,6 +134,24 @@ main {
   font-size: 18px;
 }
 
+a.lien_menu:after {
+  display: block;
+  content: "";
+  width: 0px;
+  position: absolute;
+  left: 50%;
+  bottom: -7px;
+  transform: translateX(-50%);
+  border-bottom: 2px solid #1d5f6b;
+  -webkit-box-shadow: 0px 1px 4px 0px #1d5f6b;
+  box-shadow: 0px 1px 4px 0px #1d5f6b;
+  transition: all 0.3s;
+}
+
+a.lien_menu:hover::after {
+  width: 100px;
+}
+
 .pagination {
   display: flex;
   justify-content: flex-end;
@@ -246,24 +264,6 @@ header div.header-icon a img {
   padding: 0 0.5rem;
 }
 
-header nav a:after {
-  display: block;
-  content: "";
-  width: 0px;
-  position: absolute;
-  left: 50%;
-  bottom: -7px;
-  transform: translateX(-50%);
-  border-bottom: 2px solid #1d5f6b;
-  -webkit-box-shadow: 0px 1px 4px 0px #1d5f6b;
-  box-shadow: 0px 1px 4px 0px #1d5f6b;
-  transition: all 0.3s;
-}
-
-header nav a:hover::after {
-  width: 100px;
-}
-
 header .search-container {
   display: flex;
 }
@@ -275,10 +275,24 @@ footer {
   justify-content: space-around;
   padding: 2rem;
   box-sizing: border-box;
+  flex-wrap: wrap;
+}
+footer a.lien_menu:hover::after {
+  bottom: -3px;
 }
 
 footer .col-footer {
   text-align: center;
+  width: 33%;
+  min-width: 260px;
+}
+footer .col-footer ul {
+  display: flex;
+  flex-direction: column;
+}
+footer .col-footer ul li {
+  list-style: none;
+  padding: 0.5rem;
 }
 footer .made-in-france {
   margin-top: 2rem;
@@ -288,10 +302,11 @@ footer .made-in-france p {
 }
 
 footer .drapeau {
+  margin: 0 auto;
   display: block;
   height: 5px;
   background-color: white;
-  width: 100%;
+  width: 5rem;
   content: " ";
   position: relative;
 }
@@ -316,23 +331,20 @@ footer .drapeau::after {
   right: -5rem;
 }
 
-footer ul {
+footer .social ul {
   padding: 0;
-}
-
-footer ul li {
-  list-style: none;
-  margin: 0.6rem 0;
-}
-
-footer .social {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  width: 140%;
+  justify-content: center;
 }
 
-footer .social a li img {
+footer .social ul li {
+  list-style: none;
+  margin: 0.6rem;
+  gap: 30px;
+}
+
+footer .social img {
   width: 32px;
 }
 /* END FOOTER */
