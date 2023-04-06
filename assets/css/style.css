@@ -8,6 +8,7 @@
   font-family: Roboto, Jost, sans-serif;
   font-weight: 300;
   font-size: 16px;
+  /* box-sizing: border-box; */
 }
 
 body {
@@ -25,7 +26,7 @@ ol {
   padding: 0;
   margin: 0;
 }
-nav li {
+nav a {
   font-family: "Noto Serif", serif;
   font-weight: 400;
   font-size: 18px;
@@ -207,10 +208,7 @@ a.lien_menu:hover::after {
 /* END GLOBAL */
 
 /* HEADER */
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+header .navbar {
   padding: 0 2rem;
   -webkit-box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.2);
   box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.2);
@@ -222,31 +220,172 @@ header {
   background: white;
   z-index: 100;
 }
+body.open .navbar-overlay {
+  visibility: visible;
+  opacity: 1;
+}
+header .navbar-overlay {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
+}
+header .navbar-burger {
+  position: absolute;
+  top: 70px;
+  right: 40px;
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  padding: 0;
+}
+header .navbar-burger span {
+  font-size: 40px;
+  font-weight: 100;
+}
+header .navbar-menu {
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  translate: -100% 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  visibility: hidden;
+  transition: translate 0.3s;
+}
+body.open header .navbar-menu {
+  translate: 0 0;
+  visibility: visible;
+}
+header .navbar-droite {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+header .navbar-liens {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+header .navbar-menu a {
+  font-size: 24px;
+  padding: 20px 0;
+  width: 100%;
+  text-align: center;
+}
+
+header .navbar-menu > button {
+  color: rgba(255, 255, 255, 0.5);
+  background: transparent;
+  padding: 0 8px;
+}
+
+header .navbar-menu > button.active {
+  color: inherit;
+}
 
 header img.logo {
-  width: 100px;
+  width: 180px;
   padding: 2.5rem 2rem;
   z-index: 100;
 }
-
-header .header-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+header div.header-icon a img {
+  width: 50px;
+  padding: 0 0.5rem;
 }
-
-header ul {
-  display: flex;
-}
-
-header ul li {
-  list-style: none;
-  padding: 0 2rem;
-}
-
 header div.header-icon {
   display: flex;
   align-items: center;
+  margin-top: 50px;
+}
+
+/* header .header-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+} */
+
+/* header ul {
+  display: flex;
+} */
+
+@media only screen and (min-width: 600px) {
+  header .navbar > a {
+    display: none;
+  }
+  header .navbar {
+    justify-content: space-between;
+    padding: 0 20px 0 20px;
+    width: 100%;
+  }
+  header .navbar-overlay {
+    display: none;
+  }
+  header .navbar-burger {
+    display: none;
+  }
+  header .navbar-menu {
+    position: static;
+    translate: 0 0;
+    width: auto;
+    background: transparent;
+    flex-direction: row;
+    justify-content: space-between;
+    visibility: visible;
+  }
+  header .navbar-droite {
+    align-items: space-between;
+    flex-direction: row;
+    width: auto;
+  }
+  header .navbar-liens {
+    align-items: center;
+    flex-direction: row;
+  }
+  header div.header-icon a img {
+    width: 32px;
+    padding: 0 0.5rem;
+  }
+  header .navbar-menu a {
+    font-size: 18px;
+    width: auto;
+    padding: 0;
+  }
+  header div.header-icon {
+    margin-top: inherit;
+  }
+  header img.logo {
+    width: 100px;
+  }
+  header .navbar-liens a {
+    padding: 0 2rem;
+  }
+}
+header button {
+  border: 0;
+  padding: 0;
+  font-family: inherit;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
 }
 
 header div.header-icon .cart-icon {
@@ -278,11 +417,6 @@ header div.header-icon input[type="search"] {
   height: 32px;
   width: 0px;
   padding: 0rem;
-}
-
-header div.header-icon a img {
-  width: 32px;
-  padding: 0 0.5rem;
 }
 
 header .search-container {

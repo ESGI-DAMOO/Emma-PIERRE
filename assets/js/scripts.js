@@ -1,11 +1,11 @@
 // --------- //
 var header = $('#img-header');
 var headerHeight = header.height();
-$(window).scroll(function() {
+$(window).scroll(function () {
     if ($(this).scrollTop() > 50) {
-        header.stop().animate({height: headerHeight * 0.7}, 500);
+        header.stop().animate({ height: headerHeight * 0.7 }, 500);
     } else {
-        header.stop().animate({height: headerHeight}, 500);
+        header.stop().animate({ height: headerHeight }, 500);
     }
 });
 
@@ -18,18 +18,18 @@ $('#search-loupe').on('click', function () {
     isSearchOpen = !isSearchOpen;
 
     if (isSearchOpen) {
-        $('#search').animate({width:'200px', padding: '0 1rem'}, 500);
+        $('#search').animate({ width: '200px', padding: '0 1rem' }, 500);
     } else {
-        $('#search').animate({width:'0px', padding: '0'}, 500);
+        $('#search').animate({ width: '0px', padding: '0' }, 500);
     }
 });
 
 //Prix filtre tous produits
-$('#range-price').on('input change', function (){
+$('#range-price').on('input change', function () {
     let rangeValue = $(this).val();
     $('#input-number').val(rangeValue);
 });
-$('#input-number').on('keydown mousedown keyup mouseup input change', function (){
+$('#input-number').on('keydown mousedown keyup mouseup input change', function () {
     let rangeValued = $(this).val();
     $('#range-price').val(rangeValued);
 });
