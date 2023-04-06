@@ -1010,7 +1010,7 @@ input[type="range"]:focus::-ms-fill-upper {
 /* CONTACT */
 
 article {
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .map {
@@ -1027,11 +1027,23 @@ form {
   width: 100%;
 }
 
-form input {
+form input:not(.submit) {
   width: 100%;
+  box-sizing: border-box;
 }
 
-section {
+.submit {
+  text-align: center;
+  margin-top: 10px;
+}
+
+form textarea{
+  width: 100%;
+  box-sizing: border-box;
+  color: gray;
+}
+
+.sectionFlex {
   display: flex;
   justify-content: space-around;
 }

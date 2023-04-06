@@ -26,10 +26,6 @@
                 <article>
                     <h2>Contact</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <div class="map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d31954.893086889075!2d4.87791332754516!3d45.75221248673494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1680683791461!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                    </iframe>
                 </article>
             </section>
             <section>
@@ -37,7 +33,7 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vestibulum dui a ante hendrerit, sit amet pulvinar dui lobortis. Nam ornare, magna eu eleifend feugiat, leo ligula porta massa, sit amet feugiat velit nibh rhoncus felis. In in convallis justo. Sed hendrerit nibh eu orci dapibus aliquet. Curabitur non interdum quam. Cras fermentum maximus accumsan. Quisque congue non mi ac volutpat. Morbi consequat, ex a luctus elementum, nisi velit tincidunt eros, nec commodo enim quam ullamcorper justo. Fusce elit lorem, dictum vitae tempus eget, placerat ac erat. Nullam nec ornare metus, id dictum magna. Morbi in tempor eros. Vestibulum interdum bibendum magna ac semper. Nulla elit nisl, hendrerit quis gravida id, egestas non sapien.</p>
                 </article>
             </section>
-            <section>
+            <section class="sectionFlex">
                 <article>
                     <form action="">
                         <h3>Demande d'information</h3>
@@ -48,7 +44,8 @@
                         <br>
                         <input class="objet" type="text" placeholder="Objet du message">
                         <br>
-                        <input class="message" type="text" placeholder="Message" >
+                        <textarea name="" id="" cols="30" rows="10">Message</textarea>
+                        <div class="submit"><input class="submit" type="submit" value="Envoyer"></div>
                     </form>
                 </article>
                 <article>
