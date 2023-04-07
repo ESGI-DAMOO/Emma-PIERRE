@@ -1665,6 +1665,9 @@ input[type="range"]:focus::-ms-fill-upper {
 /* END PANIER */
 
 /* CONTACT */
+#contact {
+  margin-top: 170px;
+}
 
 #contact article {
   margin-top: 50px;
