@@ -2,13 +2,15 @@
 var header = $('.navbar');
 var headerHeight = header.height();
 console.log(headerHeight);
-$(window).scroll(function () {
-    if ($(this).scrollTop() > 50) {
-        header.stop().animate({ height: headerHeight * 0.7 }, 500);
-    } else {
-        header.stop().animate({ height: headerHeight }, 500);
-    }
-});
+if ($(window).width() > 600) {
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 50) {
+            header.stop().animate({ height: headerHeight * 0.7 }, 500);
+        } else {
+            header.stop().animate({ height: headerHeight }, 500);
+        }
+    });
+}
 
 //Ouverture de la barre de recherche
 var isSearchOpen = false;
