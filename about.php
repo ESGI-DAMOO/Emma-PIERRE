@@ -137,6 +137,7 @@
 
 
     </main>
+    <?php require('partial/feed_insta.html') ?>
     <?php require('partial/footer.html') ?>
     <script src="assets/js/scripts.js"></script>
 </body>
