@@ -22,7 +22,7 @@
                 <div class="cards_cat">
                     <div class="card_cat one">
                         <p class="title-h1">Les précieuses</p>
-                        <a href="#" target="_blank">
+                        <a href="./listing-product.php">
                             <div class="btn btn-bleu-transp">
                                 Voir les produits
                             </div>
@@ -30,7 +30,7 @@
                     </div>
                     <div class="card_cat two">
                         <p class="title-h1">Les impertinantes</p>
-                        <a href="#" target="_blank">
+                        <a href="./listing-product.php">
                             <div class="btn btn-bleu-transp">
                                 Voir les produits
                             </div>
@@ -38,7 +38,7 @@
                     </div>
                     <div class="card_cat tree">
                         <p class="title-h1">Les uniques</p>
-                        <a href="#" target="_blank">
+                        <a href="./listing-product.php">
                             <div class="btn btn-bleu-transp">
                                 Voir les produits
                             </div>
@@ -46,7 +46,7 @@
                     </div>
                     <div class="card_cat for">
                         <p class="title-h1">Les colorées</p>
-                        <a href="#" target="_blank">
+                        <a href="./listing-product.php">
                             <div class="btn btn-bleu-transp">
                                 Voir les produits
                             </div>
