@@ -1,0 +1,53 @@
+<header id="img-header">
+    <script>const toggleMenuOpen = () => document.body.classList.toggle("open");</script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <div class="header-nav">
+        <nav class="navbar">
+            <div class="navbar-overlay" onclick="toggleMenuOpen()"></div>
+            <button type="button" class="navbar-burger" onclick="toggleMenuOpen()">
+                <span class="material-icons">menu</span>
+            </button>
+            <a href="./index.php"><img class="logo" src="assets/img/EP-logo-DEF-carre.png" width="125px" /></a>
+
+            <nav class="navbar-menu">
+                <a href="./index.php"><img class="logo" src="assets/img/EP-logo-DEF-carre.png" width="125px" /></a>
+                <div class="navbar-droite">
+                    <div class="navbar-liens">
+                        <a class="lien_menu" href="./listing-product.php">
+                            Collections
+                        </a>
+                        <a class="lien_menu" href="./about.php">
+                            À propos
+                        </a>
+                        <a class="lien_menu" href="./blog.php">
+                            Blog
+                        </a>
+                        <a class="lien_menu" href="./contact.php">
+                            Contact
+                        </a>
+                    </div>
+                    <div class="header-icon">
+                        <a class="search-container">
+                            <img id="search-loupe" src="assets/img/search-2903.svg" />
+                            <form action="#">
+                                <input id="search" type="search" />
+                            </form>
+                        </a>
+                        <a href="cart.php" class="cart-icon">
+                            <img src="assets/img/bags-1999.svg" />
+                            <span>1</span>
+                        </a>
+                        <a>
+                            <img src="assets/img/circle-user.svg" />
+                        </a>
+                        <a>
+                            <img src="assets/img/france.png" />
+                        </a>
+
+                    </div>
+                </div>
+            </nav>
+        </nav>
+    </div>
+</header>
