@@ -21,12 +21,15 @@
             <section>
                 <article>
                     <h2>Contact</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>Page de formulaire de demande et d'informations complémentaires.</p>
                 </article>
+            </section>
+            <section class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d11135.566425897725!2d4.85991795!3d45.75331895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1680854754610!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </section>
             <section>
                 <article>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vestibulum dui a ante hendrerit, sit amet pulvinar dui lobortis. Nam ornare, magna eu eleifend feugiat, leo ligula porta massa, sit amet feugiat velit nibh rhoncus felis. In in convallis justo. Sed hendrerit nibh eu orci dapibus aliquet. Curabitur non interdum quam. Cras fermentum maximus accumsan. Quisque congue non mi ac volutpat. Morbi consequat, ex a luctus elementum, nisi velit tincidunt eros, nec commodo enim quam ullamcorper justo. Fusce elit lorem, dictum vitae tempus eget, placerat ac erat. Nullam nec ornare metus, id dictum magna. Morbi in tempor eros. Vestibulum interdum bibendum magna ac semper. Nulla elit nisl, hendrerit quis gravida id, egestas non sapien.</p>
+                    <p>Nous serions ravis d'avoir de vos nouvelles ! Notre équipe est à votre disposition pour répondre à toutes vos questions concernant nos bijoux. Si vous cherchez des bijoux sur mesure, nous sommes là pour vous aider à réaliser votre vision. N'hésitez pas à nous contacter pour demander des informations et des devis personnalisés pour vos projets de bijoux. Nous sommes là pour vous guider tout au long du processus et vous offrir un service client exceptionnel. Nous attendons avec impatience de travailler avec vous pour créer des bijoux exceptionnels qui vous feront vous sentir confiant et élégant.</p>
                 </article>
             </section>
             <section class="sectionFlex">
