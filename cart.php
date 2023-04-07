@@ -122,7 +122,7 @@
           </div>
         </div>
         <div class="form_payement">
-          <h2>Moyen de payement</h2>
+          <h2>Moyens de paiement</h2>
           <div>
             <input type="radio" name="payementMethod" id="cb" value="cb">
             <label for="cb" class="cb">Carte bancaire
