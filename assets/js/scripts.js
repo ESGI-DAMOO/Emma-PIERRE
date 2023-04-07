@@ -1,6 +1,7 @@
 // --------- //
-var header = $('#img-header');
+var header = $('.navbar');
 var headerHeight = header.height();
+console.log(headerHeight);
 $(window).scroll(function () {
     if ($(this).scrollTop() > 50) {
         header.stop().animate({ height: headerHeight * 0.7 }, 500);
