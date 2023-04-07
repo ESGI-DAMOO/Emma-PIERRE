@@ -28,7 +28,7 @@
                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d11135.566425897725!2d4.85991795!3d45.75331895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1680854754610!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </section>
             <section>
-                <article>
+                <article class="marginText">
                     <p>Nous serions ravis d'avoir de vos nouvelles ! Notre équipe est à votre disposition pour répondre à toutes vos questions concernant nos bijoux. Si vous cherchez des bijoux sur mesure, nous sommes là pour vous aider à réaliser votre vision. N'hésitez pas à nous contacter pour demander des informations et des devis personnalisés pour vos projets de bijoux. Nous sommes là pour vous guider tout au long du processus et vous offrir un service client exceptionnel. Nous attendons avec impatience de travailler avec vous pour créer des bijoux exceptionnels qui vous feront vous sentir confiant et élégant.</p>
                 </article>
             </section>
@@ -71,8 +71,8 @@
                         </div>
                         <div class="coordonnees">
                             <h4>Coordonées</h4>
-                            <p>mail:aaaaaaaaaaaaaaaaaaaaaaa </p>
-                            <p>tel: </p>
+                            <p>mail:adresse@gmail.com </p>
+                            <p>tel: +33785770295 </p>
                         </div>
                     </div>
                 </article>
