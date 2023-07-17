@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost:3306
--- Généré le : lun. 17 juil. 2023 à 15:37
--- Version du serveur : 10.5.19-MariaDB-0+deb11u2
--- Version de PHP : 8.2.6
+-- Hôte : 127.0.0.1:3306
+-- Généré le : lun. 17 juil. 2023 à 14:40
+-- Version du serveur : 5.7.36
+-- Version de PHP : 8.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,14 +27,16 @@ SET time_zone = "+00:00";
 -- Structure de la table `adresse`
 --
 
-CREATE TABLE `adresse` (
-  `id_adresse` int(11) NOT NULL,
+DROP TABLE IF EXISTS `adresse`;
+CREATE TABLE IF NOT EXISTS `adresse` (
+  `id_adresse` int(11) NOT NULL AUTO_INCREMENT,
   `adresse` text NOT NULL,
   `complement` text NOT NULL,
   `code_postal` varchar(5) NOT NULL,
   `ville` varchar(100) NOT NULL,
-  `pays` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `pays` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_adresse`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -42,8 +44,9 @@ CREATE TABLE `adresse` (
 -- Structure de la table `article`
 --
 
-CREATE TABLE `article` (
-  `id_article` int(11) NOT NULL,
+DROP TABLE IF EXISTS `article`;
+CREATE TABLE IF NOT EXISTS `article` (
+  `id_article` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(100) NOT NULL,
   `description` text NOT NULL,
   `longueur` varchar(30) NOT NULL,
@@ -52,8 +55,12 @@ CREATE TABLE `article` (
   `stock` int(4) NOT NULL,
   `id_type` int(11) NOT NULL,
   `id_matiere` int(11) NOT NULL,
-  `id_couleur` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `id_couleur` int(11) NOT NULL,
+  PRIMARY KEY (`id_article`),
+  KEY `id_type` (`id_type`),
+  KEY `id_matiere` (`id_matiere`),
+  KEY `id_couleur` (`id_couleur`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -61,10 +68,12 @@ CREATE TABLE `article` (
 -- Structure de la table `code_promo`
 --
 
-CREATE TABLE `code_promo` (
+DROP TABLE IF EXISTS `code_promo`;
+CREATE TABLE IF NOT EXISTS `code_promo` (
   `id_code_promo` varchar(50) NOT NULL,
-  `remise` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `remise` float NOT NULL,
+  PRIMARY KEY (`id_code_promo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -72,15 +81,21 @@ CREATE TABLE `code_promo` (
 -- Structure de la table `commande`
 --
 
-CREATE TABLE `commande` (
-  `id_commande` int(11) NOT NULL,
+DROP TABLE IF EXISTS `commande`;
+CREATE TABLE IF NOT EXISTS `commande` (
+  `id_commande` int(11) NOT NULL AUTO_INCREMENT,
   `id_user` int(11) NOT NULL,
   `id_code_promo` varchar(50) NOT NULL,
   `date_commande` date NOT NULL,
   `date_reglement` date NOT NULL,
   `id_adresse_livraison` int(11) NOT NULL,
-  `id_adresse_facturation` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `id_adresse_facturation` int(11) NOT NULL,
+  PRIMARY KEY (`id_commande`),
+  KEY `id_user` (`id_user`),
+  KEY `id_code_promo` (`id_code_promo`),
+  KEY `id_adresse_livraison` (`id_adresse_livraison`),
+  KEY `id_adresse_facturation` (`id_adresse_facturation`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -88,10 +103,12 @@ CREATE TABLE `commande` (
 -- Structure de la table `couleur`
 --
 
-CREATE TABLE `couleur` (
-  `id_couleur` int(11) NOT NULL,
-  `nom` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+DROP TABLE IF EXISTS `couleur`;
+CREATE TABLE IF NOT EXISTS `couleur` (
+  `id_couleur` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_couleur`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -99,10 +116,12 @@ CREATE TABLE `couleur` (
 -- Structure de la table `matiere`
 --
 
-CREATE TABLE `matiere` (
-  `id_matiere` int(11) NOT NULL,
-  `nom` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+DROP TABLE IF EXISTS `matiere`;
+CREATE TABLE IF NOT EXISTS `matiere` (
+  `id_matiere` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_matiere`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -110,11 +129,14 @@ CREATE TABLE `matiere` (
 -- Structure de la table `panier`
 --
 
-CREATE TABLE `panier` (
+DROP TABLE IF EXISTS `panier`;
+CREATE TABLE IF NOT EXISTS `panier` (
   `id_commande` int(11) NOT NULL,
   `id_article` int(11) NOT NULL,
-  `quantite` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `quantite` int(11) NOT NULL,
+  PRIMARY KEY (`id_commande`,`id_article`) USING BTREE,
+  KEY `id_article` (`id_article`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -122,10 +144,12 @@ CREATE TABLE `panier` (
 -- Structure de la table `role`
 --
 
-CREATE TABLE `role` (
-  `id_role` int(11) NOT NULL,
-  `nom` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+DROP TABLE IF EXISTS `role`;
+CREATE TABLE IF NOT EXISTS `role` (
+  `id_role` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_role`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -133,10 +157,12 @@ CREATE TABLE `role` (
 -- Structure de la table `type_article`
 --
 
-CREATE TABLE `type_article` (
-  `id_type` int(11) NOT NULL,
-  `nom` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+DROP TABLE IF EXISTS `type_article`;
+CREATE TABLE IF NOT EXISTS `type_article` (
+  `id_type` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_type`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -144,141 +170,21 @@ CREATE TABLE `type_article` (
 -- Structure de la table `user`
 --
 
-CREATE TABLE `user` (
-  `id_user` int(11) NOT NULL,
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `id_user` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(50) NOT NULL,
   `prenom` varchar(50) NOT NULL,
   `tel` varchar(15) NOT NULL,
   `date_naissance` date NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `mot_passe` varchar(150) NOT NULL,
   `id_adresse` int(11) NOT NULL,
-  `id_role` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Index pour les tables déchargées
---
-
---
--- Index pour la table `adresse`
---
-ALTER TABLE `adresse`
-  ADD PRIMARY KEY (`id_adresse`);
-
---
--- Index pour la table `article`
---
-ALTER TABLE `article`
-  ADD PRIMARY KEY (`id_article`),
-  ADD KEY `id_type` (`id_type`),
-  ADD KEY `id_matiere` (`id_matiere`),
-  ADD KEY `id_couleur` (`id_couleur`);
-
---
--- Index pour la table `code_promo`
---
-ALTER TABLE `code_promo`
-  ADD PRIMARY KEY (`id_code_promo`);
-
---
--- Index pour la table `commande`
---
-ALTER TABLE `commande`
-  ADD PRIMARY KEY (`id_commande`),
-  ADD KEY `id_user` (`id_user`),
-  ADD KEY `id_code_promo` (`id_code_promo`),
-  ADD KEY `id_adresse_livraison` (`id_adresse_livraison`),
-  ADD KEY `id_adresse_facturation` (`id_adresse_facturation`);
-
---
--- Index pour la table `couleur`
---
-ALTER TABLE `couleur`
-  ADD PRIMARY KEY (`id_couleur`);
-
---
--- Index pour la table `matiere`
---
-ALTER TABLE `matiere`
-  ADD PRIMARY KEY (`id_matiere`);
-
---
--- Index pour la table `panier`
---
-ALTER TABLE `panier`
-  ADD PRIMARY KEY (`id_commande`,`id_article`) USING BTREE,
-  ADD KEY `id_article` (`id_article`);
-
---
--- Index pour la table `role`
---
-ALTER TABLE `role`
-  ADD PRIMARY KEY (`id_role`);
-
---
--- Index pour la table `type_article`
---
-ALTER TABLE `type_article`
-  ADD PRIMARY KEY (`id_type`);
-
---
--- Index pour la table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id_user`),
-  ADD KEY `id_adresse` (`id_adresse`),
-  ADD KEY `id_role` (`id_role`);
-
---
--- AUTO_INCREMENT pour les tables déchargées
---
-
---
--- AUTO_INCREMENT pour la table `adresse`
---
-ALTER TABLE `adresse`
-  MODIFY `id_adresse` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `article`
---
-ALTER TABLE `article`
-  MODIFY `id_article` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `commande`
---
-ALTER TABLE `commande`
-  MODIFY `id_commande` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `couleur`
---
-ALTER TABLE `couleur`
-  MODIFY `id_couleur` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `matiere`
---
-ALTER TABLE `matiere`
-  MODIFY `id_matiere` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `role`
---
-ALTER TABLE `role`
-  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `type_article`
---
-ALTER TABLE `type_article`
-  MODIFY `id_type` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `user`
---
-ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
+  `id_role` int(11) NOT NULL,
+  PRIMARY KEY (`id_user`),
+  KEY `id_adresse` (`id_adresse`),
+  KEY `id_role` (`id_role`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contraintes pour les tables déchargées
