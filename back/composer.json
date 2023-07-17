@@ -1,0 +1,30 @@
+{
+  "name": "maxoliv/mon-meilleur-restaurant",
+  "description": "Site de notation de restaurants",
+  "authors": [
+    {
+      "name": "Olivier Perdrix, Maxime Hindershiete",
+      "email": "operdrix@myges.fr"
+    }
+  ],
+  "scripts": {
+    "start": "php -S localhost:8000 -t public/ public/index.php",
+    "phpstan": "vendor/bin/phpstan analyse -c phpstan.neon"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "config": {
+    "process-timeout": 0
+  },
+  "require": {
+    "symfony/dotenv": "^6.2",
+    "twig/twig": "^3.6",
+    "psr/container": "^2.0"
+  },
+  "require-dev": {
+    "phpstan/phpstan": "^1.10"
+  }
+}

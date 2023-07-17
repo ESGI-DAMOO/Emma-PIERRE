@@ -1,0 +1,91 @@
+{% include "partial/header.html.twig" %}
+
+<!-- Template liée au controller : src/Controller/IndexController.php -->
+
+<div class="container  px-4 ">
+  <div class="row gx-5">
+    <div class="col p-3"><a href="/" class="btn btn-dark">Retour</a></div>
+  </div>
+  <div class="row gx-5">
+    <div class="col p-3">
+      <img src="{{ restaurant.url_photo }}" style="max-width: 600px;" alt="">
+    </div>
+    <div class="col p-3">
+      <h1>{{ restaurant.nom }}</h1>
+      <strong>Note : {{ restaurant.note | round(2) }}/5</strong>
+      <p>Description : {{ restaurant.description }}</p>
+      <p>Adresse : {{ restaurant.adresse }}</p>
+      <p>Téléphone : {{ restaurant.telephone }}</p>
+      <p>Email : {{ restaurant.email }}</p>
+      <p>Propriétaire : {{ restaurant.adresse }}</p>
+    </div>
+  </div>
+  <div class="row gx-5">
+    <div class="col p-3">
+      <h2>Avis</h2>
+
+      <section>
+      {% for item in avis %}
+        <article>
+          <hr />
+          <p><strong>{{ item.pseudo }}</strong> - <em>{{ item.note }}</em> étoiles</p>
+          <p>{{ item.avis }}</p>
+
+        </article>
+        {% endfor %}
+      </section>
+      <hr />
+      {% if error %}
+        <p class="error">Désolé, tu as déjà posté un avis ici...</p>
+      {% endif %}
+      <form method="POST" action="/addnote/{{ restaurant.id }}">
+      <fieldset>
+        <legend>Quelle note attribueriez-vous ?</legend>
+
+        <div>
+          <input type="radio" id="1" name="note" value="1"
+                checked>
+          <label for="1">1</label>
+        </div>
+
+        <div>
+          <input type="radio" id="2" name="note" value="2">
+          <label for="2">2</label>
+        </div>
+
+        <div>
+          <input type="radio" id="3" name="note" value="3">
+          <label for="3">3</label>
+        </div>
+
+        <div>
+          <input type="radio" id="4" name="note" value="4">
+          <label for="4">4</label>
+        </div>
+
+        <div>
+          <input type="radio" id="5" name="note" value="5">
+          <label for="5">5</label>
+        </div>
+      </fieldset>
+      <div>
+        <label for="pseudo">Votre pseudo</label>
+      </div>
+      <div>
+        <input type="text" id="pseudo" name="pseudo" />
+      </div>
+      <div>
+        <label for="message">Votre message</label>
+      </div>
+      <div>
+        <textarea id="message" name="message">
+
+        </textarea>
+      </div>
+      <div>
+        <input type="submit" value="Envoyer" />
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
