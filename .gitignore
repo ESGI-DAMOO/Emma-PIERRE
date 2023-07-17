@@ -1,3 +1,5 @@
-.idea/
-.lando.yml
-.DS_Store
+var/
+vendor/
+conf/*.ini
+.vscode/
+.env.local
