@@ -1,0 +1,71 @@
+{% include "partial/header.html.twig" %}
+
+<!-- Template liée au controller : src/Controller/ContactController.php -->
+<main id="contact">
+	<div class="container">
+		<section>
+			<article>
+				<h2>Contact</h2>
+				<p>Page de formulaire de demande et d'informations complémentaires.</p>
+			</article>
+		</section>
+		<section class="map">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d11135.566425897725!2d4.85991795!3d45.75331895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1680854754610!5m2!1sfr!2sfr" width="80%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+		</section>
+		<section>
+			<article class="marginText">
+				<p>Nous serions ravis d'avoir de vos nouvelles ! Notre équipe est à votre disposition pour répondre à toutes vos questions concernant nos bijoux. Si vous cherchez des bijoux sur mesure, nous sommes là pour vous aider à réaliser votre vision. N'hésitez pas à nous contacter pour demander des informations et des devis personnalisés pour vos projets de bijoux. Nous sommes là pour vous guider tout au long du processus et vous offrir un service client exceptionnel. Nous attendons avec impatience de travailler avec vous pour créer des bijoux exceptionnels qui vous feront vous sentir confiant et élégant.</p>
+			</article>
+		</section>
+		<section class="sectionFlex">
+			<article>
+				<form action="">
+					<h3>Demande d'information</h3>
+					<div class="form-inline">
+						<input class="nom" type="text" placeholder="Nom">
+						<input class="prenom" type="text" placeholder="Prénom">
+					</div>
+					<br>
+					<input class="objet" type="text" placeholder="Objet du message">
+					<br>
+					<textarea name="" id="" cols="30" rows="10">Message</textarea>
+					<div class="submit"><input class="submit" type="submit" value="Envoyer"></div>
+				</form>
+			</article>
+			<article>
+				<h3>Informations gérérales</h3>
+				<div class="infos">
+					<div>
+						<h4>Horaires d'ouverture</h4>
+						<div class="horairesFlex">
+							<div class="jour">
+								<p>Lundi</p>
+								<p>Mardi</p>
+								<p>Mercredi</p>
+								<p>Jeudi</p>
+								<p>Vendredi</p>
+							</div>
+							<div>
+								<p>9h - 18h</p>
+								<p>8h - 18h</p>
+								<p>8h - 18h</p>
+								<p>8h - 18h</p>
+								<p>8h - 17h</p>
+							</div>
+						</div>
+					</div>
+					<div class="coordonnees">
+						<h4>Coordonées</h4>
+						<p>mail:adresse@gmail.com
+						</p>
+						<p>tel: +33785770295
+						</p>
+					</div>
+				</div>
+			</article>
+		</section>
+	</div>
+</main>
+
+
+{% include "partial/footer.html.twig" %}
