@@ -1716,7 +1716,8 @@ input[type="range"]:focus::-ms-fill-upper {
   width: 40%;
 }
 #cart .form_livraison input:not([type="radio"]),
-#cart .form_livraison textarea {
+#cart .form_livraison textarea,
+#cart .form_livraison select {
   background-color: white;
   border: none;
   padding: 10px;

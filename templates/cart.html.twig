@@ -81,10 +81,11 @@
 					<label for="ville">Ville :</label>
 					<input type="text" name="ville">
 				</div>
-
 				<div>
 					<label for="pays">Pays :</label>
-					<input type="text" name="pays">
+					<select name="pays" id="pays-select">
+						<option value="">--Choisir un pays--</option>
+					</select>
 				</div>
 
 				<div>
@@ -97,7 +98,7 @@
 				<div>
 					<label for="addrFacturationDiffOui"><input type="radio" name="addrFacturationDiff" id="addrFacturationDiffOui" value="true">
 						Oui</label>
-					<label for="addrFacturationDiffNon"><input type="radio" name="addrFacturationDiff" id="addrFacturationDiffNon" value="false">
+					<label for="addrFacturationDiffNon"><input type="radio" name="addrFacturationDiff" id="addrFacturationDiffNon" value="false" checked>
 						Non</label>
 				</div>
 
@@ -120,6 +121,14 @@
 					<label for="ville_livr">Ville :</label>
 					<input type="text" name="ville_livr">
 				</div>
+				<div>
+					<label for="pays_livr">Pays :</label>
+					<select name="pays" id="pays-select_livr">
+						<option value="">--Choisir un pays--</option>
+					</select>
+				</div>
+
+
 			</div>
 			<div class="form_payement">
 				<h2>Moyens de paiement</h2>
