@@ -5,7 +5,7 @@ namespace App\Controller;
 use PDO;
 use App\Routing\Attribute\Route;
 
-class UserController extends AbstractController
+class LoginController extends AbstractController
 {
 
   #[Route(path: "/user/login", name: "login_page")]
