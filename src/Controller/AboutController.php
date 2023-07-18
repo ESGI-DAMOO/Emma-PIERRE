@@ -9,12 +9,12 @@ class AboutController extends AbstractController
 {
 
   #[Route(path: "/about", name: "about_page")]
-  public function ahowAbout(): string
+  public function showAbout(): string
   {
 
     // Contexte Twig
     $context['page'] = array(
-      'titre' => 'Emma Pierre A propos',
+      'titre' => 'Emma Pierre - Qui sommes-nous ?',
     );
 
     // Rendu du template Twig
