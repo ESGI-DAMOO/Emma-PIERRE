@@ -12,7 +12,11 @@ class CartController extends AbstractController
   public function showCart(): string
   {
 
-    // Contexte Twig
+    $rest_api_url = 'https://happyapi.fr/api/getLands';
+    $json_data = file_get_contents($rest_api_url);
+    $response_data = json_decode($json_data);
+
+    $context['pays'] = $response_data;
     $context['page'] = array(
       'titre' => 'Emma Pierre - Votre pannier',
     );
