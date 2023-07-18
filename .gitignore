@@ -3,3 +3,4 @@ vendor/
 conf/*.ini
 .vscode/
 .env.local
+.DS_Store
