@@ -4,3 +4,6 @@ conf/*.ini
 .vscode/
 .env.local
 .DS_Store
+.env
+.lando.yml
+.idea/

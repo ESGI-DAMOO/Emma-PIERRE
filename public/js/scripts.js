@@ -38,4 +38,34 @@ $('#input-number').on('keydown mousedown keyup mouseup input change', function (
 });
 
 
+// Liste des pays via l'API https://happyapi.fr/api/getLands
+$.ajax({
+    url: 'https://happyapi.fr/api/getLands',
+    type: 'GET',
+    dataType: 'json',
+    success: function (data) {
+        const select1 = document.querySelector('#pays-select');
+        const select2 = document.querySelector('#pays-select_livr');
+        const countryList = data.result.result;
+        for (let countryCode in countryList) {
+            if (countryList.hasOwnProperty(countryCode)) {
+                // Créer une nouvelle option
+                const opt = document.createElement('option');
+
+                // Définir la valeur et le texte de l'option
+                opt.value = countryCode;
+                opt.innerHTML = countryList[countryCode];
+                if (countryCode === 'FR') {
+                    opt.selected = true;
+                }
+                // Ajouter l'option au select
+                select1.appendChild(opt);
+                select2.appendChild(opt.cloneNode(true));
+            }
+        }
+    },
+    error: function (error) {
+        console.log(error);
+    }
+});
 
