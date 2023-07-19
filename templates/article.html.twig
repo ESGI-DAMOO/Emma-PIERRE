@@ -1,0 +1,47 @@
+{% include "partial/header.html.twig" %}
+
+<!-- Template liée au controller : src/Controller/ArticleController.php -->
+<main id="product" class="container">
+	<div class="path">
+		<p>
+			<a href="/">Accueil
+			</a>
+			>
+			<a href="/listing-product">Tous les produits
+			</a>
+			>
+			<a href="#">Collier Alexandra</a>
+		</p>
+	</div>
+	<section>
+		<div class="product__container">
+			<div class="product__container__img">
+				<img src="/img/products/CollierAlexandra.jpg" alt="Collier Alexandra">
+			</div>
+			<div class="product__container__description">
+				<h1>Collier Alexandra</h1>
+				<p>Des perles Miuki dorées réchauffent le rose délicat d'une opale et perles de quartz givré, autres
+																				                        composants en plaqué
+																				                        or 24 carats, longeur d'environ 41 à 44 cms, vous serez séduite par son côté précieux</p>
+				<p>Matière : Opale & quartz rose</p>
+				<p>
+					<span class="circle" style="background-color: pink;"></span>
+					Rose doudou
+				</p>
+				<p>Longueur du collier : 45 cm</p>
+				<p>
+
+					<span class="prix-sign">€</span>
+					<span class="prix-currency">65</span>
+					<span class="prix-cent">.00</span>
+				</p>
+				<button class="btn btn-bleu">Ajouter au panier</button><br>
+				<button class="btn btn-bleu-transp">Ajouter à ma wishlist</button>
+			</div>
+		</div>
+	</section>
+</main>
+
+
+{% include "partial/feed-insta.html.twig" %}
+{% include "partial/footer.html.twig" %}
