@@ -5,14 +5,14 @@ namespace App\Controller;
 use PDO;
 use App\Routing\Attribute\Route;
 
-class ArticleController extends AbstractController
+class ArticlesController extends AbstractController
 {
 
-  #[Route(path: "/listing-product", name: "getAllArticles_page")]
+  #[Route(path: "/articles", name: "getAllArticles_page")]
   public function getAllArticles(): string
   {
 
-    // Récupère les données de la base de données
+    // Récupère les articles
     $req = "SELECT * FROM ARTICLE";
     $statement = $this->pdo->prepare($req);
     $statement->execute();
@@ -32,15 +32,33 @@ class ArticleController extends AbstractController
     }
     $context['articles'] = $articles;
 
-    // Récupère les données de la base de données
+    // Récupère les types d'articles
     $req = "SELECT * FROM TYPE_ARTICLE;";
     $statement = $this->pdo->prepare($req);
     $statement->execute();
     $types = $statement->fetchAll(PDO::FETCH_ASSOC);
-
     $context['types'] = $types;
 
-    // Rendu du template Twig
+    // Recupere les couleurs
+    $req = "SELECT * FROM COULEUR;";
+    $statement = $this->pdo->prepare($req);
+    $statement->execute();
+    $couleurs = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $context['couleurs'] = $couleurs;
+
+    // Recupere le prix min et le prix max
+    $req = "SELECT MIN(prix) AS prix_min, MAX(prix) AS prix_max FROM ARTICLE;";
+    $statement = $this->pdo->prepare($req);
+    $statement->execute();
+    $prix = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $context['prix'] = $prix;
+//      var_dump($prix);exit;
+
+      // Rendu du template Twig
+//      echo "<pre>";
+//      var_dump($context);
+//      echo "</pre>";
+
     return $this->twig->render('products.html.twig', $context);
   }
 
