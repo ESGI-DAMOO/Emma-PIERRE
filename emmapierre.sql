@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le : mar. 18 juil. 2023 à 09:00
+-- Généré le : mer. 19 juil. 2023 à 09:28
 -- Version du serveur : 5.7.39
 -- Version de PHP : 8.2.0
 
@@ -469,34 +469,35 @@ INSERT INTO `commande` (`id_commande`, `id_user`, `id_code_promo`, `date_command
 
 CREATE TABLE `couleur` (
   `id_couleur` int(11) NOT NULL,
-  `nom_couleur` varchar(100) NOT NULL
+  `nom_couleur` varchar(100) NOT NULL,
+  `code` varchar(7) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `couleur`
 --
 
-INSERT INTO `couleur` (`id_couleur`, `nom_couleur`) VALUES
-(1, 'Amazonie'),
-(2, 'Aqua azurra'),
-(3, 'Bleu lagon'),
-(4, 'Corail'),
-(5, 'Rainbow'),
-(6, 'Terre'),
-(7, 'Red velvet'),
-(8, 'Ocean'),
-(9, 'Orage'),
-(10, 'Nuit étoilée'),
-(11, 'brun'),
-(12, 'Rose doudou'),
-(13, 'Ivoire'),
-(14, 'Gold'),
-(15, 'bleu'),
-(16, 'Soleil'),
-(17, 'Rouge carmin'),
-(18, 'multi'),
-(19, 'Rose'),
-(20, 'Dark');
+INSERT INTO `couleur` (`id_couleur`, `nom_couleur`, `code`) VALUES
+(1, 'Amazonie', '#228B22'),
+(2, 'Aqua azurra', '#7FFFD4'),
+(3, 'Bleu lagon', '#7FFFD4'),
+(4, 'Corail', '#FF7F50'),
+(5, 'Rainbow', NULL),
+(6, 'Terre', '#964B00'),
+(7, 'Red velvet', '#B22222'),
+(8, 'Ocean', '#000080'),
+(9, 'Orage', '#708090'),
+(10, 'Nuit étoilée', '#000080'),
+(11, 'brun', '#964B00'),
+(12, 'Rose doudou', '#FFC0CB'),
+(13, 'Ivoire', '#FFFFF0'),
+(14, 'Gold', '#FFD700'),
+(15, 'bleu', '#0000FF'),
+(16, 'Soleil', '#FFD700'),
+(17, 'Rouge carmin', '#FF0038'),
+(18, 'multi', NULL),
+(19, 'Rose', '#FFC0CB'),
+(20, 'Dark', '#000000');
 
 -- --------------------------------------------------------
 
