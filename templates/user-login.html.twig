@@ -1,9 +1,13 @@
-{% include "partial/header.html.twig" %}  
-    <form method="post" action="verifier.php">
-        <label for="username">Nom d'utilisateur:</label><br>
-        <input type="text" id="username" name="username"><br>
+{% include "partial/header.html.twig" %}
+<div id="container">
+    <form id="loginform" method="post" action="userlogin">
+    <h2>Connexion</h2>
+        <label for="email">Adresse mail:</label><br>
+        <input type="email" id="email" name="email"><br>
         <label for="password">Mot de passe:</label><br>
         <input type="password" id="password" name="password"><br>
-        <input type="submit" value="Se connecter">
+        <input id="submitButton" type="submit" value="Se connecter">
+        <p>Pas encore de compte? <a href="userregister">S'inscrire ici</a></p>
     </form>
+    </div>
 {% include "partial/footer.html.twig" %}
