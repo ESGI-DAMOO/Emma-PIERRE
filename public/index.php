@@ -45,6 +45,8 @@ $twig = new Environment($loader, [
   'debug' => $_ENV['APP_ENV'] === 'dev',
   'cache' => __DIR__ . '/../var/twig/',
 ]);
+$twig->addExtension(new \Twig\Extension\DebugExtension());
+$twig->addGlobal('session', $_SESSION ?? []);
 
 // Créer un conteneur de services
 $serviceContainer = new Container();
