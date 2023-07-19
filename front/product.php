@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>Emma Pierre - Collier Alexandra</title>
@@ -13,8 +12,7 @@
 
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
-        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -22,8 +20,7 @@
 
     <main id="product" class="container">
         <div class="path">
-            <p><a href="./index.php">Accueil </a> > <a href="./listing-product.php">Tous les produits </a> > <a
-                    href="#">Collier Alexandra</a></p>
+            <p><a href="./index.php">Accueil </a> > <a href="./listing-product.php">Tous les produits </a> > <a href="#">Collier Alexandra</a></p>
         </div>
         <section>
             <div class="product__container">
