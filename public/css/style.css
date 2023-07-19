@@ -1897,10 +1897,12 @@ input[type="range"]:focus::-ms-fill-upper {
   margin-top: 20px;
 }
 
-input[type='email'], [type='text'], input[type='password']{
+input[type='email'], [type='text'], input[type='password'], input[type='tel'], input[type='date'], select{
   height: 25px;
   border-radius: 10px;
   border-color: rgba(211, 211, 211, 0.611);
   margin-bottom: 1rem;
 }
+
+
 /* END LOGIN FORM */
