@@ -23,12 +23,10 @@ class ArticlesController extends AbstractController
       'titre' => 'Liste des articles',
     );
     foreach ($articles as &$article) {
-      $photos = json_decode($article["photos"]);
-      if (!$photos) {
-        $article["photos"] = '';
-      } else {
-        $article["photos"] = $photos[0]->src;
-      }
+        if($article["photos"] != null) {
+            $photos = json_decode($article["photos"]);
+            $article["photos"] = $photos[0]->src;
+        }
     }
     $context['articles'] = $articles;
 
@@ -52,14 +50,41 @@ class ArticlesController extends AbstractController
     $statement->execute();
     $prix = $statement->fetchAll(PDO::FETCH_ASSOC);
     $context['prix'] = $prix;
-//      var_dump($prix);exit;
 
-      // Rendu du template Twig
-//      echo "<pre>";
-//      var_dump($context);
-//      echo "</pre>";
+    return $this->twig->render('articles.html.twig', $context);
+  }
+  #[Route(path: "/api/articles/sort/{type}{couleur}{prix_min}{prix_max}{dispo}{promo}", name: "cart_page")]
+  public function sortArticles(string $type = 'null', string $couleur, int $prix_min, int $prix_max, bool $dispo, bool $promo): string
+  {
+      $req = "SELECT a.*";
+      $req .= " FROM ARTICLE AS a JOIN TYPE_ARTICLE AS t ON a.id_type = t.id_type JOIN COULEUR AS c ON a.id_couleur = c.id_couleur";
+      $req = " WHERE 1=1";
 
-    return $this->twig->render('products.html.twig', $context);
+      if ($type != null) {
+        $req .= " AND t.type = :type";
+      }
+      if ($couleur != null) {
+        $req .= " AND c.nom_couleur = :couleur";
+      }
+      if ($prix_min != null && $prix_max != null) {
+          $req .= " AND a.prix BETWEEN x AND y";
+      }
+      else if ($prix_min != null) {
+          $req .= " AND a.prix > :prix_min";
+      }
+      else if ($prix_max != null) {
+          $req .= " AND a.prix > :prix_max";
+      }
+      if ($dispo != null) {
+          $req .= " AND a.stock > 0";
+      }
+      if ($promo != null) {
+          $req .= " AND a.remise <> 0";
+      }
+
+
+    // Rendu du template Twig
+    return $this->twig->render('articles.html.twig', $context);
   }
 
   #[Route(path: "/article/{id}", name: 'getOneArticle', httpMethod: "GET")]
