@@ -1886,3 +1886,21 @@ input[type="range"]:focus::-ms-fill-upper {
     width: 90%;
   }
 }
+
+/* LOGIN FORM */
+#container {
+  margin-top: 12rem;
+  margin-bottom: 5rem;
+  text-align: center;
+}
+#container #submitButton {
+  margin-top: 20px;
+}
+
+input[type='email'], [type='text'], input[type='password']{
+  height: 25px;
+  border-radius: 10px;
+  border-color: rgba(211, 211, 211, 0.611);
+  margin-bottom: 1rem;
+}
+/* END LOGIN FORM */
