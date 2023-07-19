@@ -48,7 +48,31 @@ class ArticleController extends AbstractController
   public function getOneArticle(int $id): string
   {
     // Récupère les données de la base de données
-    $req = "SELECT * FROM article WHERE id_article = :id;";
+    $req = "
+    SELECT 
+      a.id_article, 
+      a.nom, 
+      a.description, 
+      a.longueur, 
+      a.prix, 
+      a.remise, 
+      a.stock, 
+      a.remarques, 
+      a.photos, 
+      cat.categorie, 
+      col.collection, 
+      cou.nom_couleur couleur, 
+      cou.code code_couleur,
+      mat.nom_matiere matiere, 
+      typ.type  
+    FROM article a
+    JOIN categorie cat ON cat.id_categorie = a.id_categorie
+    JOIN collection col on col.id_collection = a.id_collection
+    JOIN couleur cou on cou.id_couleur = a.id_couleur
+    JOIN matiere mat on mat.id_matiere = a.id_matiere
+    JOIN type_article typ ON typ.id_type = a.id_type
+    WHERE a.id_article = :id;
+    ";
     $statement = $this->pdo->prepare($req);
     $statement->execute([':id' => $id]);
     $article = $statement->fetch(PDO::FETCH_ASSOC);
@@ -65,6 +89,9 @@ class ArticleController extends AbstractController
     $context['page'] = array(
       'titre' => 'Emma Pierre - article ' . $article['nom'],
     );
+
+    $article["prixEntier"] = floor($article["prix"]);
+    $article["prixFraction"] = sprintf("%02d", fmod($article["prix"], 1) * 100);
     $context['article'] = $article;
 
     // Rendu du template Twig
