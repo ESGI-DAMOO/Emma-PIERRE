@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le : mer. 19 juil. 2023 à 12:06
+-- Généré le : mer. 19 juil. 2023 à 15:56
 -- Version du serveur : 5.7.39
 -- Version de PHP : 8.2.0
 
@@ -446,9 +446,9 @@ CREATE TABLE `commande` (
   `id_code_promo` varchar(50) DEFAULT NULL,
   `date_commande` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `date_reglement` date DEFAULT NULL,
-  `id_statut` int(11) NOT NULL,
-  `id_adresse_livraison` int(11) NOT NULL,
-  `id_adresse_facturation` int(11) NOT NULL
+  `id_statut` int(11) NOT NULL DEFAULT '1',
+  `id_adresse_livraison` int(11) DEFAULT NULL,
+  `id_adresse_facturation` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -459,7 +459,8 @@ INSERT INTO `commande` (`id_commande`, `id_user`, `id_code_promo`, `date_command
 (1, 17, '20SUR20', '2023-07-17 16:18:18', '2023-07-11', 5, 1, 1),
 (2, 8, 'LOVEJS', '2023-07-17 16:18:18', '2023-07-16', 3, 7, 13),
 (3, 20, NULL, '2023-07-17 16:20:59', NULL, 1, 12, 12),
-(4, 6, 'JOYEUXANNIVMAXIME', '2023-07-17 16:20:59', '2023-07-17', 4, 9, 9);
+(4, 6, 'JOYEUXANNIVMAXIME', '2023-07-17 16:20:59', '2023-07-17', 4, 9, 9),
+(5, 21, NULL, '2023-07-19 12:44:28', NULL, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -558,6 +559,16 @@ CREATE TABLE `panier` (
   `id_article` int(11) NOT NULL,
   `quantite` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `panier`
+--
+
+INSERT INTO `panier` (`id_commande`, `id_article`, `quantite`) VALUES
+(5, 1, 1),
+(5, 2, 1),
+(5, 4, 2),
+(5, 20, 1);
 
 -- --------------------------------------------------------
 
@@ -795,7 +806,7 @@ ALTER TABLE `collection`
 -- AUTO_INCREMENT pour la table `commande`
 --
 ALTER TABLE `commande`
-  MODIFY `id_commande` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_commande` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `couleur`
