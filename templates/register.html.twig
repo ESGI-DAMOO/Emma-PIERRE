@@ -1,7 +1,22 @@
 {% include "partial/header.html.twig" %}
 <div id="container">
     <form method="post" action="userregister">
-    <h2>Inscription</h2>
+    <h1>Inscription</h1>
+    <h2>Etat civil</h2>
+        <label for="lastname">Nom:</label><br>
+        <input type="text" id="lastname" name="lastname"><br>
+        <label for="surname">Prénom:</label><br>
+        <input type="text" id="surname" name="surname"><br>
+        <label for="gender">Genre:</label><br>
+        <select id="gender" name="gender">
+            <option value="h">Homme</option>
+            <option value="f">Femme</option>
+        </select><br>
+        <label for="phone">Numéro de téléphone:</label><br>
+        <input type="tel" id="phone" name="phone"><br>
+        <label for="birthdate">Date de naissance:</label><br>
+        <input type="date" id="birthdate" name="birthdate"><br>
+    <h2>Informations de connexion</h2>
         <label for="mail">Adresse mail:</label><br>
         <input type="email" id="mail" name="mail"><br>
         <label for="password">Mot de passe:</label><br>
