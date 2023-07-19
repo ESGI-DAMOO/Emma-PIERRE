@@ -42,26 +42,23 @@
 
             <p>Matériaux</p>
 
-            <span class="circle selected" style="background-color: pink;"></span>
-            <span class="circle" style="background-color: #4CB7A5;"></span>
-            <span class="circle" style="background-color: #F7645D;"></span>
-            <span class="circle" style="background-color: #C3B89C;"></span>
-            <span class="circle" style="background: linear-gradient(90deg, #FF0000 0%, #FFA800 10.42%, #ADFF00 20.83%, #00FF85 32.81%, #00F0FF 45.83%, #0057FF 58.85%, #6100FF 70.83%, #FF00B8 83.33%, #FF0000 100%);"></span>
-            <span class="circle" style="background: url('assets/img/plus.svg')"></span>
+            {% for couleur in couleurs |slice (0 ,10) %}
+                <span class="circle" style="background-color: {{ couleur.code }};"></span>
+            {% endfor %}
 
             <p>Prix</p>
             <div>
-                <input id="range-price" type="range" step="1" max="200" min="0" value="200"/>
+                <input id="range-price" type="range" step="1" max="{{ prix.0.prix_max }}" min="{{ prix.0.prix_min }}" value="{{ prix.0.prix_max }}"/>
             </div>
             <div class="price-choose">
                 <div class="input-number-container">
                     <span class="input-number-prefix">€</span>
-                    <input id="" class="input-number" type="number" max="200" value="0" disabled/>
+                    <input id="" class="input-number" type="number" max="{{ prix.0.prix_max }}" value="{{ prix.0.prix_min }}" disabled/>
                 </div>
                 <span>-</span>
-                <div class="input-number-container">
+               <div class="input-number-container">
                     <span class="input-number-prefix">€</span>
-                    <input id="input-number" class="input-number" max="200" type="number" value="200"/>
+                    <input id="input-number" class="input-number" max="{{ prix.0.prix_max }}" type="number" value="{{ prix.0.prix_max }}"/>
                 </div>
             </div>
 
