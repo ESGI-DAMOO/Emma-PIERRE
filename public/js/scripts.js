@@ -1,16 +1,20 @@
 // --------- //
-var header = $('.navbar');
-var headerHeight = header.height();
-console.log(headerHeight);
-if ($(window).width() > 600) {
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 50) {
-            header.stop().animate({ height: headerHeight * 0.7 }, 500);
+var header = document.querySelector('.navbar');
+var headerHeight = header.offsetHeight;
+
+if (window.innerWidth > 1024) {
+    window.onscroll = function () {
+        var scrollHeight = window.scrollY || window.scrollTop || document.getElementsByTagName("html")[0].scrollTop;
+
+        if (scrollHeight > 50) {
+            header.classList.add('petite');
         } else {
-            header.stop().animate({ height: headerHeight }, 500);
+            header.classList.remove('petite');
         }
-    });
+    };
 }
+
+
 
 //Ouverture de la barre de recherche
 var isSearchOpen = false;
