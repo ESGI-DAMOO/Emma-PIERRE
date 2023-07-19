@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>{{ page.title }}</title>
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style-admin.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+</head>
+</html>
+<body>
+<header id="img-header">
+    <script>
+        const toggleMenuOpen = () => document.body.classList.toggle("open");
+    </script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+
+    <div class="header-nav">
+        <nav class="navbar">
+            <div class="navbar-overlay" onclick="toggleMenuOpen()"></div>
+            <button type="button" class="navbar-burger" onclick="toggleMenuOpen()">
+                <span class="material-icons">menu</span>
+            </button>
+            <a href="/"><img class="logo" src="/img/emma-pierre-logo-blanc.png" width="125px"/></a>
+
+            <nav class="navbar-menu">
+                <a href="/"><img class="logo" src="/img/emma-pierre-logo-blanc.png" width="125px"/></a>
+                <div class="navbar-droite">
+                    <div class="navbar-liens">
+                        <a class="lien_menu_admin" href="./listing-product">
+                            Produits
+                        </a>
+                    </div>
+                    <div class="header-icon">
+                        <a href="/logout">
+                            <img style="filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(185deg) brightness(115%) contrast(100%);" src="/img/logout.svg"/>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </nav>
+    </div>
+</header>
+
