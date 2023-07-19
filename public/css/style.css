@@ -213,11 +213,11 @@ a.lien_menu:hover::after {
 }
 
 .arrow-prev {
-  content: url("../img/chevron-double-left.svg");
+  content: url("/img/chevron-double-left.svg");
 }
 
 .arrow-next {
-  content: url("../img/chevron-double-right.svg");
+  content: url("/img/chevron-double-right.svg");
 }
 /* END GLOBAL */
 
@@ -621,25 +621,25 @@ footer .social img {
   }
 }
 .one {
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url("../img/products/DiamantBrut.jpeg");
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url("/img/products/DiamantBrut.jpeg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 .two {
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url("../img/products/BouclesFondOrange.jpeg");
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url("/img/products/BouclesFondOrange.jpeg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 .tree {
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url("../img/products/BouclesFondBleu.jpeg");
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url("/img/products/BouclesFondBleu.jpeg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 .for {
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url("../img/products/BouclesFondRose.jpeg");
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url("/img/products/BouclesFondRose.jpeg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -728,7 +728,7 @@ footer .social img {
 
 /* HOME BANNIERE DEVIS */
 #banniere_devis {
-  background-image: linear-gradient(to right, rgba(29, 95, 107, 0.5), rgba(247, 100, 93, 0.5)), url("../img/products/QuartzBrut.jpg");
+  background-image: linear-gradient(to right, rgba(29, 95, 107, 0.5), rgba(247, 100, 93, 0.5)), url("/img/products/QuartzBrut.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -931,7 +931,7 @@ footer .social img {
 }
 
 .banner-top {
-  background-image: url("../img/products/ModelBoucle.jpg");
+  background-image: url("/img/products/ModelBoucle.jpg");
   width: 100vw;
   margin-top: 5rem;
   height: 600px;
@@ -1321,7 +1321,7 @@ input[type="range"]:focus::-ms-fill-upper {
   }
 }
 #about div.banniere {
-  background-image: url("../img/greenstone.jpeg");
+  background-image: url("/img/greenstone.jpeg");
   background-position: center;
   width: 100%;
   height: 220px;
@@ -1335,7 +1335,7 @@ input[type="range"]:focus::-ms-fill-upper {
   padding: 20px 60px;
 }
 #about div.banniere h1 {
-  background-image: url("../img/greenstone.jpeg");
+  background-image: url("/img/greenstone.jpeg");
   background-position: center;
   color: transparent;
   background-clip: text;
@@ -1432,7 +1432,7 @@ input[type="range"]:focus::-ms-fill-upper {
 
 /* BLOG */
 #blog div.banniere {
-  background-image: url("../img/products/CollierToile.jpg");
+  background-image: url("/img/products/CollierToile.jpg");
   background-position: center;
   width: 100%;
   height: 220px;
@@ -1446,7 +1446,7 @@ input[type="range"]:focus::-ms-fill-upper {
   padding: 20px 60px;
 }
 #blog div.banniere h1 {
-  background-image: url("../img/products/CollierToile.jpg");
+  background-image: url("/img/products/CollierToile.jpg");
   background-position: center;
   color: transparent;
   background-clip: text;
