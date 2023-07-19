@@ -1,0 +1,23 @@
+{% include 'admin/partial-admin/header-admin.twig' %}
+<div class="admin-content">
+    <h2>Tableau de bord</h2>
+    <div class="statistic-container">
+        <div class="statistic-card red">
+            <p>Produits</p>
+            <p><span class="number">{{ produit }}</span></p>
+        </div>
+        <div class="statistic-card blue">
+            <p>Commandes</p>
+            <p><span class="number">2</span></p>
+        </div>
+        <div class="statistic-card green">
+            <p>Clients</p>
+            <p><span class="number">165</span></p>
+        </div>
+        <div class="statistic-card yellow">
+            <p>Revenus</p>
+            <p><span class="number">1567,89 €</span></p>
+        </div>
+    </div>
+</div>
+{% include 'admin/partial-admin/footer-admin.twig' %}

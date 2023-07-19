@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ page.title }}</title>
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style-admin.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+</head>
+<body class="login-admin">
+<div class="login-admin-form">
+    <div class="text-admin">
+        <h1>Connexion à l'espace administrateur</h1>
+        <p>Connectez-vous pour accéder à l'espace administrateur</p>
+    </div>
+    <form action="/">
+        <div>
+            <input type="text" id="username" name="username" placeholder="Nom d'utilisateur">
+        </div>
+        <div>
+            <input class="forgotten-pass" type="password" id="password" name="password" placeholder="Mot de passe">
+            <a href="#">Mot de passe oublié ?</a>
+        </div>
+        <div>
+            <input class="form-submit" type="submit" value="Se connecter">
+        </div>
+    </form>
+</div>
+</body>
+</html>
+
