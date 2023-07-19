@@ -574,7 +574,7 @@ footer .social img {
   z-index: -1;
 }
 #feed_insta .logo_insta img{
-  height: 1024px;
+  height: 600px;
   filter: opacity(0.15);
 }
 /* END FEED INSTA */
@@ -1892,7 +1892,7 @@ input[type="range"]:focus::-ms-fill-upper {
   margin-top: 20px;
 }
 
-input[type='email'], [type='text'], input[type='password'], input[type='tel'], input[type='date'], select{
+#container input[type='email'], #container [type='text'], #container input[type='password'], #container input[type='tel'], #container input[type='date'], #container select{
   height: 25px;
   border-radius: 10px;
   border-color: rgba(211, 211, 211, 0.611);
