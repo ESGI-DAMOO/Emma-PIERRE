@@ -1693,6 +1693,7 @@ footer .social img {
 }
 #cart .panier_delete_article img {
   width: 40px;
+  cursor: pointer;
 }
 #cart .form_panier {
   width: 35%;

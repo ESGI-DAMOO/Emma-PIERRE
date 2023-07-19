@@ -15,14 +15,53 @@ class CartController extends AbstractController
   #[Route(path: "/panier", name: 'cart_page', httpMethod: "GET")]
   public function cart(): string
   {
-    $rest_api_url = 'https://happyapi.fr/api/getLands';
-    $json_data = file_get_contents($rest_api_url);
-    $response_data = json_decode($json_data);
 
-    $context['pays'] = $response_data;
     $context['page'] = array(
-      'titre' => 'Emma Pierre - Votre pannier',
+      'titre' => 'Emma Pierre - Votre panier',
     );
+
+    // Récupération de l'id de l'utilisateur connecté
+    //$idUser = $_SESSION['user_id'] ?? 0;
+    $idUser = 21;
+    $context['idUser'] = $idUser;
+
+    if ($idUser == 0) {
+      return $this->twig->render('cart.html.twig', $context);
+      exit;
+    }
+
+    // Vérification de l'existance d'une commande active dans la base de données
+    $req = "SELECT id_commande FROM commande WHERE id_user = ? AND id_statut = 1;";
+    $statement = $this->pdo->prepare($req);
+    $statement->execute([$idUser]);
+    $commande = $statement->fetch(PDO::FETCH_ASSOC) ?? null;
+    if (!$commande) {
+      $context['articles'] = [];
+      return $this->twig->render('cart.html.twig', $context);
+      exit;
+    }
+
+    // Récupération des articles du panier
+    $req = "SELECT 
+      a.id_article,
+      a.nom,
+      a.prix,
+      a.remise,
+      a.photos,
+      p.quantite,
+      ta.type AS type_article,
+      (a.prix - (a.prix * a.remise / 100)) AS prix_article,
+      (a.prix - (a.prix * a.remise / 100)) * p.quantite AS total_article
+    FROM article a
+    JOIN panier p ON a.id_article = p.id_article
+    JOIN type_article ta ON a.id_type = ta.id_type
+    WHERE p.id_commande = ?;";
+    $statement = $this->pdo->prepare($req);
+    $statement->execute([$commande['id_commande']]);
+    $articles = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $totalPanier = $articles ? array_sum(array_column($articles, 'total_article')) : 0;
+    $context['articles'] = $articles;
+    $context['totalPanier'] = $totalPanier;
 
     // Rendu du template Twig
     return $this->twig->render('cart.html.twig', $context);
