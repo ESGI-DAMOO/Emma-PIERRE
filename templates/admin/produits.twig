@@ -1,0 +1,30 @@
+{% include 'admin/partial-admin/header-admin.twig' %}
+<div class="admin-content">
+    <h2>Produits</h2>
+    <form>
+        <input type="search" placeholder="Rechercher un produit ..."/>
+        <button>Rechercher</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Image</th>
+                <th class="width-fit-content">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for item in produit %}
+            <tr>
+                <td><a target="_blank" href="/article/{{ item.id_article }}">{{ item.nom }}</a></td>
+                <td><img src="{{ item.photos }}" alt=""></td>
+                <td class="width-fit-content">
+                    <a href="/admin/produit/{{ item.id_article }}/edit">Modifier</a>
+                    <a class="delete-link" href="/admin/produit/{{ item.id_article }}/delete">Supprimer</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% include 'admin/partial-admin/footer-admin.twig' %}

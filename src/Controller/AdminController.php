@@ -59,4 +59,20 @@ class AdminController extends AbstractController
         return $this->twig->render('admin/dashboard.twig', $context);
     }
 
+    #[Route(path: "/admin/produits", name: "produitAdministrateur_page")]
+    public function produitAdministrateur(): string
+    {
+
+        // Obtenir le nombre de produits :
+        $req = "SELECT *
+                FROM article";
+        $statement = $this->pdo->prepare($req);
+        $statement->execute();
+        $res = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $context['produit'] = $res;
+
+        // Rendu du template Twig
+        return $this->twig->render('admin/produits.twig', $context);
+    }
+
 }
