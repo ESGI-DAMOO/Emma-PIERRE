@@ -112,3 +112,38 @@ body.login-admin {
 .statistic-card.yellow {
     background: gold;
 }
+
+/* PRODUCT */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+th, td {
+    border: 1px solid;
+    text-align: left;
+    padding: 1rem;
+}
+
+th {
+    font-weight: bold;
+    background-color: var(--admin-primary);
+    color: white;
+}
+
+.width-fit-content {
+    width: 10%;
+}
+
+.delete-link {
+    color: darkred;
+}
+
+td {
+    background-color: white;
+}
+
+td a {
+    text-decoration: underline;
+}
