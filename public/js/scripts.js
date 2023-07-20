@@ -64,6 +64,30 @@ function updateCartCount() {
 }
 updateCartCount();
 
+// Affichage du montant total du panier
+function updateCartTotal() {
+    const cartTotal = document.querySelector('#prix-total');
+    if (cartTotal) {
+        //fetch api /api/cart/count
+        try {
+            fetch('/api/panier/getTotal', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    cartTotal.innerHTML = `Total: ${data.total.toFixed(2)} € TTC`;
+                })
+                .catch((error) => { console.error(error) })
+        }
+        catch (error) {
+            console.error(error)
+        }
+    }
+}
+
 // Bouton ajout au panier
 const addToCartBtn = document.querySelector('#add-to-cart')
 const textValid = document.querySelector('#product .valide')
@@ -97,7 +121,7 @@ function addToCart() {
     }
 }
 
-// Bouton suppression d'un article du panier
+// Bouton suppression d'un article du panier et changement de la quantité
 const articlesPanier = document.querySelectorAll('.article_panier');
 articlesPanier.forEach(article => {
     const deleteBtn = article.querySelector('.panier_delete_article')
@@ -115,6 +139,7 @@ articlesPanier.forEach(article => {
                 .then((response) => response.json())
                 .then((data) => {
                     updateCartCount();
+                    updateCartTotal();
                     article.remove();
                 })
                 .catch((error) => { console.error(error) })
@@ -123,4 +148,30 @@ articlesPanier.forEach(article => {
             console.error(error)
         }
     }
+    const quantityInput = article.querySelector('.input-number');
+    quantityInput.addEventListener('change', changeQuantity);
+    function changeQuantity() {
+        const id = article.dataset.id;
+        const quantity = quantityInput.value;
+        const data = new FormData();
+        data.append('id', id);
+        data.append('quantity', quantity);
+
+        try {
+            fetch('/api/panier/changeQuantity', {
+                method: 'POST',
+                body: data,
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    updateCartCount();
+                    updateCartTotal();
+                })
+                .catch((error) => { console.error(error) })
+        }
+        catch (error) {
+            console.error(error)
+        }
+    }
+
 });
