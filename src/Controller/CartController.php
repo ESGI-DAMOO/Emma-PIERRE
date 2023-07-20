@@ -9,6 +9,53 @@ class CartController extends AbstractController
 {
 
   /**
+   * Récupère un article
+   */
+  private function getArticle(int $id): array
+  {
+    $req = "SELECT 
+      id_article
+    FROM article
+    WHERE id_article = ?;";
+    $statement = $this->pdo->prepare($req);
+    $statement->execute([$id]);
+    $article = $statement->fetch(PDO::FETCH_ASSOC);
+    return $article;
+  }
+
+  /**
+   * Récupère la commande active de l'utilisateur
+   */
+  private function getCommandeActive(int $idUser): array
+  {
+    $req = "SELECT 
+      id_commande
+    FROM commande
+    WHERE id_user = ? AND id_statut = 1;";
+    $statement = $this->pdo->prepare($req);
+    $statement->execute([$idUser]);
+    $commande = $statement->fetch(PDO::FETCH_ASSOC);
+    return $commande;
+  }
+
+  /**
+   * Récupère une ligne du panier
+   */
+  private function getLignePanier(int $idCommande, int $idArticle): array
+  {
+    $req = "SELECT 
+      id_commande,
+      id_article,
+      quantite
+    FROM panier
+    WHERE id_commande = ? AND id_article = ?;";
+    $statement = $this->pdo->prepare($req);
+    $statement->execute([$idCommande, $idArticle]);
+    $lignePanier = $statement->fetchAll(PDO::FETCH_ASSOC);
+    return $lignePanier;
+  }
+
+  /**
    * Affiche le panier
    * 
    */
@@ -31,10 +78,7 @@ class CartController extends AbstractController
     }
 
     // Vérification de l'existance d'une commande active dans la base de données
-    $req = "SELECT id_commande FROM commande WHERE id_user = ? AND id_statut = 1;";
-    $statement = $this->pdo->prepare($req);
-    $statement->execute([$idUser]);
-    $commande = $statement->fetch(PDO::FETCH_ASSOC) ?? null;
+    $commande = $this->getCommandeActive($idUser);
     if (!$commande) {
       $context['articles'] = [];
       return $this->twig->render('cart.html.twig', $context);
@@ -76,14 +120,8 @@ class CartController extends AbstractController
   {
     // Vérification de l'existance de l'id dans la base de données
     $id = $_POST['id'] ?? 0;
-    $req = "SELECT 
-      id_article
-    FROM article
-    WHERE id_article = ?;";
-    $statement = $this->pdo->prepare($req);
-    $statement->execute([$id]);
-    $article = $statement->fetch(PDO::FETCH_ASSOC);
 
+    $article = $this->getArticle($id);
     if (!$article) {
       // Article non trouvé => retourne une erreur 404 json
       header('Content-Type: application/json');
@@ -104,11 +142,7 @@ class CartController extends AbstractController
     }
 
     // Vérification de l'existance d'une commande active dans la base de données
-    $req = "SELECT id_commande FROM commande WHERE id_user = ? AND id_statut = 1;";
-    $statement = $this->pdo->prepare($req);
-    $statement->execute([$idUser]);
-    $commande = $statement->fetch(PDO::FETCH_ASSOC) ?? null;
-
+    $commande = $this->getCommandeActive($idUser);
     if (!$commande) {
       $req = "INSERT INTO commande (id_user, id_statut) VALUES (?, 1);";
       $statement = $this->pdo->prepare($req);
@@ -119,12 +153,8 @@ class CartController extends AbstractController
     }
 
     // Vérification de l'existance de l'article dans le panier et ajout ou mise à jour de la quantité
-    $req = "SELECT * FROM panier WHERE id_commande = ? AND id_article = ?;";
-    $statement = $this->pdo->prepare($req);
-    $statement->execute([$idCommande, $id]);
-    $panier = $statement->fetch(PDO::FETCH_ASSOC) ?? null;
-
-    if ($panier) {
+    $lignePanier = $this->getLignePanier($idCommande, $id);
+    if ($lignePanier) {
       $req = "UPDATE panier SET quantite = quantite + 1 WHERE id_commande = ? AND id_article = ?;";
       $statement = $this->pdo->prepare($req);
       $statement->execute([$idCommande, $id]);
@@ -133,8 +163,6 @@ class CartController extends AbstractController
       $statement = $this->pdo->prepare($req);
       $statement->execute([$idCommande, $id]);
     }
-
-    // Renvoie une réponse json
     header('Content-Type: application/json');
     http_response_code(200);
     echo json_encode(['success' => 'Article ajouté au panier']);
@@ -160,11 +188,7 @@ class CartController extends AbstractController
     }
 
     // Vérification de l'existance d'une commande active dans la base de données
-    $req = "SELECT id_commande FROM commande WHERE id_user = ? AND id_statut = 1;";
-    $statement = $this->pdo->prepare($req);
-    $statement->execute([$idUser]);
-    $commande = $statement->fetch(PDO::FETCH_ASSOC) ?? null;
-
+    $commande = $this->getCommandeActive($idUser);
     if (!$commande) {
       // renvoie une réponse json avec 0 article si aucune commande active n'est trouvée
       header('Content-Type: application/json');
@@ -178,11 +202,61 @@ class CartController extends AbstractController
     $statement = $this->pdo->prepare($req);
     $statement->execute([$commande['id_commande']]);
     $nbArticles = $statement->fetch(PDO::FETCH_ASSOC)['nbArticles'] ?? 0;
-
-    // Renvoie une réponse json
     header('Content-Type: application/json');
     http_response_code(200);
     echo json_encode(['nbArticles' => $nbArticles]);
+    exit;
+  }
+
+  /**
+   * Supprime un article du panier
+   */
+  #[Route(path: "/api/panier/delete", name: 'deleteFromCart', httpMethod: "POST")]
+  public function deleteFromCart()
+  {
+    // Vérification de l'existance de l'id dans la base de données
+    $id = $_POST['id'] ?? 0;
+    $article = $this->getArticle($id);
+    if (!$article) {
+      // Article non trouvé => retourne une erreur 404 json
+      header('Content-Type: application/json');
+      http_response_code(404);
+      echo json_encode(['error' => 'Article non trouvé']);
+      exit;
+    }
+
+    // Récupération de l'id de l'utilisateur connecté
+    //$idUser = $_SESSION['user_id'] ?? 0;
+    $idUser = 21;
+    if ($idUser == 0) {
+      // renvoie une erreur 401 json si l'utilisateur n'est pas connecté
+      header('Content-Type: application/json');
+      http_response_code(401);
+      echo json_encode(['error' => 'Vous devez être connecté pour ajouter un article au panier']);
+      exit;
+    }
+
+    // Vérification de l'existance d'une commande active dans la base de données
+    $commande = $this->getCommandeActive($idUser);
+    if (!$commande) {
+      $req = "INSERT INTO commande (id_user, id_statut) VALUES (?, 1);";
+      $statement = $this->pdo->prepare($req);
+      $statement->execute([$idUser]);
+      $idCommande = $this->pdo->lastInsertId();
+    } else {
+      $idCommande = $commande['id_commande'];
+    }
+
+    // Vérification de l'existance de l'article dans le panier et suppression si trouvé
+    $lignePanier = $this->getLignePanier($idCommande, $id);
+    if ($lignePanier) {
+      $req = "DELETE FROM panier WHERE id_commande = ? AND id_article = ?;";
+      $statement = $this->pdo->prepare($req);
+      $statement->execute([$idCommande, $id]);
+    }
+    header('Content-Type: application/json');
+    http_response_code(200);
+    echo json_encode(['success' => 'Article supprimé du panier']);
     exit;
   }
 }
