@@ -3,9 +3,9 @@ const filterElements = document.querySelectorAll(".filter");
 // Variables pour stocker les valeurs des filtres
 let type = [];
 let couleur = null;
-let prixMin = null;
-let prixMax = null;
-let dispo = false;
+let prixMin = document.querySelector('#range-price').min;
+let prixMax = document.querySelector('#range-price').value;
+let dispo = true;
 let promo = false;
 
 let colorSelected = document.querySelector('.circle');
@@ -21,16 +21,16 @@ function getTypesSelectionnes() {
     return type.join(",");
 }
 
-
 function updateTypesSelectionnes() {
     type = [];
-    const filters = document.querySelectorAll(".filter");
+    const filters = document.querySelectorAll("#check-types .filter");
 
     filters.forEach(element => {
-        if (element.type === "checkbox" && element.checked) {
+        if (element.checked) {
             type.push(element.id);
         }
     });
+    console.log(type);
 }
 
 filterElements.forEach(function (element) {
@@ -49,21 +49,19 @@ filterElements.forEach(function (element) {
             prixMax = element.value;
         }
 
-        console.log(couleur, type)
         const data = new FormData();
-
+        console.log(promo);
         data.append('type', getTypesSelectionnes());
-        data.append('couleur', couleur);
-        data.append('prixMin', prixMin);
-        data.append('prixMax', prixMax);
+        //data.append('couleur', couleur);
+        data.append('prix_min', prixMin);
+        data.append('prix_max', prixMax);
         data.append('dispo', dispo);
         data.append('promo', promo);
-
-        fetch(`/api/articles`, {
+        //console.log(type, prixMin, prixMax, dispo, promo);
+        fetch('/api/articles', {
             method: 'POST',
-            body: data
-        })
-            .then(response => response.json())
+            body: data,
+        }).then((response) => response.json())
             .then(data => {
                 // Traitement des données retournées par la route
                 console.log(data); // Vous pouvez faire ce que vous souhaitez avec les données ici

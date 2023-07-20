@@ -33,10 +33,10 @@ class ArticlesController extends AbstractController
     $idUser = $this->getIdUser();
     $context['session'] = $_SESSION;
     foreach ($articles as &$article) {
-        if($article["photos"] != null) {
-            $photos = json_decode($article["photos"]);
-            $article["photos"] = $photos[0]->url;
-        }
+      if ($article["photos"] != null) {
+        $photos = json_decode($article["photos"]);
+        $article["photos"] = $photos[0]->url;
+      }
     }
     $context['articles'] = $articles;
 
@@ -67,68 +67,59 @@ class ArticlesController extends AbstractController
   #[Route(path: "/api/articles", name: "cart_page", httpMethod: 'POST')]
   public function filterArticles(): string
   {
-      $type = $_POST['type'] ?? null;
-      $couleur = $_POST['couleur'] ?? null;
-      $prix_min = $_POST['prix_min'] ?? null;
-      $prix_max = $_POST['prix_max'] ?? null;
-      $dispo = $_POST['dispo'] ?? null;
-      $promo = $_POST['promo'] ?? null;
+    $type = $_POST['type'] ?? null;
+    $couleur = $_POST['couleur'] ?? null;
+    $prix_min = $_POST['prix_min'] ?? 0;
+    $prix_max = $_POST['prix_max'] ?? 10000;
+    if ($_POST['dispo'] != null) {
+      $dispo = filter_var($_POST['dispo'], FILTER_VALIDATE_BOOLEAN) ?? true;
+    }
+    if ($_POST['promo'] != null) {
+      $promo = filter_var($_POST['promo'], FILTER_VALIDATE_BOOLEAN) ?? false;
+    }
 
-      $req = "SELECT a.*";
-      $req .= " FROM ARTICLE AS a JOIN TYPE_ARTICLE AS t ON a.id_type = t.id_type JOIN COULEUR AS c ON a.id_couleur = c.id_couleur";
-      $req .= " WHERE 1=1";
+    $req = "SELECT a.*";
+    $req .= " FROM ARTICLE AS a JOIN TYPE_ARTICLE AS t ON a.id_type = t.id_type JOIN COULEUR AS c ON a.id_couleur = c.id_couleur";
+    $req .= " WHERE 1=1";
 
 
-      if ($type != null) {
-          $req .= " AND t.type IN (:type)";
-      }
-      if ($couleur != null) {
-        $req .= " AND c.code = :couleur";
-      }
-      if ($prix_min != null && $prix_max != null) {
-          $req .= " AND a.prix BETWEEN :prix_min AND :prix_max";
-      }
-      else if ($prix_min != null) {
-          $req .= " AND a.prix > :prix_min";
-      }
-      else if ($prix_max != null) {
-          $req .= " AND a.prix > :prix_max";
-      }
-      if ($dispo != null) {
-          $req .= " AND a.stock > 0";
-      }
-      if ($promo != null) {
-          $req .= " AND a.remise <> 0";
-      }
+    if ($type != null) {
+      $req .= " AND t.type IN (:type)";
+    }
+    if ($couleur != null) {
+      $req .= " AND c.code = :couleur";
+    }
+    $req .= " AND a.prix BETWEEN " . $prix_min . " AND " . $prix_max;
+    if ($dispo) $req .= " AND a.stock > 0";
+    if ($promo) $req .= " AND a.remise > 0";
 
-      $stmt = $this->pdo->prepare($req);
+    $stmt = $this->pdo->prepare($req);
 
-      // Ajoutez la liaison des paramètres seulement s'ils ne sont pas null
-      if ($type != null) {
-          $stmt->bindParam(":type", $type);
-          var_dump($type);
-      }
+    // Ajoutez la liaison des paramètres seulement s'ils ne sont pas null
+    if ($type != null) {
+      $stmt->bindParam(":type", $type);
+    }
 
-      if ($couleur != null) {
-          $stmt->bindParam(':couleur', $couleur);
-      }
-      if ($prix_min != null && $prix_max != null) {
-          $stmt->bindParam(':prix_min', $prix_min);
-          $stmt->bindParam(':prix_max', $prix_max);
-      } else if ($prix_min != null) {
-          $stmt->bindParam(':prix_min', $prix_min);
-      } else if ($prix_max != null) {
-          $stmt->bindParam(':prix_max', $prix_max);
-      }
+    if ($couleur != null) {
+      $stmt->bindParam(':couleur', $couleur);
+    }
+    // if ($prix_min != null && $prix_max != null) {
+    //   $stmt->bindParam(':prix_min', $prix_min);
+    //   $stmt->bindParam(':prix_max', $prix_max);
+    // } else if ($prix_min != null) {
+    //   $stmt->bindParam(':prix_min', $prix_min);
+    // } else if ($prix_max != null) {
+    //   $stmt->bindParam(':prix_max', $prix_max);
+    // }
 
-      $stmt->execute();
-      $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $stmt->execute();
+    $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-      // Renvoie une réponse json
-      header('Content-Type: application/json');
-      http_response_code(200);
-      echo json_encode(['articles' => $articles]);
-      exit;
+    // Renvoie une réponse json
+    header('Content-Type: application/json');
+    http_response_code(200);
+    echo json_encode(['articles' => $articles]);
+    exit;
   }
 
   #[Route(path: "/article/{id}", name: 'getOneArticle', httpMethod: "GET")]
