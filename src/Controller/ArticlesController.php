@@ -71,17 +71,12 @@ class ArticlesController extends AbstractController
     $couleur = $_POST['couleur'] ?? null;
     $prix_min = $_POST['prix_min'] ?? 0;
     $prix_max = $_POST['prix_max'] ?? 10000;
-    if ($_POST['dispo'] != null) {
-      $dispo = filter_var($_POST['dispo'], FILTER_VALIDATE_BOOLEAN) ?? true;
-    }
-    if ($_POST['promo'] != null) {
-      $promo = filter_var($_POST['promo'], FILTER_VALIDATE_BOOLEAN) ?? false;
-    }
+    $dispo = filter_var($_POST['dispo'], FILTER_VALIDATE_BOOLEAN) ?? true;
+    $promo = filter_var($_POST['promo'], FILTER_VALIDATE_BOOLEAN) ?? false;
 
     $req = "SELECT a.*";
     $req .= " FROM ARTICLE AS a JOIN TYPE_ARTICLE AS t ON a.id_type = t.id_type JOIN COULEUR AS c ON a.id_couleur = c.id_couleur";
     $req .= " WHERE 1=1";
-
 
     if ($type != null) {
       $req .= " AND t.type IN (:type)";

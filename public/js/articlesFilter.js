@@ -50,9 +50,8 @@ filterElements.forEach(function (element) {
         }
 
         const data = new FormData();
-        console.log(promo);
-        data.append('type', getTypesSelectionnes());
-        //data.append('couleur', couleur);
+        data.append('type', getTypesSelectionnes() ?? '');
+        data.append('couleur', couleur ?? '');
         data.append('prix_min', prixMin);
         data.append('prix_max', prixMax);
         data.append('dispo', dispo);
