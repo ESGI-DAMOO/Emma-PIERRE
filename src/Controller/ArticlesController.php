@@ -53,12 +53,13 @@ class ArticlesController extends AbstractController
 
     return $this->twig->render('articles.html.twig', $context);
   }
-  #[Route(path: "/api/articles/sort/{type}{couleur}{prix_min}{prix_max}{dispo}{promo}", name: "cart_page")]
-  public function sortArticles(string $type = 'null', string $couleur, int $prix_min, int $prix_max, bool $dispo, bool $promo): string
+
+  #[Route(path: "/api/articles?type={type}&couleur={couleur}&prix_min={prix_min}&prix_max={prix_max}&dispo={dispo}&promo={promo}", name: "cart_page")]
+  public function filterArticles(string $type, string $couleur, int $prix_min, int $prix_max, bool $dispo, bool $promo): string
   {
       $req = "SELECT a.*";
       $req .= " FROM ARTICLE AS a JOIN TYPE_ARTICLE AS t ON a.id_type = t.id_type JOIN COULEUR AS c ON a.id_couleur = c.id_couleur";
-      $req = " WHERE 1=1";
+      $req .= " WHERE 1=1";
 
       if ($type != null) {
         $req .= " AND t.type = :type";
@@ -82,9 +83,15 @@ class ArticlesController extends AbstractController
           $req .= " AND a.remise <> 0";
       }
 
+      $statement = $this->pdo->prepare($req);
+      $statement->execute();
+      $articles = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-    // Rendu du template Twig
-    return $this->twig->render('articles.html.twig', $context);
+      // Renvoie une réponse json
+      header('Content-Type: application/json');
+      http_response_code(200);
+      echo json_encode(['articles' => $articles]);
+      exit;
   }
 
   #[Route(path: "/article/{id}", name: 'getOneArticle', httpMethod: "GET")]
