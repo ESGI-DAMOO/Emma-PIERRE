@@ -145,7 +145,10 @@ public function registerAction()
     $statement->execute([$lastname, $surname, $gender, $phone, $birthdate, $email, $hashed_password, $id_adresse, $id_role]);
 
         // Redirection vers la page de connexion après l'inscription réussie
-        return new Response('Inscription réussie ! Vous pouvez maintenant vous connecter.');
+        header("Location: /userlogin");
+        die;
+
+
     }
 
     // Rendu du template Twig (page d'inscription)
