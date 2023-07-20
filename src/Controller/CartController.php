@@ -62,7 +62,7 @@ class CartController extends AbstractController
   #[Route(path: "/panier", name: 'cart_page', httpMethod: "GET")]
   public function cart(): string
   {
-
+    
     $context['page'] = array(
       'titre' => 'Emma Pierre - Votre panier',
     );

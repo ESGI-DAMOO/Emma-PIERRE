@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use PDO;
 use App\Routing\Attribute\Route;
-use Symfony\Component\HttpFoundation\Response;
 
 class LoginController extends AbstractController
 {
