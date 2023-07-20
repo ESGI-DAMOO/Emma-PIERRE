@@ -35,7 +35,7 @@ class ArticlesController extends AbstractController
     foreach ($articles as &$article) {
         if($article["photos"] != null) {
             $photos = json_decode($article["photos"]);
-            $article["photos"] = $photos[0]->src;
+            $article["photos"] = $photos[0]->url;
         }
     }
     $context['articles'] = $articles;
@@ -64,21 +64,29 @@ class ArticlesController extends AbstractController
     return $this->twig->render('articles.html.twig', $context);
   }
 
-  #[Route(path: "/api/articles?type={type}&couleur={couleur}&prix_min={prix_min}&prix_max={prix_max}&dispo={dispo}&promo={promo}", name: "cart_page")]
-  public function filterArticles(string $type, string $couleur, int $prix_min, int $prix_max, bool $dispo, bool $promo): string
+  #[Route(path: "/api/articles", name: "cart_page", httpMethod: 'POST')]
+  public function filterArticles(): string
   {
+      $type = $_POST['type'] ?? null;
+      $couleur = $_POST['couleur'] ?? null;
+      $prix_min = $_POST['prix_min'] ?? null;
+      $prix_max = $_POST['prix_max'] ?? null;
+      $dispo = $_POST['dispo'] ?? null;
+      $promo = $_POST['promo'] ?? null;
+
       $req = "SELECT a.*";
       $req .= " FROM ARTICLE AS a JOIN TYPE_ARTICLE AS t ON a.id_type = t.id_type JOIN COULEUR AS c ON a.id_couleur = c.id_couleur";
       $req .= " WHERE 1=1";
 
+
       if ($type != null) {
-        $req .= " AND t.type = :type";
+          $req .= " AND t.type IN (:type)";
       }
       if ($couleur != null) {
-        $req .= " AND c.nom_couleur = :couleur";
+        $req .= " AND c.code = :couleur";
       }
       if ($prix_min != null && $prix_max != null) {
-          $req .= " AND a.prix BETWEEN x AND y";
+          $req .= " AND a.prix BETWEEN :prix_min AND :prix_max";
       }
       else if ($prix_min != null) {
           $req .= " AND a.prix > :prix_min";
@@ -93,9 +101,28 @@ class ArticlesController extends AbstractController
           $req .= " AND a.remise <> 0";
       }
 
-      $statement = $this->pdo->prepare($req);
-      $statement->execute();
-      $articles = $statement->fetchAll(PDO::FETCH_ASSOC);
+      $stmt = $this->pdo->prepare($req);
+
+      // Ajoutez la liaison des paramètres seulement s'ils ne sont pas null
+      if ($type != null) {
+          $stmt->bindParam(":type", $type);
+          var_dump($type);
+      }
+
+      if ($couleur != null) {
+          $stmt->bindParam(':couleur', $couleur);
+      }
+      if ($prix_min != null && $prix_max != null) {
+          $stmt->bindParam(':prix_min', $prix_min);
+          $stmt->bindParam(':prix_max', $prix_max);
+      } else if ($prix_min != null) {
+          $stmt->bindParam(':prix_min', $prix_min);
+      } else if ($prix_max != null) {
+          $stmt->bindParam(':prix_max', $prix_max);
+      }
+
+      $stmt->execute();
+      $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
       // Renvoie une réponse json
       header('Content-Type: application/json');
