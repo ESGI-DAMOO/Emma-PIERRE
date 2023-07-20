@@ -7,6 +7,14 @@ use App\Routing\Attribute\Route;
 
 class AboutController extends AbstractController
 {
+  private function getIdUser(): int
+  {
+    if (session_status() == PHP_SESSION_NONE) {
+      session_start();
+    }
+    $idUser = $_SESSION['user_id'] ?? 0;
+    return $idUser;
+  }
 
   #[Route(path: "/about", name: "about_page")]
   public function showAbout(): string
