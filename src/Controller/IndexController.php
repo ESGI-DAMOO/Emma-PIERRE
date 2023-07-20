@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use PDO;
 use App\Routing\Attribute\Route;
 
 class IndexController extends AbstractController
