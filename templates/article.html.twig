@@ -42,8 +42,11 @@
 
 
 				</p>
-				<button class="btn btn-bleu">Ajouter au panier</button><br/>
-				<button class="btn btn-bleu-transp">Ajouter à ma wishlist</button>
+				<button id="add-to-cart" class="btn btn-bleu" data-id="{{ article.id_article }}">Ajouter au panier</button>
+				<span class="hide valide">
+					Ajouté au panier</span><br/>
+				<button id="add-to-wishlist" class="btn btn-bleu-transp" data-id="{{ article.id_article }}">Ajouter à ma wishlist</button>
+
 			</div>
 		</div>
 	</section>

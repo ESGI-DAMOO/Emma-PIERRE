@@ -41,7 +41,7 @@ $('#input-number').on('keydown mousedown keyup mouseup input change', function (
     $('#range-price').val(rangeValued);
 });
 
-
+// Affichage du nombre d'articles dans le panier
 function updateCartCount() {
     const cartCount = document.querySelector('#cart-count');
     //fetch api /api/cart/count
@@ -63,3 +63,36 @@ function updateCartCount() {
     }
 }
 updateCartCount();
+
+// Bouton ajout au panier
+const addToCartBtn = document.querySelector('#add-to-cart')
+const textValid = document.querySelector('#product .valide')
+addToCartBtn.addEventListener('click', addToCart);
+function addToCart() {
+    const id = addToCartBtn.dataset.id;
+    const data = new FormData();
+    data.append('id', id);
+
+    try {
+        fetch('/api/panier/add', {
+            method: 'POST',
+            body: data,
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                updateCartCount();
+                // Ajoute la classe hide à la div textValid pendant 5 secondes
+                textValid.classList.remove('hide');
+                setTimeout(function () {
+                    textValid.classList.add('hide');
+                }
+                    , 5000);
+            })
+            .catch((error) => { console.error(error) })
+    }
+    catch (error) {
+        console.error(error)
+    }
+}
+
+// Bouton suppression d'un article du panier

@@ -66,6 +66,7 @@ div.xtra {
   border-radius: 3px;
   margin: 5px 0;
   transition: 0.3s all ease-in-out;
+  cursor: pointer;
 }
 @media screen and (max-width: 1024px) {
   .btn{
@@ -81,6 +82,9 @@ div.xtra {
 }
 .btn-bleu:hover a {
   color: var(--primary);
+}
+.btn-bleu:active a {
+  color: var(--secondary)
 }
 .btn-bleu:hover {
   color: var(--primary);
@@ -216,6 +220,10 @@ a.lien_menu:hover::after {
 
 .arrow-next {
   content: url("/img/chevron-double-right.svg");
+}
+
+.hide {
+  display: none;
 }
 /* END GLOBAL */
 
@@ -1310,6 +1318,10 @@ footer .social img {
 }
 #product .product__container button {
   width: 100%;
+}
+#product .valide {
+  color: green;
+  transition:  0.5s ease-out;
 }
 /* END PRODUCT */
 

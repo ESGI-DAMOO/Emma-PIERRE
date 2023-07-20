@@ -71,10 +71,11 @@ class CartController extends AbstractController
    * Ajout au panier
    * 
    */
-  #[Route(path: "/api/panier/add/{id}", name: 'addToCart', httpMethod: "GET")]
-  public function addToCart(int $id): string
+  #[Route(path: "/api/panier/add", name: 'addToCart', httpMethod: "POST")]
+  public function addToCart(): string
   {
     // Vérification de l'existance de l'id dans la base de données
+    $id = $_POST['id'] ?? 0;
     $req = "SELECT 
       id_article
     FROM article
