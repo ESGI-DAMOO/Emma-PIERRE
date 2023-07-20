@@ -14,7 +14,7 @@ class LoginController extends AbstractController
   {
     // Contexte Twig
     $context['page'] = array(
-      'titre' => 'Page de connexion',
+      'titre' => 'Page de connexions',
     );
 
     // Rendu du template Twig
@@ -22,7 +22,7 @@ class LoginController extends AbstractController
   }
 
   #[Route(path: "/userlogin", name: "login_action", httpMethod: "POST")]
-  public function loginAction(): string
+  public function loginAction()
   {
     // Contexte Twig
     $context['page'] = array(
@@ -32,39 +32,35 @@ class LoginController extends AbstractController
     /**
      * Si le formulaire de connexion est rempli, alors on vérifie les informations en base de données.
      */
-    if (!empty($_POST)) {
-      $email = $_POST['email'] ?? '';
-      $password = $_POST['password'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $password = $_POST['password'] ?? '';
 
-      // Requête SQL pour récupérer l'utilisateur par son nom d'utilisateur
-      $req = "SELECT id_user, email, mot_passe FROM user WHERE email = ?";
-      $statement = $this->pdo->prepare($req);
-      $statement->execute([$email]);
-      $user = $statement->fetch(PDO::FETCH_ASSOC);
+    // Requête SQL pour récupérer l'utilisateur par son nom d'utilisateur
+    $req = "SELECT id_user, email, mot_passe FROM user WHERE email = ?";
+    $statement = $this->pdo->prepare($req);
+    $statement->execute([$email]);
+    $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-      // Vérification du mot de passe haché
-      if ($user && password_verify($password, $user['mot_passe'])) {
-        // Authentification réussie, vous pouvez mettre en place votre logique de connexion ici
-        // Par exemple, définir une variable de session pour maintenir l'état de connexion, etc.
-        // Puis rediriger vers une page sécurisée.
+    // Vérification du mot de passe haché
+    if ($user && password_verify($password, $user['mot_passe'])) {
+      // Authentification réussie, vous pouvez mettre en place votre logique de connexion ici
+      // Par exemple, définir une variable de session pour maintenir l'état de connexion, etc.
+      // Puis rediriger vers une page sécurisée.
 
-        // Exemple de mise en place d'une variable de session pour maintenir l'état de connexion :
-        session_start();
-        $_SESSION['user_id'] = $user['id'];
-
-        // Redirection vers une page sécurisée (par exemple, la page d'accueil)
-        header('Location: /');
-        exit;
-      } else {
-        // Authentification échouée, afficher le message d'erreur
-        $context['error'] = "Nom d'utilisateur ou mot de passe incorrect.";
-      }
+      // Exemple de mise en place d'une variable de session pour maintenir l'état de connexion :
+      session_start();
+      $_SESSION['user_id'] = $user['id_user'];
+      // Redirection vers une page sécurisée (par exemple, la page d'accueil)
+      header('Location: /');
+      exit;
+    } else {
+      // Authentification échouée, afficher le message d'erreur
+      $context['error'] = "Nom d'utilisateur ou mot de passe incorrect.";
     }
 
-
-
     // Rendu du template Twig (page de connexion)
-    return $this->twig->render('user-login.html.twig', $context);
+    //return $this->twig->render('user-login.html.twig', $context);
+    header('Location: /userlogin');
   }
 
   #[Route(path: "/userregister", name: "register_page")]
