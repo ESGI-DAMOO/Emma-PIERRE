@@ -9,9 +9,21 @@ class CartController extends AbstractController
 {
 
   /**
+   * Récupère l'id de l'utilisateur connecté
+   */
+  private function getIdUser(): int
+  {
+    if (session_status() == PHP_SESSION_NONE) {
+      session_start();
+    }
+    $idUser = $_SESSION['user_id'] ?? 0;
+    return $idUser;
+  }
+
+  /**
    * Récupère un article
    */
-  private function getArticle(int $id): array
+  private function getArticle(int $id)
   {
     $req = "SELECT 
       id_article
@@ -26,7 +38,7 @@ class CartController extends AbstractController
   /**
    * Récupère la commande active de l'utilisateur
    */
-  private function getCommandeActive(int $idUser): array
+  private function getCommandeActive(int $idUser)
   {
     $req = "SELECT 
       id_commande
@@ -41,7 +53,7 @@ class CartController extends AbstractController
   /**
    * Récupère une ligne du panier
    */
-  private function getLignePanier(int $idCommande, int $idArticle): array
+  private function getLignePanier(int $idCommande, int $idArticle)
   {
     $req = "SELECT 
       id_commande,
@@ -57,7 +69,6 @@ class CartController extends AbstractController
 
   /**
    * Affiche le panier
-   * 
    */
   #[Route(path: "/panier", name: 'cart_page', httpMethod: "GET")]
   public function cart(): string
@@ -68,10 +79,8 @@ class CartController extends AbstractController
     );
 
     // Récupération de l'id de l'utilisateur connecté
-    //$idUser = $_SESSION['user_id'] ?? 0;
-    $idUser = 21;
+    $idUser = $this->getIdUser();
     $context['idUser'] = $idUser;
-
     if ($idUser == 0) {
       return $this->twig->render('cart.html.twig', $context);
       exit;
@@ -113,7 +122,6 @@ class CartController extends AbstractController
 
   /**
    * Ajout au panier
-   * 
    */
   #[Route(path: "/api/panier/add", name: 'addToCart', httpMethod: "POST")]
   public function addToCart(): string
@@ -131,8 +139,7 @@ class CartController extends AbstractController
     }
 
     // Récupération de l'id de l'utilisateur connecté
-    //$idUser = $_SESSION['user_id'] ?? 0;
-    $idUser = 21;
+    $idUser = $this->getIdUser();
     if ($idUser == 0) {
       // renvoie une erreur 401 json si l'utilisateur n'est pas connecté
       header('Content-Type: application/json');
@@ -177,8 +184,7 @@ class CartController extends AbstractController
   public function countCart(): string
   {
     // Récupération de l'id de l'utilisateur connecté
-    //$idUser = $_SESSION['user_id'] ?? 0;
-    $idUser = 21;
+    $idUser = $this->getIdUser();
     if ($idUser == 0) {
       // renvoie une erreur 401 json si l'utilisateur n'est pas connecté
       header('Content-Type: application/json');
@@ -226,8 +232,7 @@ class CartController extends AbstractController
     }
 
     // Récupération de l'id de l'utilisateur connecté
-    //$idUser = $_SESSION['user_id'] ?? 0;
-    $idUser = 21;
+    $idUser = $this->getIdUser();
     if ($idUser == 0) {
       // renvoie une erreur 401 json si l'utilisateur n'est pas connecté
       header('Content-Type: application/json');
@@ -257,6 +262,57 @@ class CartController extends AbstractController
     header('Content-Type: application/json');
     http_response_code(200);
     echo json_encode(['success' => 'Article supprimé du panier']);
+    exit;
+  }
+
+  /**
+   * Change la quantité d'un article dans le panier
+   */
+  #[Route(path: "/api/panier/changeQuantity", name: 'changeQuantity', httpMethod: "POST")]
+  public function changeQuantity()
+  {
+    // Vérification de l'existance de l'id dans la base de données
+    $id = $_POST['id'] ?? 0;
+    $article = $this->getArticle($id);
+    if (!$article) {
+      // Article non trouvé => retourne une erreur 404 json
+      header('Content-Type: application/json');
+      http_response_code(404);
+      echo json_encode(['error' => 'Article non trouvé']);
+      exit;
+    }
+
+    // Récupération de l'id de l'utilisateur connecté
+    $idUser = $this->getIdUser();
+    if ($idUser == 0) {
+      // renvoie une erreur 401 json si l'utilisateur n'est pas connecté
+      header('Content-Type: application/json');
+      http_response_code(401);
+      echo json_encode(['error' => 'Vous devez être connecté pour ajouter un article au panier']);
+      exit;
+    }
+
+    // Vérification de l'existance d'une commande active dans la base de données
+    $commande = $this->getCommandeActive($idUser);
+    if (!$commande) {
+      $req = "INSERT INTO commande (id_user, id_statut) VALUES (?, 1);";
+      $statement = $this->pdo->prepare($req);
+      $statement->execute([$idUser]);
+      $idCommande = $this->pdo->lastInsertId();
+    } else {
+      $idCommande = $commande['id_commande'];
+    }
+
+    // Vérification de l'existance de l'article dans le panier et mise à jour de la quantité si trouvé
+    $lignePanier = $this->getLignePanier($idCommande, $id);
+    if ($lignePanier) {
+      $req = "UPDATE panier SET quantite = ? WHERE id_commande = ? AND id_article = ?;";
+      $statement = $this->pdo->prepare($req);
+      $statement->execute([$_POST['quantity'], $idCommande, $id]);
+    }
+    header('Content-Type: application/json');
+    http_response_code(200);
+    echo json_encode(['success' => 'Quantité modifiée']);
     exit;
   }
 }
