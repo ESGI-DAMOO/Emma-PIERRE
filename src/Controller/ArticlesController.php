@@ -7,6 +7,14 @@ use App\Routing\Attribute\Route;
 
 class ArticlesController extends AbstractController
 {
+  private function getIdUser(): int
+  {
+    if (session_status() == PHP_SESSION_NONE) {
+      session_start();
+    }
+    $idUser = $_SESSION['user_id'] ?? 0;
+    return $idUser;
+  }
 
   #[Route(path: "/articles", name: "getAllArticles_page")]
   public function getAllArticles(): string
@@ -22,6 +30,8 @@ class ArticlesController extends AbstractController
     $context['page'] = array(
       'titre' => 'Liste des articles',
     );
+    $idUser = $this->getIdUser();
+    $context['session'] = $_SESSION;
     foreach ($articles as &$article) {
         if($article["photos"] != null) {
             $photos = json_decode($article["photos"]);

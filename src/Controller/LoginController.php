@@ -9,6 +9,15 @@ use Symfony\Component\HttpFoundation\Response;
 class LoginController extends AbstractController
 {
 
+  private function getIdUser(): int
+  {
+    if (session_status() == PHP_SESSION_NONE) {
+      session_start();
+    }
+    $idUser = $_SESSION['user_id'] ?? 0;
+    return $idUser;
+  }
+
   #[Route(path: "/userlogin", name: "login_page")]
   public function loginPage(): string
   {
@@ -16,7 +25,13 @@ class LoginController extends AbstractController
     $context['page'] = array(
       'titre' => 'Page de connexions',
     );
+    $idUser = $this->getIdUser();
+    $context['session'] = $_SESSION;
 
+    if ($idUser > 0) {
+      header('Location: /');
+      die;
+    }
     // Rendu du template Twig
     return $this->twig->render('user-login.html.twig', $context);
   }
@@ -36,7 +51,7 @@ class LoginController extends AbstractController
     $password = $_POST['password'] ?? '';
 
     // Requête SQL pour récupérer l'utilisateur par son nom d'utilisateur
-    $req = "SELECT id_user, email, mot_passe FROM user WHERE email = ?";
+    $req = "SELECT * FROM user WHERE email = ?";
     $statement = $this->pdo->prepare($req);
     $statement->execute([$email]);
     $user = $statement->fetch(PDO::FETCH_ASSOC);
@@ -50,6 +65,13 @@ class LoginController extends AbstractController
       // Exemple de mise en place d'une variable de session pour maintenir l'état de connexion :
       session_start();
       $_SESSION['user_id'] = $user['id_user'];
+      $_SESSION['lastname'] = $user['nom'];
+      $_SESSION['firstname'] = $user['prenom'];
+      $_SESSION['gender'] = $user['genre'];
+      $_SESSION['phone'] = $user['tel'];
+      $_SESSION['birthdate'] = $user['date_naissance'];
+      $_SESSION['email'] = $user['email'];
+      
       // Redirection vers une page sécurisée (par exemple, la page d'accueil)
       header('Location: /');
       exit;
@@ -148,6 +170,19 @@ class LoginController extends AbstractController
     // Rendu du template Twig (page d'inscription)
     return $this->twig->render('user-register.html.twig', $context);
   }
+
+  #[Route(path: "/logout", name: "logout_action")]
+public function logoutAction()
+{
+    // Détruire la session
+    session_start();
+    session_destroy();
+
+    // Redirection vers la page d'accueil ou une autre page
+    header("Location: /");
+    exit;
+}
+
 
   // ...
 }

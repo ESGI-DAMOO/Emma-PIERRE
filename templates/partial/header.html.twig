@@ -60,10 +60,20 @@
 							</a>
 							<a href="userlogin">
 								<img src="/img/circle-user.svg"/>
+								{% if session.firstname is defined %}
+									{{ session.firstname }}
+								{% else %}
+									Connectez-vous
+								{% endif %}
 							</a>
+
+							{% if session.user_id > 0 %}
+								<a href="/logout"><img src="/img/logout-8.png"/></a>
+							{% endif %}
 							<a>
 								<img src="/img/france.png"/>
 							</a>
+
 
 						</div>
 					</div>
