@@ -1,0 +1,45 @@
+{% include "partial/header.html.twig" %}
+<div id="container">
+    <form method="post" action="userregister">
+    <h1>Inscription</h1>
+    <hr>
+    <h2>Etat civil</h2>
+        <label for="lastname">Nom:</label><br>
+        <input type="text" id="lastname" name="lastname"><br>
+        <label for="surname">Prénom:</label><br>
+        <input type="text" id="surname" name="surname"><br>
+        <label for="gender">Genre:</label><br>
+        <select id="gender" name="gender">
+            <option value="h">Homme</option>
+            <option value="f">Femme</option>
+        </select><br>
+        <label for="phone">Numéro de téléphone:</label><br>
+        <input type="tel" id="phone" name="phone"><br>
+        <label for="birthdate">Date de naissance:</label><br>
+        <input type="date" id="birthdate" name="birthdate"><br>
+<hr>
+    <h2>Informations de livraison</h2>
+        <label for="adresse">Adresse:</label><br>
+    <input type="text" id="adresse" name="adress"><br>
+    <label for="complement">Complément d'adresse:</label><br>
+    <input type="text" id="complement" name="compladress"><br>
+    <label for="code_postal">Code postal:</label><br>
+    <input type="text" id="code_postal" name="zipcode"><br>
+    <label for="ville">Ville:</label><br>
+    <input type="text" id="ville" name="city"><br>
+    <label for="pays">Pays:</label><br>
+    <input type="text" id="pays" name="country"><br>
+<hr>
+    <h2>Informations de connexion</h2>
+        <label for="mail">Adresse mail:</label><br>
+        <input type="email" id="mail" name="mail"><br>
+        <label for="password">Mot de passe:</label><br>
+        <input type="password" id="password" name="password"><br>
+        <label for="confirm_password">Confirmer le mot de passe:</label><br>
+        <input type="password" id="confirm_password" name="confirm_password"><br>
+        <input id="submitButton" type="submit" value="S'inscrire">
+        <p>Avez-vous déjà un compte? <a href="userlogin">Se connecter ici</a></p>
+    </form>
+    </div>
+    
+{% include "partial/footer.html.twig" %}

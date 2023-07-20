@@ -1,0 +1,14 @@
+{% include "partial/header.html.twig" %}
+<div id="container">
+    <form id="loginform" method="post" action="userlogin">
+    <h1>Connexion</h1>
+    <hr>
+        <label for="email">Adresse mail:</label><br>
+        <input type="email" id="email" name="email"><br>
+        <label for="password">Mot de passe:</label><br>
+        <input type="password" id="password" name="password"><br>
+        <input id="submitButton" type="submit" value="Se connecter">
+        <p>Pas encore de compte? <a href="userregister">S'inscrire ici</a></p>
+    </form>
+    </div>
+{% include "partial/footer.html.twig" %}

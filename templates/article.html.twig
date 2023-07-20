@@ -1,0 +1,57 @@
+{% include "partial/header.html.twig" %}
+
+<!-- Template liée au controller : src/Controller/ArticleController.php -->
+<main id="product" class="container">
+	<div class="path">
+		<p>
+			<a href="/">Accueil</a>
+			>
+			<a href="/listing-product">Tous les produits</a>
+			>
+			<a href="#">{{ article.type }}
+				{{ article.nom }}</a>
+		</p>
+	</div>
+	<section>
+		<div class="product__container">
+			<div class="product__container__img">
+				<img src="/img/products/CollierAlexandra.jpg" alt="Collier Alexandra">
+			</div>
+			<div class="product__container__description">
+				<h1>{{ article.type }}
+					{{ article.nom }}</h1>
+
+				<p>{{ article.description }}</p>
+				<p>{{ article.remarques }}</p>
+
+				<p>Matière :
+					{{ article.matiere }}</p>
+				<p>
+					<span class="circle" style="background-color: {{ article.code_couleur }};"></span>
+					{{ article.couleur }}
+				</p>
+				<p>Longueur du collier :
+					{{ article.longueur }}</p>
+				<p>
+
+					<span class="prix-sign">€</span>
+					<span class="prix-currency">{{ article.prixEntier }}</span>
+
+
+					<span class="prix-cent">.{{ article.prixFraction}}</span>
+
+
+				</p>
+				<button id="add-to-cart" class="btn btn-bleu" data-id="{{ article.id_article }}">Ajouter au panier</button>
+				<span class="hide valide">
+					Ajouté au panier</span><br/>
+				<button id="add-to-wishlist" class="btn btn-bleu-transp" data-id="{{ article.id_article }}">Ajouter à ma wishlist</button>
+
+			</div>
+		</div>
+	</section>
+</main>
+
+
+{% include "partial/feed-insta.html.twig" %}
+{% include "partial/footer.html.twig" %}

@@ -1,0 +1,34 @@
+{% include "partial/header.html.twig" %}
+<h1>Ajouter un restaurant</h1>
+<form action="/add" method="POST">
+    <div>
+        <label for="nom">Nom du restaurant</label>
+        <input type="text" name="nom" id="nom" />
+    </div>
+    <div>
+        <label for="description">Description</label>
+        <textarea required id="description" name="description"></textarea>
+    </div>
+    <div>
+        <label for="nom_proprietaire">Nom du propriétaire</label>
+        <input required type="text" name="nom_proprietaire" id="nom_proprietaire" />
+    </div>
+    <div>
+        <label for="adresse">Adresse</label>
+        <textarea required id="adresse" name="adresse"></textarea>
+    </div>
+    <div>
+        <label for="email">Email</label>
+        <input required type="email" name="email" id="email" />
+    </div>
+    <div>
+        <label for="tel">Téléphone</label>
+        <input required type="tel" name="tel" id="tel" />
+    </div>
+    <div>
+        <label for="photo_url">Photo URL</label>
+        <input required type="url" name="photo_url" id="photo_url" />
+    </div>
+    <div>
+        <input type="submit" value="Enregistrer" />
+    </div>

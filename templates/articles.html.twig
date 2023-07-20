@@ -1,0 +1,145 @@
+{% include "partial/header.html.twig" %}
+
+<main id="articles">
+
+
+	<div id="hero_banner">
+		<div class="cards_cat">
+			<div class="banner-top">
+				<div class="container">
+					<p class="title-h1">Toute la gamme</p>
+					<p class="banner-desc">Découvrez notre gamme de produit</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="path">
+			<p>
+				<a href="#">Accueil
+				</a>
+				>
+				<a href="#">Tous les produits
+				</a>
+			</p>
+		</div>
+		<div class="mini_cat">
+			<div>
+				<p>Précieuses</p>
+			</div>
+			<div>
+				<p>Impertinantes</p>
+			</div>
+			<div>
+				<p>Uniques</p>
+			</div>
+			<div>
+				<p>Colorées</p>
+			</div>
+		</div>
+
+		<div class="product-list-container">
+			<asside>
+				<p>Type de produit</p>
+				{% for type in types %}
+					<div>
+						<input id="{{ type.type }}" type="checkbox"/>
+						<label for="collier">{{ type.type }}</label>
+					</div>
+				{% endfor %}
+
+				<p>Matériaux</p>
+
+				{% for couleur in couleurs |slice (0 ,10) %}
+					<span class="circle" style="background-color: {{ couleur.code }};"></span>
+				{% endfor %}
+
+				<p>Prix</p>
+				<div>
+					<input id="range-price" type="range" step="1" max="{{ prix.0.prix_max }}" min="{{ prix.0.prix_min }}" value="{{ prix.0.prix_max }}"/>
+				</div>
+				<div class="price-choose">
+					<div class="input-number-container">
+						<span class="input-number-prefix">€</span>
+						<input id="" class="input-number" type="number" max="{{ prix.0.prix_max }}" value="{{ prix.0.prix_min }}" disabled/>
+					</div>
+					<span>-</span>
+					<div class="input-number-container">
+						<span class="input-number-prefix">€</span>
+						<input id="input-number" class="input-number" max="{{ prix.0.prix_max }}" type="number" value="{{ prix.0.prix_max }}"/>
+					</div>
+				</div>
+
+				<p>Disponibilité</p>
+				<div>
+					<input id="dispo" type="checkbox"/>
+					<label for="dispo">Disponible</label>
+				</div>
+				<div>
+					<input id="hstock" type="checkbox"/>
+					<label for="hstock">Hors stock</label>
+				</div>
+
+				<p>Promotion</p>
+				<div>
+					<input id="promo" type="checkbox"/>
+					<label for="promo">Promotion</label>
+				</div>
+				<div>
+					<input id="remises" type="checkbox"/>
+					<label for="remises">Remises spéciales</label>
+				</div>
+			</asside>
+			<div class="product-list">
+				<h2>Produits du moment</h2>
+
+				<div class="container-list-produit">
+					{% for article in articles |slice(0, 9) %}
+
+						<div class="produit-card">
+							<div class="product-hover">
+								<img class="boucle-doreilles" src="{{ article.photos }}" alt="Création de Bijoux"/>
+								<div class="product-hover-contain">
+									<a href="product.php" class="product-hover-button btn btn-bleu">Voir le produit</a>
+								</div>
+							</div>
+							<div class="infos">
+								<div class="titre_produit">
+									<p>{{ article.nom }}</p>
+								</div>
+								<div class="prix_produit">
+									<p>{{ article.prix }}€</p>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+
+				<div class="pagination">
+					<span class="arrow-prev"></span>
+					<ul>
+						<a href="#">
+							<li class="pagination-current">1</li>
+						</a>
+						<a href="#">
+							<li>1</li>
+						</a>
+						<a href="#">
+							<li>1</li>
+						</a>
+						<li>...</li>
+						<a href="#">
+							<li>15</li>
+						</a>
+					</ul>
+					<span class="arrow-next"></span>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</main>
+<script src="/js/articlesSort.js"></script>
+{% include "partial/feed-insta.html.twig" %}
+{% include "partial/footer.html.twig" %}

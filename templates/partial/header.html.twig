@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+		<title>{{ page.titre }}</title>
+
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+		<link rel="stylesheet" href="/css/style.css">
+
+		<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="/js/scripts.js" defer></script>
+	</head>
+</html>
+<body>
+	<header id="img-header">
+		<script>
+			const toggleMenuOpen = () => document.body.classList.toggle("open");
+		</script>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+
+		<div class="header-nav">
+			<nav class="navbar">
+				<div class="navbar-overlay" onclick="toggleMenuOpen()"></div>
+				<button type="button" class="navbar-burger" onclick="toggleMenuOpen()">
+					<span class="material-icons">menu</span>
+				</button>
+				<a href="/"><img class="logo" src="/img/EP-logo-DEF-carre.png" width="125px"/></a>
+
+				<nav class="navbar-menu">
+					<a href="/"><img class="logo" src="/img/EP-logo-DEF-carre.png"/></a>
+					<div class="navbar-droite">
+						<div class="navbar-liens">
+							<a class="lien_menu" href="/articles">
+								Collections
+							</a>
+							<a class="lien_menu" href="/about">
+								À propos
+							</a>
+							<a class="lien_menu" href="/blog">
+								Blog
+							</a>
+							<a class="lien_menu" href="/contact">
+								Contact
+							</a>
+						</div>
+						<div class="header-icon">
+							<a class="search-container">
+								<img id="search-loupe" src="/img/search-2903.svg"/>
+								<form action="#">
+									<input id="search" type="search"/>
+								</form>
+							</a>
+							<a href="/panier" class="cart-icon">
+								<img src="/img/bags-1999.svg"/>
+								<span id="cart-count">-</span>
+							</a>
+							<a href="userlogin">
+								<img src="/img/circle-user.svg"/>
+							</a>
+							<a>
+								<img src="/img/france.png"/>
+							</a>
+
+						</div>
+					</div>
+				</nav>
+			</nav>
+		</div>
+	</header>
+</body>
