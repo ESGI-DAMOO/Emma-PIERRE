@@ -67,7 +67,9 @@ updateCartCount();
 // Bouton ajout au panier
 const addToCartBtn = document.querySelector('#add-to-cart')
 const textValid = document.querySelector('#product .valide')
-addToCartBtn.addEventListener('click', addToCart);
+if (addToCartBtn) {
+    addToCartBtn.addEventListener('click', addToCart);
+}
 function addToCart() {
     const id = addToCartBtn.dataset.id;
     const data = new FormData();
@@ -96,3 +98,29 @@ function addToCart() {
 }
 
 // Bouton suppression d'un article du panier
+const articlesPanier = document.querySelectorAll('.article_panier');
+articlesPanier.forEach(article => {
+    const deleteBtn = article.querySelector('.panier_delete_article')
+    deleteBtn.addEventListener('click', deleteArticle);
+    function deleteArticle() {
+        const id = article.dataset.id;
+        const data = new FormData();
+        data.append('id', id);
+
+        try {
+            fetch('/api/panier/delete', {
+                method: 'POST',
+                body: data,
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    updateCartCount();
+                    article.remove();
+                })
+                .catch((error) => { console.error(error) })
+        }
+        catch (error) {
+            console.error(error)
+        }
+    }
+});
