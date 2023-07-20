@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le : mer. 19 juil. 2023 à 15:56
+-- Généré le : jeu. 20 juil. 2023 à 14:42
 -- Version du serveur : 5.7.39
 -- Version de PHP : 8.2.0
 
@@ -60,7 +60,8 @@ INSERT INTO `adresse` (`id_adresse`, `adresse`, `complement`, `code_postal`, `vi
 (17, 'Ap #820-6324 Odio Avenue', NULL, '77259', 'Jaén', 'France'),
 (18, '345-5775 Rhoncus. Road', NULL, '34581', 'Wageningen', 'France'),
 (19, '315-1068 Molestie Street', NULL, '77363', 'Iqaluit', 'France'),
-(20, '5296 Et Avenue', NULL, '96710', 'Guysborough', 'France');
+(20, '5296 Et Avenue', NULL, '96710', 'Guysborough', 'France'),
+(21, '5 Rue de la Tase', '', '69120', 'Vaulx-en-Velin', 'France');
 
 -- --------------------------------------------------------
 
@@ -460,7 +461,7 @@ INSERT INTO `commande` (`id_commande`, `id_user`, `id_code_promo`, `date_command
 (2, 8, 'LOVEJS', '2023-07-17 16:18:18', '2023-07-16', 3, 7, 13),
 (3, 20, NULL, '2023-07-17 16:20:59', NULL, 1, 12, 12),
 (4, 6, 'JOYEUXANNIVMAXIME', '2023-07-17 16:20:59', '2023-07-17', 4, 9, 9),
-(5, 21, NULL, '2023-07-19 12:44:28', NULL, 1, NULL, NULL);
+(6, 22, NULL, '2023-07-20 12:43:33', NULL, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -471,7 +472,7 @@ INSERT INTO `commande` (`id_commande`, `id_user`, `id_code_promo`, `date_command
 CREATE TABLE `couleur` (
   `id_couleur` int(11) NOT NULL,
   `nom_couleur` varchar(100) NOT NULL,
-  `code` varchar(7) DEFAULT NULL
+  `code` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -483,7 +484,7 @@ INSERT INTO `couleur` (`id_couleur`, `nom_couleur`, `code`) VALUES
 (2, 'Aqua azurra', '#7FFFD4'),
 (3, 'Bleu lagon', '#7FFFD4'),
 (4, 'Corail', '#FF7F50'),
-(5, 'Rainbow', NULL),
+(5, 'Rainbow', 'rainbow'),
 (6, 'Terre', '#964B00'),
 (7, 'Red velvet', '#B22222'),
 (8, 'Ocean', '#000080'),
@@ -496,7 +497,7 @@ INSERT INTO `couleur` (`id_couleur`, `nom_couleur`, `code`) VALUES
 (15, 'bleu', '#0000FF'),
 (16, 'Soleil', '#FFD700'),
 (17, 'Rouge carmin', '#FF0038'),
-(18, 'multi', NULL),
+(18, 'multi', 'rainbow'),
 (19, 'Rose', '#FFC0CB'),
 (20, 'Dark', '#000000');
 
@@ -565,10 +566,8 @@ CREATE TABLE `panier` (
 --
 
 INSERT INTO `panier` (`id_commande`, `id_article`, `quantite`) VALUES
-(5, 1, 1),
-(5, 2, 1),
-(5, 4, 2),
-(5, 20, 1);
+(6, 2, 7),
+(6, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -677,7 +676,7 @@ INSERT INTO `user` (`id_user`, `nom`, `prenom`, `genre`, `tel`, `date_naissance`
 (18, 'Velez', 'Imogene', 'f', '03 79 51 83 05', '1942-07-16', 'in.mi.pede@aol.ca', 'GDK91IMX4SK', 17, 1),
 (19, 'Wise', 'Alan', 'f', '03 35 32 74 74', '1987-06-04', 'montes.nascetur.ridiculus@protonmail.edu', 'GXA55RRH6JO', 3, 1),
 (20, 'Farley', 'Zeph', 'h', '01 33 27 12 93', '2008-11-23', 'consectetuer@protonmail.org', 'GJY31PNN8UD', 13, 1),
-(21, 'Perdrix', 'Olivier', 'h', '0000', '1988-06-22', 'olivierperdrix@live.fr', 'olivier', 1, 2);
+(22, 'Olivier', 'Perdrix', 'h', '0606060606', '1988-06-22', 'olivierperdrix@live.fr', '$2y$10$drFMtOxAsBpT5kjSnXUQVO/ojrWyPAylAbFfG7b0HELY.wOJsTkmy', 21, 1);
 
 --
 -- Index pour les tables déchargées
@@ -782,7 +781,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `adresse`
 --
 ALTER TABLE `adresse`
-  MODIFY `id_adresse` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_adresse` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT pour la table `article`
@@ -806,7 +805,7 @@ ALTER TABLE `collection`
 -- AUTO_INCREMENT pour la table `commande`
 --
 ALTER TABLE `commande`
-  MODIFY `id_commande` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_commande` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `couleur`
@@ -842,7 +841,7 @@ ALTER TABLE `type_article`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Contraintes pour les tables déchargées
@@ -866,7 +865,7 @@ ALTER TABLE `commande`
   ADD CONSTRAINT `id_adresse_livraison` FOREIGN KEY (`id_adresse_livraison`) REFERENCES `adresse` (`id_adresse`),
   ADD CONSTRAINT `id_code_promo` FOREIGN KEY (`id_code_promo`) REFERENCES `code_promo` (`id_code_promo`),
   ADD CONSTRAINT `id_statut` FOREIGN KEY (`id_statut`) REFERENCES `statut_commande` (`id_statut`),
-  ADD CONSTRAINT `id_user` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
+  ADD CONSTRAINT `id_user` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `panier`
