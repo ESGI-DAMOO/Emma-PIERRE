@@ -10,7 +10,7 @@ class IndexController extends AbstractController
   public function indexPage(): string
   {
     $context['page'] = array(
-      'titre' => 'Emma Pierre - Votre pannier',
+      'titre' => 'Emma Pierre - Votre panier',
     );
     // Rendu du template Twig
     return $this->twig->render('index.html.twig', $context);
