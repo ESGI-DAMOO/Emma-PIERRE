@@ -20,31 +20,30 @@
 			</div>
 			{% for article in articles %}
 
-			<div class="article_panier" data-id="{{ article.id_article}}">
-				<div class="panier_image_article"><img src="img/products/CollierAlexandra.jpg" alt="{{article.type_article}}
-						{{article.nom}}">
-				</div>
-				<div class="panier_titre_article">
-					<h2>{{article.type_article}}
-						{{article.nom}}</h2>
-				</div>
-				<div class="panier_qte_article">
-					<p>Qté</p>
-					<div class="input-number-container">
-						<input id="input-number" class="input-number" type="number" value="{{ article.quantite}}" />
+				<div class="article_panier" data-id="{{ article.id_article}}">
+					<div class="panier_image_article"><img src="img/products/CollierAlexandra.jpg" alt="{{article.type_article}} {{article.nom}}">
 					</div>
-					<p>P.U
-						<span class="{% if article.remise > 0 %}barre{% endif %}">{{ article.prix|number_format(2, ',', '')
+					<div class="panier_titre_article">
+						<h2>{{article.type_article}}
+							{{article.nom}}</h2>
+					</div>
+					<div class="panier_qte_article">
+						<p>Qté</p>
+						<div class="input-number-container">
+							<input class="input-number" type="number" value="{{ article.quantite}}"/>
+						</div>
+						<p>P.U
+							<span class="{% if article.remise > 0 %}barre{% endif %}">{{ article.prix|number_format(2, ',', '')
 							}}€</span>
-						{% if article.remise > 0 %}
-						{{ article.prix_article|number_format(2, ',', '')}}€
-						{% endif %}
-					</p>
+							{% if article.remise > 0 %}
+								{{ article.prix_article|number_format(2, ',', '')}}€
+							{% endif %}
+						</p>
 
+					</div>
+					<div class="panier_prix_article">{{ article.total_article|number_format(2, ',', '') }}€</div>
+					<div class="panier_delete_article"><img src="img/delete.svg" alt=""></div>
 				</div>
-				<div class="panier_prix_article">{{ article.total_article|number_format(2, ',', '') }}€</div>
-				<div class="panier_delete_article"><img src="img/delete.svg" alt=""></div>
-			</div>
 			{% endfor %}
 		</section>
 		<section class="form_panier">
@@ -67,8 +66,7 @@
 				</div>
 				<div>
 					<label for="complement">Complément d'adresse :</label>
-					<textarea name="complement" id="complement" rows="2"
-						placeholder="Apt, suite, unité, nom de l'entreprise (facultatif)"></textarea>
+					<textarea name="complement" id="complement" rows="2" placeholder="Apt, suite, unité, nom de l'entreprise (facultatif)"></textarea>
 				</div>
 				<div>
 					<label for="codePostal">Code postal :</label>
@@ -107,11 +105,9 @@
 			<div class="form_choix_livr">
 				<legend>Adresse de facturation identique à l’adresse de livraison ?</legend>
 				<div>
-					<label for="addrFacturationDiffOui"><input type="radio" name="addrFacturationDiff" id="addrFacturationDiffOui"
-							value="true">
+					<label for="addrFacturationDiffOui"><input type="radio" name="addrFacturationDiff" id="addrFacturationDiffOui" value="true">
 						Oui</label>
-					<label for="addrFacturationDiffNon"><input type="radio" name="addrFacturationDiff" id="addrFacturationDiffNon"
-							value="false" checked>
+					<label for="addrFacturationDiffNon"><input type="radio" name="addrFacturationDiff" id="addrFacturationDiffNon" value="false" checked>
 						Non</label>
 				</div>
 
@@ -124,8 +120,7 @@
 				</div>
 				<div>
 					<label for="complement_livr">Complément d'adresse :</label>
-					<textarea name="complement_livr" id="complement_livr" rows="2"
-						placeholder="Apt, suite, unité, nom de l'entreprise (facultatif)"></textarea>
+					<textarea name="complement_livr" id="complement_livr" rows="2" placeholder="Apt, suite, unité, nom de l'entreprise (facultatif)"></textarea>
 				</div>
 				<div>
 					<label for="codePostal_livr">Code postal :</label>
@@ -155,7 +150,9 @@
 						<img src="img/American-Expresso-logo.png" alt="AMEX">
 					</label>
 				</div>
-				<h2>Total : {{ totalPanier|number_format(2, ',', '') }} € TTC</h2>
+				<h2 id="prix-total">Total :
+					{{ totalPanier|number_format(2, ',', '') }}
+					€ TTC</h2>
 				<input type="submit" value="Valider mon panier" class="btn btn-bleu">
 			</div>
 		</section>
