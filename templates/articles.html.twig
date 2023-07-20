@@ -44,52 +44,45 @@
 				<p>Type de produit</p>
 				{% for type in types %}
 					<div>
-						<input id="{{ type.type }}" type="checkbox"/>
+						<input id="{{ type.type }}" type="checkbox" class="filter"/>
 						<label for="collier">{{ type.type }}</label>
 					</div>
 				{% endfor %}
 
 				<p>Matériaux</p>
 
-				{% for couleur in couleurs |slice (0 ,10) %}
-					<span class="circle" style="background-color: {{ couleur.code }};"></span>
+				{% for couleur in couleurs |slice (0 ,5) %}
+					<a onclick="clickColor(event)"><span class="circle" data-couleur="{{ couleur.code }}" style="background-color: {{ couleur.code }};"></span></a>
 				{% endfor %}
 
 				<p>Prix</p>
 				<div>
-					<input id="range-price" type="range" step="1" max="{{ prix.0.prix_max }}" min="{{ prix.0.prix_min }}" value="{{ prix.0.prix_max }}"/>
+					<input class="filter" id="range-price" type="range" step="1" max="{{ prix.0.prix_max }}" min="{{ prix.0.prix_min }}" value="{{ prix.0.prix_max }}"/>
 				</div>
 				<div class="price-choose">
 					<div class="input-number-container">
 						<span class="input-number-prefix">€</span>
-						<input id="" class="input-number" type="number" max="{{ prix.0.prix_max }}" value="{{ prix.0.prix_min }}" disabled/>
+						<input id="" class="input-number filter" type="number" max="{{ prix.0.prix_max }}" value="{{ prix.0.prix_min }}" disabled/>
 					</div>
 					<span>-</span>
 					<div class="input-number-container">
 						<span class="input-number-prefix">€</span>
-						<input id="input-number" class="input-number" max="{{ prix.0.prix_max }}" type="number" value="{{ prix.0.prix_max }}"/>
+						<input id="input-number" class="input-number filter" max="{{ prix.0.prix_max }}" type="number" value="{{ prix.0.prix_max }}"/>
 					</div>
 				</div>
 
 				<p>Disponibilité</p>
 				<div>
-					<input id="dispo" type="checkbox"/>
+					<input id="dispo" type="checkbox" class="filter"/>
 					<label for="dispo">Disponible</label>
-				</div>
-				<div>
-					<input id="hstock" type="checkbox"/>
-					<label for="hstock">Hors stock</label>
 				</div>
 
 				<p>Promotion</p>
 				<div>
-					<input id="promo" type="checkbox"/>
+					<input id="promo" type="checkbox" class="filter"/>
 					<label for="promo">Promotion</label>
 				</div>
-				<div>
-					<input id="remises" type="checkbox"/>
-					<label for="remises">Remises spéciales</label>
-				</div>
+
 			</asside>
 			<div class="product-list">
 				<h2>Produits du moment</h2>
@@ -140,6 +133,6 @@
 		</div>
 	</div>
 </main>
-<script src="/js/articlesSort.js"></script>
+<script src="/js/articlesFilter.js"></script>
 {% include "partial/feed-insta.html.twig" %}
 {% include "partial/footer.html.twig" %}
