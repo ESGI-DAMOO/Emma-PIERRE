@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use PDO;
 use App\Routing\Attribute\Route;
+use Symfony\Component\HttpFoundation\Response;
 
 class LoginController extends AbstractController
 {
@@ -79,61 +80,77 @@ class LoginController extends AbstractController
   }
 
   #[Route(path: "/userregister", name: "register_action", httpMethod: "POST")]
-    public function registerAction(Request $request): Response
-    {
-        // Contexte Twig
-        $context['page'] = array(
-            'titre' => 'Page d\'inscription',
-        );
+public function registerAction()
+{
+    // Contexte Twig
+    $context['page'] = array(
+        'titre' => 'Page d\'inscription',
+    );
 
-        /**
-         * Si le formulaire d'inscription est rempli, alors on envoie les données en base de données.
-         */
-        if ($request->isMethod('POST')) {
-            // Récupération des données du formulaire
-            $username = $request->request->get('mail') ?? '';
-            $password = $request->request->get('password') ?? '';
-            $confirm_password = $request->request->get('confirm_password') ?? '';
-            $lastname = $request->request->get('lastname') ?? '';
-            $surname = $request->request->get('surname') ?? '';
-            $gender = $request->request->get('gender') ?? '';
-            $phone = $request->request->get('phone') ?? '';
-            $birthdate = $request->request->get('birthdate') ?? '';
+    /**
+     * Si le formulaire d'inscription est rempli, alors on envoie les données en base de données.
+     */
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // Récupération des données du formulaire
+        $email = $_POST['mail'] ?? '';
+        $password = $_POST['password'] ?? '';
+        $confirm_password = $_POST['confirm_password'] ?? '';
+        $lastname = $_POST['lastname'] ?? '';
+        $surname = $_POST['surname'] ?? '';
+        $gender = $_POST['gender'] ?? '';
+        $phone = $_POST['phone'] ?? '';
+        $birthdate = $_POST['birthdate'] ?? '';
 
-            // Vérification que les mots de passe correspondent
-            if ($password !== $confirm_password) {
-                $context['error'] = "Les mots de passe ne correspondent pas.";
-                // Rendu du template Twig (page d'inscription avec message d'erreur)
-                return $this->twig->render('register.html.twig', $context);
-            }
+        // Informations de livraison
+        $adresse = $_POST['adress'] ?? '';
+        $complement = $_POST['compladress'] ?? '';
+        $code_postal = $_POST['zipcode'] ?? '';
+        $ville = $_POST['city'] ?? '';
+        $pays = $_POST['country'] ?? '';
 
-            // Vérification si l'utilisateur existe déjà
-            $req = "SELECT COUNT(*) FROM user WHERE email = ?";
-            $statement = $this->pdo->prepare($req);
-            $statement->execute([$username]);
-            $count = $statement->fetchColumn();
-
-            if ($count > 0) {
-                $context['error'] = "Ce nom d'utilisateur est déjà pris.";
-                // Rendu du template Twig (page d'inscription avec message d'erreur)
-                return $this->twig->render('register.html.twig', $context);
-            }
-
-            // Hachage du mot de passe avant de l'enregistrer en base de données
-            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-            // Préparation de la requête SQL pour insérer l'utilisateur
-            $req = "INSERT INTO user (nom, prenom, genre, tel, date_naissance, email, mot_passe) VALUES (?, ?, ?, ?, ?, ?, ?)";
-            $statement = $this->pdo->prepare($req);
-            $statement->execute([$lastname, $surname, $gender, $phone, $birthdate, $username, $hashed_password]);
-
-            // Redirection vers la page de connexion après l'inscription réussie
-            return new Response('Inscription réussie ! Vous pouvez maintenant vous connecter.');
+        // Vérification que les mots de passe correspondent
+        if ($password !== $confirm_password) {
+            $context['error'] = "Les mots de passe ne correspondent pas.";
+            // Rendu du template Twig (page d'inscription avec message d'erreur)
+            return $this->twig->render('register.html.twig', $context);
         }
 
-        // Rendu du template Twig (page d'inscription)
-        return $this->twig->render('user-register.html.twig', $context);
+        // Vérification si l'utilisateur existe déjà
+        $req = "SELECT COUNT(*) FROM user WHERE email = ?";
+        $statement = $this->pdo->prepare($req);
+        $statement->execute([$email]);
+        $count = $statement->fetchColumn();
+
+        if ($count > 0) {
+            $context['error'] = "Ce nom d'utilisateur est déjà pris.";
+            // Rendu du template Twig (page d'inscription avec message d'erreur)
+            return $this->twig->render('register.html.twig', $context);
+        }
+
+        // Hachage du mot de passe avant de l'enregistrer en base de données
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+        // Insertion des informations de livraison dans la table "adresse"
+        $req = "INSERT INTO adresse (adresse, complement, code_postal, ville, pays) VALUES (?, ?, ?, ?, ?)";
+        $statement = $this->pdo->prepare($req);
+        $statement->execute([$adresse, $complement, $code_postal, $ville, $pays]);
+
+        // Récupération de l'id_adresse créé
+        $id_adresse = $this->pdo->lastInsertId();
+
+        // Préparation de la requête SQL pour insérer l'utilisateur
+    $id_role = 1; // Valeur par défaut pour id_role
+    $req = "INSERT INTO user (nom, prenom, genre, tel, date_naissance, email, mot_passe, id_adresse, id_role) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $statement = $this->pdo->prepare($req);
+    $statement->execute([$lastname, $surname, $gender, $phone, $birthdate, $email, $hashed_password, $id_adresse, $id_role]);
+
+        // Redirection vers la page de connexion après l'inscription réussie
+        return new Response('Inscription réussie ! Vous pouvez maintenant vous connecter.');
     }
+
+    // Rendu du template Twig (page d'inscription)
+    return $this->twig->render('user-register.html.twig', $context);
+}
 
     // ...
 }
