@@ -20,7 +20,7 @@
                 <td><img src="{{ item.photos }}" alt=""></td>
                 <td class="width-fit-content">
                     <a href="/admin/produits/{{ item.id_article }}/edit">Modifier</a>
-                    <a class="delete-link" href="/admin/produit/{{ item.id_article }}/delete">Supprimer</a>
+                    <a class="delete-link" href="/api/produits/delete/{{ item.id_article }}">Supprimer</a>
                 </td>
             </tr>
         {% endfor %}

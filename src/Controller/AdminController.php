@@ -159,4 +159,43 @@ class AdminController extends AbstractController
         exit();
     }
 
+    #[Route(path: "/api/produits/update/{id}", name: "apiEditProduitAdministrateur_page", httpMethod: "POST")]
+    public function apiEditProduitAdministrateur(int $id): string
+    {
+
+        $nom = $_POST['name'];
+        $description = $_POST['description'];
+        $prix = $_POST['prix'];
+        $remise = $_POST['remise'];
+        $stock = $_POST['stock'];
+        $id_type = $_POST['type'];
+        $id_matiere = $_POST['matiere'];
+        $id_couleur = $_POST['couleur'];
+        $remarques = $_POST['remarques'];
+        $id_categorie = $_POST['categorie'];
+        $id_collection = $_POST['collection'];
+
+
+        // Obtenir le nombre de produits :
+        $req = "UPDATE `article` 
+                SET `nom` = ?, `description` = ?, `prix` = ?, `remise` = ?, `stock` = ?, `id_type` = ?, `id_matiere` = ?, `id_couleur` = ?, `remarques` = ?, `id_categorie` = ?, `id_collection` = ? WHERE article.id_article = $id; ";
+        $statement = $this->pdo->prepare($req);
+        $statement->execute(array($nom, $description, $prix, $remise, $stock, $id_type, $id_matiere, $id_couleur, $remarques, $id_categorie, $id_collection));
+
+        header('Location: /admin/produits');
+        exit();
+    }
+
+    #[Route(path: "/api/produits/delete/{id}", name: "apiDeleteProduitAdministrateur_page")]
+    public function apiDeleteProduitAdministrateur(int $id): string
+    {
+        // Obtenir le nombre de produits :
+        $req = "DELETE FROM article WHERE `article`.`id_article` = $id";
+        $statement = $this->pdo->prepare($req);
+        $statement->execute();
+
+        header('Location: /admin/produits');
+        exit();
+    }
+
 }
