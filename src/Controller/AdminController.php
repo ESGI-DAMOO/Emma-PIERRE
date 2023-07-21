@@ -61,8 +61,9 @@ class AdminController extends AbstractController
             ) subquery;";
         $statement = $this->pdo->prepare($req);
         $statement->execute();
-        $context['produit'] += $statement->fetch(PDO::FETCH_ASSOC);
-
+        if($statement != false) {
+            $context['produit'] += $statement->fetch(PDO::FETCH_ASSOC);
+        }
         // Rendu du template Twig
         return $this->twig->render('admin/dashboard.twig', $context);
     }
@@ -166,7 +167,7 @@ class AdminController extends AbstractController
         header('Location: /admin/produits');
         exit();
     }
-
+/*
     #[Route(path: "/api/produits/update/{id}", name: "apiEditProduitAdministrateur_page", httpMethod: "POST")]
     public function apiEditProduitAdministrateur(int $id): string
     {
@@ -193,6 +194,7 @@ class AdminController extends AbstractController
         header('Location: /admin/produits');
         exit();
     }
+*/
 
     #[Route(path: "/api/produits/delete/{id}", name: "apiDeleteProduitAdministrateur_page")]
     public function apiDeleteProduitAdministrateur(int $id): string
