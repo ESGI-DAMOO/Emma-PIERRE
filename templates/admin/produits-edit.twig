@@ -1,0 +1,132 @@
+{% include 'admin/partial-admin/header-admin.twig' %}
+<div class="admin-content">
+    <h2>Modifier "{{ produit.nom }}"</h2>
+    <form class="edit-product-form" action="/api/produits/update/{{ produit.id_article }}" method="POST">
+        <fieldset>
+            <legend>Informations générales du produit</legend>
+
+            <div>
+                <label for="name">Nom du produit</label>
+                <input type="text" id="name" name="name" value="{{ produit.nom }}">
+            </div>
+
+            <div>
+                <label for="description">Description</label>
+                <textarea id="description" name="description">{{ produit.description }}</textarea>
+            </div>
+
+            <div>
+                <label for="remarques">Remarque complémentaire</label>
+                <textarea id="remarques" name="remarques">{{ produit.remarques }}</textarea>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Prix et spécificité</legend>
+            <div class="edit-form-inline">
+                <div>
+                    <label for="prix">Prix (€ TTC)</label>
+                    <input type="text" id="prix" name="prix" value="{{ produit.prix }}">
+                </div>
+                <div>
+                    <label for="remise">Remise (%)</label>
+                    <input name="remise" type="number" min="0" max="100" value="{{ produit.remise }}" />
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <label for="stock">Stock </label>
+                    <input name="stock" type="number" value="{{ produit.stock }}" />
+                </div>
+            </div>
+
+            <div class="edit-form-inline">
+                <div>
+                    <label for="categorie">Catégorie</label>
+                    <select name="categorie">
+                        {% for c in categories %}
+                            {% if produit.id_categorie == c.id_categorie %}
+                                <option selected value="{{ c.id_categorie }}">{{ c.categorie }}</option>
+                            {% else %}
+                                <option value="{{ c.id_categorie }}">{{ c.categorie }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+                <div>
+                    <label for="collection">Collection</label>
+                    <select name="collection">
+                        {% for co in collections %}
+                            {% if produit.id_collection == co.id_collection %}
+                                <option selected value="{{ co.id_collection }}">{{ co.collection }}</option>
+                            {% else %}
+                                <option value="{{ co.id_collection }}">{{ co.collection }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+                <div>
+                    <label for="collection">Type</label>
+                    <select name="type">
+                        {% for t in types %}
+                            {% if produit.id_type == t.id_type %}
+                                <option selected value="{{ t.id_type }}">{{ t.type }}</option>
+                            {% else %}
+                                <option value="{{ t.id_type }}">{{ t.type }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div class="edit-form-inline">
+                <div>
+                    <label for="matiere">Matière</label>
+                    <select name="matiere">
+                        {% for m in matieres %}
+                            {% if produit.id_matiere == m.id_matiere %}
+                                <option selected value="{{ m.id_matiere }}">{{ m.nom_matiere }}</option>
+                            {% else %}
+                                <option value="{{ m.id_matiere }}">{{ m.nom_matiere }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+                <div>
+                    <label for="couleur">Couleur</label>
+                    <select id="selector-couleur" name="couleur">
+                        {% for color in couleurs %}
+                            {% if produit.id_couleur == color.id_couleur %}
+                                <option id="color-{{ color.id_couleur }}" selected data-colorcode="{{ color.code }}" value="{{ color.id_couleur }}">{{ color.nom_couleur }}</option>
+                            {% else %}
+                                <option id="color-{{ color.id_couleur }}" data-colorcode="{{ color.code }}" value="{{ color.id_couleur }}">{{ color.nom_couleur }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                    <span id="color-preview" class="color-preview" style="background-color: {{ couleurs.code }}"></span>
+                </div>
+            </div>
+        </fieldset>
+        <div>
+            <input type="submit" value="Modifier">
+        </div>
+    </form>
+
+    <script>
+        var select = document.getElementById('selector-couleur');
+        var preview = document.querySelector('#color-preview');
+        select.addEventListener('change', function() {
+            var selectedValue = this.value;
+            var idCouleur = select.value;
+            var optionSelected = document.querySelector('#color-'+ idCouleur);
+            if (optionSelected.dataset.colorcode === "rainbow") {
+                preview.style.background = "none";
+                preview.classList.add("linear-gradient");
+            } else {
+                preview.style.background = optionSelected.dataset.colorcode;
+                preview.classList.remove("linear-gradient");
+            }
+        });
+    </script>
+</div>
+{% include 'admin/partial-admin/footer-admin.twig' %}
