@@ -217,3 +217,20 @@ articlesPanier.forEach(article => {
     }
 
 });
+
+const afficheFacturation = document.querySelector('#addrFacturationDiffOui');
+if (afficheFacturation) {
+    afficheFacturation.addEventListener('change', afficheFacturationDiff);
+}
+const masqueFacturation = document.querySelector('#addrFacturationDiffNon');
+if (masqueFacturation) {
+    masqueFacturation.addEventListener('change', afficheFacturationDiff);
+}
+function afficheFacturationDiff() {
+    const div = document.querySelector('#formFacturation');
+    if (afficheFacturation.checked) {
+        div.classList.remove('hide');
+    } else {
+        div.classList.add('hide');
+    }
+}

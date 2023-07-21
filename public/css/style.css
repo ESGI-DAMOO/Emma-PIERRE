@@ -223,7 +223,7 @@ a.lien_menu:hover::after {
 }
 
 .hide {
-  display: none;
+  display: none !important;
 }
 /* END GLOBAL */
 
