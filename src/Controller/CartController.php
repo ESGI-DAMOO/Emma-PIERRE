@@ -115,6 +115,9 @@ class CartController extends AbstractController
     $statement->execute([$commande['id_commande']]);
     $articles = $statement->fetchAll(PDO::FETCH_ASSOC);
     $totalPanier = $articles ? array_sum(array_column($articles, 'total_article')) : 0;
+    foreach ($articles as $key => $article) {
+      $articles[$key]['photos'] = json_decode($articles[$key]['photos'])[0]->url ?? [];
+    }
     $context['articles'] = $articles;
     $context['totalPanier'] = $totalPanier;
 
@@ -359,6 +362,60 @@ class CartController extends AbstractController
     header('Content-Type: application/json');
     http_response_code(200);
     echo json_encode(['total' => $totalPanier]);
+    exit;
+  }
+
+  /**
+   * Calcule le montant total d'un article en fonction de ses remises et quantité
+   */
+  #[Route(path: "/api/panier/getArticleTotal/{id}", name: 'getArticleTotal', httpMethod: "GET")]
+  public function getArticleTotal(int $id)
+  {
+    // Vérification de l'existance de l'id dans la base de données
+    $article = $this->getArticle($id);
+    if (!$article) {
+      // Article non trouvé => retourne une erreur 404 json
+      header('Content-Type: application/json');
+      http_response_code(404);
+      echo json_encode(['error' => 'Article non trouvé']);
+      exit;
+    }
+
+    // Récupération de l'id de l'utilisateur connecté
+    $idUser = $this->getIdUser();
+    if ($idUser == 0) {
+      // renvoie une erreur 401 json si l'utilisateur n'est pas connecté
+      header('Content-Type: application/json');
+      http_response_code(401);
+      echo json_encode(['error' => 'Utilisateur non connecté']);
+      exit;
+    }
+
+    // Vérification de l'existance d'une commande active dans la base de données
+    $commande = $this->getCommandeActive($idUser);
+    if (!$commande) {
+      // renvoie une réponse json avec 0 article si aucune commande active n'est trouvée
+      header('Content-Type: application/json');
+      http_response_code(200);
+      echo json_encode(['total' => 0]);
+      exit;
+    }
+
+    // Calcul du montant total de l'article
+    $req = "SELECT 
+      (a.prix - (a.prix * a.remise / 100)) * p.quantite AS total_article
+    FROM article a
+    JOIN panier p ON a.id_article = p.id_article
+    JOIN type_article ta ON a.id_type = ta.id_type
+    WHERE p.id_commande = ? AND p.id_article = ?;";
+
+    $statement = $this->pdo->prepare($req);
+    $statement->execute([$commande['id_commande'], $id]);
+    $article = $statement->fetch(PDO::FETCH_ASSOC);
+    $totalArticle = $article ? $article['total_article'] : 0;
+    header('Content-Type: application/json');
+    http_response_code(200);
+    echo json_encode(['total' => $totalArticle]);
     exit;
   }
 }

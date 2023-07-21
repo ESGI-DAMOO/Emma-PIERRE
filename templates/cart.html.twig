@@ -21,7 +21,7 @@
 			{% for article in articles %}
 
 				<div class="article_panier" data-id="{{ article.id_article}}">
-					<div class="panier_image_article"><img src="img/products/CollierAlexandra.jpg" alt="{{article.type_article}} {{article.nom}}">
+					<div class="panier_image_article"><img src="{{ article.photos }}" alt="{{article.type_article}} {{article.nom}}">
 					</div>
 					<div class="panier_titre_article">
 						<h2>{{article.type_article}}

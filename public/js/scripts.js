@@ -90,6 +90,31 @@ function updateCartTotal() {
     }
 }
 
+// Changement du montant total d'un article du panier
+function updateArticleTotal(article) {
+
+    if (article) {
+        //fetch api /api/cart/count
+        try {
+            fetch(`/api/panier/getArticleTotal/${article.dataset.id}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    const articleTotal = article.querySelector('.panier_prix_article');
+                    articleTotal.innerHTML = `${data.total.toFixed(2)}€`;
+                })
+                .catch((error) => { console.error(error) })
+        }
+        catch (error) {
+            console.error(error)
+        }
+    }
+}
+
 // Bouton ajout au panier
 const addToCartBtn = document.querySelector('#add-to-cart')
 const textValid = document.querySelector('#product .valide')
@@ -136,6 +161,8 @@ function addToCart() {
 // Bouton suppression d'un article du panier et changement de la quantité
 const articlesPanier = document.querySelectorAll('.article_panier');
 articlesPanier.forEach(article => {
+
+    // Suppression d'un article
     const deleteBtn = article.querySelector('.panier_delete_article')
     deleteBtn.addEventListener('click', deleteArticle);
     function deleteArticle() {
@@ -160,6 +187,8 @@ articlesPanier.forEach(article => {
             console.error(error)
         }
     }
+
+    // Changement de la quantité
     const quantityInput = article.querySelector('.input-number');
     quantityInput.addEventListener('change', changeQuantity);
     function changeQuantity() {
@@ -176,6 +205,7 @@ articlesPanier.forEach(article => {
             })
                 .then((response) => response.json())
                 .then((data) => {
+                    updateArticleTotal(article);
                     updateCartCount();
                     updateCartTotal();
                 })
