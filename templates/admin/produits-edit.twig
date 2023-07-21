@@ -97,9 +97,9 @@
                     <select id="selector-couleur" name="couleur">
                         {% for color in couleurs %}
                             {% if produit.id_couleur == color.id_couleur %}
-                                <option id="color-select" selected data-colorcode="{{ color.code }}" value="{{ color.id_couleur }}">{{ color.nom_couleur }}</option>
+                                <option id="color-{{ color.id_couleur }}" selected data-colorcode="{{ color.code }}" value="{{ color.id_couleur }}">{{ color.nom_couleur }}</option>
                             {% else %}
-                                <option id="color-select" data-colorcode="{{ color.code }}" value="{{ color.id_couleur }}">{{ color.nom_couleur }}</option>
+                                <option id="color-{{ color.id_couleur }}" data-colorcode="{{ color.code }}" value="{{ color.id_couleur }}">{{ color.nom_couleur }}</option>
                             {% endif %}
                         {% endfor %}
                     </select>
@@ -117,11 +117,13 @@
         var preview = document.querySelector('#color-preview');
         select.addEventListener('change', function() {
             var selectedValue = this.value;
-            if (selectedValue === "rainbow") {
+            var idCouleur = select.value;
+            var optionSelected = document.querySelector('#color-'+ idCouleur);
+            if (optionSelected.dataset.colorcode === "rainbow") {
                 preview.style.background = "none";
                 preview.classList.add("linear-gradient");
             } else {
-                preview.style.background = this.dataset.colorcode;
+                preview.style.background = optionSelected.dataset.colorcode;
                 preview.classList.remove("linear-gradient");
             }
         });
