@@ -165,6 +165,7 @@ class ArticlesController extends AbstractController
 
     $article["prixEntier"] = floor($article["prix"]);
     $article["prixFraction"] = sprintf("%02d", fmod($article["prix"], 1) * 100);
+    $article["photos"] = json_decode($article["photos"])[0]->url ?? [];
     $context['article'] = $article;
 
     // Rendu du template Twig
