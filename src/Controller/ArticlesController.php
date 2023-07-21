@@ -21,7 +21,7 @@ class ArticlesController extends AbstractController
   {
 
     // Récupère les articles
-    $req = "SELECT * FROM ARTICLE";
+    $req = "SELECT *, t.type FROM ARTICLE a JOIN TYPE_ARTICLE t ON a.id_type = t.id_type ";
     $statement = $this->pdo->prepare($req);
     $statement->execute();
     $articles = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -74,7 +74,7 @@ class ArticlesController extends AbstractController
     $dispo = filter_var($_POST['dispo'], FILTER_VALIDATE_BOOLEAN) ?? true;
     $promo = filter_var($_POST['promo'], FILTER_VALIDATE_BOOLEAN) ?? false;
 
-    $req = "SELECT a.*";
+    $req = "SELECT a.*, t.type";
     $req .= " FROM ARTICLE AS a JOIN TYPE_ARTICLE AS t ON a.id_type = t.id_type JOIN COULEUR AS c ON a.id_couleur = c.id_couleur";
     $req .= " WHERE 1=1";
 
@@ -98,14 +98,6 @@ class ArticlesController extends AbstractController
     if ($couleur != null) {
       $stmt->bindParam(':couleur', $couleur);
     }
-    // if ($prix_min != null && $prix_max != null) {
-    //   $stmt->bindParam(':prix_min', $prix_min);
-    //   $stmt->bindParam(':prix_max', $prix_max);
-    // } else if ($prix_min != null) {
-    //   $stmt->bindParam(':prix_min', $prix_min);
-    // } else if ($prix_max != null) {
-    //   $stmt->bindParam(':prix_max', $prix_max);
-    // }
 
     $stmt->execute();
     $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
