@@ -6,7 +6,7 @@
 		<p>
 			<a href="/">Accueil</a>
 			>
-			<a href="/listing-product">Tous les produits</a>
+			<a href="/articles">Tous les produits</a>
 			>
 			<a href="#">{{ article.type }}
 				{{ article.nom }}</a>
@@ -15,7 +15,8 @@
 	<section>
 		<div class="product__container">
 			<div class="product__container__img">
-				<img src="/img/products/CollierAlexandra.jpg" alt="Collier Alexandra">
+				<img src="{{ article.photos }}" alt="{{ article.type }}">
+
 			</div>
 			<div class="product__container__description">
 				<h1>{{ article.type }}
