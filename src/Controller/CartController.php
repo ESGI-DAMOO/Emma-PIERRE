@@ -77,6 +77,8 @@ class CartController extends AbstractController
     $context['page'] = array(
       'titre' => 'Emma Pierre - Votre panier',
     );
+    $idUser = $this->getIdUser();
+    $context['session'] = $_SESSION;
 
     // Récupération de l'id de l'utilisateur connecté
     $idUser = $this->getIdUser();
