@@ -42,21 +42,17 @@
 		<div class="product-list-container">
 			<asside>
 				<p>Type de produit</p>
-				<div id="check-types">
-					{% for type in types %}
-						<div>
-							<input id="{{ type.type }}" type="checkbox" class="filter"/>
-							<label for="{{ type.type }}">{{ type.type }}</label>
+				{% for type in types %}
+					<div>
+						<input data-type="{{ type.type }}" id="check-types" type="checkbox" class="filter type"/>
+						<label for="{{ type.type }}">{{ type.type }}</label>
+					</div>
+				{% endfor %}
 
-						</div>
-					{% endfor %}
-				</div>
 				<p>Matériaux</p>
 
 				{% for couleur in couleurs |slice (0 ,5) %}
-					<a onclick="clickColor(event)">
-						<span class="circle" data-couleur="{{ couleur.code }}" style="background-color: {{ couleur.code }};"></span>
-					</a>
+					<a><span class="circle filter" data-couleur="{{ couleur.code }}" style="background-color: {{ couleur.code }};"></span></a>
 				{% endfor %}
 
 				<p>Prix</p>
@@ -66,13 +62,12 @@
 				<div class="price-choose">
 					<div class="input-number-container">
 						<span class="input-number-prefix">€</span>
-						<input id="prix_min" class="input-number filter" type="number" max="{{ prix.0.prix_max }}" value="{{ prix.0.prix_min }}" disabled/>
+						<input id="" class="input-number filter" type="number" max="{{ prix.0.prix_max }}" value="{{ prix.0.prix_min }}" disabled/>
 					</div>
 					<span>-</span>
 					<div class="input-number-container">
 						<span class="input-number-prefix">€</span>
-						<input id="prix_max" class="input-number filter" max="{{ prix.0.prix_max }}" type="number" value="{{ prix.0.prix_max }}"/>
-
+						<input id="input-number" class="input-number filter" max="{{ prix.0.prix_max }}" type="number" value="{{ prix.0.prix_max }}"/>
 					</div>
 				</div>
 
