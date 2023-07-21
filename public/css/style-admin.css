@@ -71,7 +71,7 @@ body.login-admin {
 }
 
 .admin-content {
-    padding: 14rem 7rem;
+    padding: 7rem;
 }
 
 /* DASHBOARD */
@@ -146,4 +146,30 @@ td {
 
 td a {
     text-decoration: underline;
+}
+
+/* EDIT PRODUCT */
+.edit-product-form label, .edit-product-form input {
+    display: block;
+}
+
+.edit-form-inline {
+    display: flex;
+}
+
+.edit-form-inline div {
+    margin-right: 2rem;
+}
+
+.color-preview {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+/* Dégradé linéaire */
+.linear-gradient {
+    background-image: linear-gradient(89.7deg, rgba(223, 0, 0, 1) 2.7%, rgba(214, 91, 0, 1) 15.1%, rgba(233, 245, 0, 1) 29.5%, rgba(23, 255, 17, 1) 45.8%, rgba(29, 255, 255, 1) 61.5%, rgba(5, 17, 255, 1) 76.4%, rgba(202, 0, 253, 1) 92.4%) !important;
 }
