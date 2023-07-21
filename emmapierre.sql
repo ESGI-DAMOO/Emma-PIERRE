@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le : ven. 21 juil. 2023 à 07:52
+-- Généré le : ven. 21 juil. 2023 à 10:15
 -- Version du serveur : 5.7.39
 -- Version de PHP : 8.2.0
 
@@ -461,7 +461,7 @@ INSERT INTO `commande` (`id_commande`, `id_user`, `id_code_promo`, `date_command
 (2, 8, 'LOVEJS', '2023-07-17 16:18:18', '2023-07-16', 3, 7, 13),
 (3, 20, NULL, '2023-07-17 16:20:59', NULL, 1, 12, 12),
 (4, 6, 'JOYEUXANNIVMAXIME', '2023-07-17 16:20:59', '2023-07-17', 4, 9, 9),
-(6, 22, NULL, '2023-07-20 12:43:33', NULL, 1, NULL, NULL);
+(6, 22, NULL, '2023-07-20 12:43:33', NULL, 4, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -566,8 +566,12 @@ CREATE TABLE `panier` (
 --
 
 INSERT INTO `panier` (`id_commande`, `id_article`, `quantite`) VALUES
-(6, 2, 7),
-(6, 4, 1);
+(1, 1, 1),
+(2, 2, 1),
+(3, 4, 1),
+(4, 1, 10),
+(6, 1, 3),
+(6, 2, 2);
 
 -- --------------------------------------------------------
 
