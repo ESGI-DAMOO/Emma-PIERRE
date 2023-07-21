@@ -78,15 +78,18 @@ function filter(element) {
             // Traitement des données retournées par la route
             const container = document.querySelector('.container-list-produit');
             container.innerHTML = "";
-            data.articles.forEach(article => {
-                const div = document.createElement('div');
-                div.className = "produit-card"
-                //debugger
-                let url = article.photos != null ? JSON.parse(article.photos)[0].url : "/img/products/collier1.jpg";
-                if (!testUrl(url)) {
-                    url = "/img/products/collier1.jpg";
-                }
-                div.innerHTML = `
+            if (data.articles.length === 0) {
+                container.innerHTML = `<p> Il n'y pas d'articles correspondant à vos critères </p>`;
+            } else {
+                data.articles.forEach(article => {
+                    const div = document.createElement('div');
+                    div.className = "produit-card"
+                    //debugger
+                    let url = article.photos != null ? JSON.parse(article.photos)[0].url : "/img/products/collier1.jpg";
+                    if (!testUrl(url)) {
+                        url = "/img/products/collier1.jpg";
+                    }
+                    div.innerHTML = `
                     <div class="product-hover">
                         <img class="boucle-doreilles" src="${url}" alt="${article.nom}"/>
                         <div class="product-hover-contain">
@@ -95,15 +98,16 @@ function filter(element) {
                     </div>
                     <div class="infos">
                         <div class="titre_produit">
-                            <p>${article.nom}</p>
+                            <p>${article.type} ${article.nom}</p>
                         </div>
                         <div class="prix_produit">
                             <p>${article.prix}€</p>
                         </div>
                     </div>
                     `;
-                container.appendChild(div);
-            });
+                    container.appendChild(div);
+                });
+            }
         })
         .catch(error => {
             console.error('Erreur lors de la requête fetch :', error);
