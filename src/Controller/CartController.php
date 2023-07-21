@@ -190,8 +190,8 @@ class CartController extends AbstractController
     if ($idUser == 0) {
       // renvoie une erreur 401 json si l'utilisateur n'est pas connecté
       header('Content-Type: application/json');
-      http_response_code(401);
-      echo json_encode(['error' => 'Vous devez être connecté pour ajouter un article au panier']);
+      http_response_code(200);
+      echo json_encode(['nbArticles' => 0]);
       exit;
     }
 

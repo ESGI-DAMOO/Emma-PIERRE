@@ -1258,10 +1258,6 @@ footer .social img {
 /* END LIST PRODUCT */
 
 /* PRODUCT */
-#product {
-  margin-top: 170px;
-}
-
 #product .product__container {
   display: flex;
   align-items: center;

@@ -56,10 +56,12 @@ function updateCartCount() {
             .then((data) => {
                 cartCount.innerHTML = data.nbArticles;
             })
-            .catch((error) => { console.error(error) })
+            .catch((error) => {
+                cartCount.innerHTML = 0;
+            })
     }
     catch (error) {
-        console.error(error)
+        cartCount.innerHTML = 0;
     }
 }
 updateCartCount();
@@ -104,7 +106,13 @@ function addToCart() {
             method: 'POST',
             body: data,
         })
-            .then((response) => response.json())
+            .then((response) => {
+                if (response.status === 200) {
+                    return response.json();
+                } else {
+                    return response.json().then((msg) => { throw new Error(msg.error) });
+                }
+            })
             .then((data) => {
                 updateCartCount();
                 // Ajoute la classe hide à la div textValid pendant 5 secondes
@@ -114,7 +122,11 @@ function addToCart() {
                 }
                     , 5000);
             })
-            .catch((error) => { console.error(error) })
+            .catch((error) => {
+
+                //traiter erreur
+
+            })
     }
     catch (error) {
         console.error(error)

@@ -33,10 +33,10 @@ class ArticlesController extends AbstractController
     $idUser = $this->getIdUser();
     $context['session'] = $_SESSION;
     foreach ($articles as &$article) {
-        if($article["photos"] != null) {
-            $photos = json_decode($article["photos"]);
-            $article["photos"] = $photos[0]->src;
-        }
+      if ($article["photos"] != null) {
+        $photos = json_decode($article["photos"]);
+        $article["photos"] = $photos[0]->url;
+      }
     }
     $context['articles'] = $articles;
 
@@ -64,44 +64,57 @@ class ArticlesController extends AbstractController
     return $this->twig->render('articles.html.twig', $context);
   }
 
-  #[Route(path: "/api/articles?type={type}&couleur={couleur}&prix_min={prix_min}&prix_max={prix_max}&dispo={dispo}&promo={promo}", name: "cart_page")]
-  public function filterArticles(string $type, string $couleur, int $prix_min, int $prix_max, bool $dispo, bool $promo): string
+  #[Route(path: "/api/articles", name: "cart_page", httpMethod: 'POST')]
+  public function filterArticles(): string
   {
-      $req = "SELECT a.*";
-      $req .= " FROM ARTICLE AS a JOIN TYPE_ARTICLE AS t ON a.id_type = t.id_type JOIN COULEUR AS c ON a.id_couleur = c.id_couleur";
-      $req .= " WHERE 1=1";
+    $type = $_POST['type'] ?? null;
+    $couleur = $_POST['couleur'] ?? null;
+    $prix_min = $_POST['prix_min'] ?? 0;
+    $prix_max = $_POST['prix_max'] ?? 10000;
+    $dispo = filter_var($_POST['dispo'], FILTER_VALIDATE_BOOLEAN) ?? true;
+    $promo = filter_var($_POST['promo'], FILTER_VALIDATE_BOOLEAN) ?? false;
 
-      if ($type != null) {
-        $req .= " AND t.type = :type";
-      }
-      if ($couleur != null) {
-        $req .= " AND c.nom_couleur = :couleur";
-      }
-      if ($prix_min != null && $prix_max != null) {
-          $req .= " AND a.prix BETWEEN x AND y";
-      }
-      else if ($prix_min != null) {
-          $req .= " AND a.prix > :prix_min";
-      }
-      else if ($prix_max != null) {
-          $req .= " AND a.prix > :prix_max";
-      }
-      if ($dispo != null) {
-          $req .= " AND a.stock > 0";
-      }
-      if ($promo != null) {
-          $req .= " AND a.remise <> 0";
-      }
+    $req = "SELECT a.*";
+    $req .= " FROM ARTICLE AS a JOIN TYPE_ARTICLE AS t ON a.id_type = t.id_type JOIN COULEUR AS c ON a.id_couleur = c.id_couleur";
+    $req .= " WHERE 1=1";
 
-      $statement = $this->pdo->prepare($req);
-      $statement->execute();
-      $articles = $statement->fetchAll(PDO::FETCH_ASSOC);
+    if ($type != null) {
+      $req .= " AND t.type IN (:type)";
+    }
+    if ($couleur != null) {
+      $req .= " AND c.code = :couleur";
+    }
+    $req .= " AND a.prix BETWEEN " . $prix_min . " AND " . $prix_max;
+    if ($dispo) $req .= " AND a.stock > 0";
+    if ($promo) $req .= " AND a.remise > 0";
 
-      // Renvoie une réponse json
-      header('Content-Type: application/json');
-      http_response_code(200);
-      echo json_encode(['articles' => $articles]);
-      exit;
+    $stmt = $this->pdo->prepare($req);
+
+    // Ajoutez la liaison des paramètres seulement s'ils ne sont pas null
+    if ($type != null) {
+      $stmt->bindParam(":type", $type);
+    }
+
+    if ($couleur != null) {
+      $stmt->bindParam(':couleur', $couleur);
+    }
+    // if ($prix_min != null && $prix_max != null) {
+    //   $stmt->bindParam(':prix_min', $prix_min);
+    //   $stmt->bindParam(':prix_max', $prix_max);
+    // } else if ($prix_min != null) {
+    //   $stmt->bindParam(':prix_min', $prix_min);
+    // } else if ($prix_max != null) {
+    //   $stmt->bindParam(':prix_max', $prix_max);
+    // }
+
+    $stmt->execute();
+    $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // Renvoie une réponse json
+    header('Content-Type: application/json');
+    http_response_code(200);
+    echo json_encode(['articles' => $articles]);
+    exit;
   }
 
   #[Route(path: "/article/{id}", name: 'getOneArticle', httpMethod: "GET")]
@@ -154,6 +167,7 @@ class ArticlesController extends AbstractController
 
     $article["prixEntier"] = floor($article["prix"]);
     $article["prixFraction"] = sprintf("%02d", fmod($article["prix"], 1) * 100);
+    $article["photos"] = json_decode($article["photos"])[0]->url ?? [];
     $context['article'] = $article;
 
     // Rendu du template Twig

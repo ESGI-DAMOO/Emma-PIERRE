@@ -42,17 +42,21 @@
 		<div class="product-list-container">
 			<asside>
 				<p>Type de produit</p>
-				{% for type in types %}
-					<div>
-						<input id="{{ type.type }}" type="checkbox" class="filter"/>
-						<label for="collier">{{ type.type }}</label>
-					</div>
-				{% endfor %}
+				<div id="check-types">
+					{% for type in types %}
+						<div>
+							<input id="{{ type.type }}" type="checkbox" class="filter"/>
+							<label for="{{ type.type }}">{{ type.type }}</label>
 
+						</div>
+					{% endfor %}
+				</div>
 				<p>Matériaux</p>
 
 				{% for couleur in couleurs |slice (0 ,5) %}
-					<a onclick="clickColor(event)"><span class="circle" data-couleur="{{ couleur.code }}" style="background-color: {{ couleur.code }};"></span></a>
+					<a onclick="clickColor(event)">
+						<span class="circle" data-couleur="{{ couleur.code }}" style="background-color: {{ couleur.code }};"></span>
+					</a>
 				{% endfor %}
 
 				<p>Prix</p>
@@ -62,18 +66,19 @@
 				<div class="price-choose">
 					<div class="input-number-container">
 						<span class="input-number-prefix">€</span>
-						<input id="" class="input-number filter" type="number" max="{{ prix.0.prix_max }}" value="{{ prix.0.prix_min }}" disabled/>
+						<input id="prix_min" class="input-number filter" type="number" max="{{ prix.0.prix_max }}" value="{{ prix.0.prix_min }}" disabled/>
 					</div>
 					<span>-</span>
 					<div class="input-number-container">
 						<span class="input-number-prefix">€</span>
-						<input id="input-number" class="input-number filter" max="{{ prix.0.prix_max }}" type="number" value="{{ prix.0.prix_max }}"/>
+						<input id="prix_max" class="input-number filter" max="{{ prix.0.prix_max }}" type="number" value="{{ prix.0.prix_max }}"/>
+
 					</div>
 				</div>
 
 				<p>Disponibilité</p>
 				<div>
-					<input id="dispo" type="checkbox" class="filter"/>
+					<input id="dispo" type="checkbox" class="filter" checked/>
 					<label for="dispo">Disponible</label>
 				</div>
 
@@ -94,7 +99,7 @@
 							<div class="product-hover">
 								<img class="boucle-doreilles" src="{{ article.photos }}" alt="Création de Bijoux"/>
 								<div class="product-hover-contain">
-									<a href="product.php" class="product-hover-button btn btn-bleu">Voir le produit</a>
+									<a href="/article/{{ article.id_article }}" class="product-hover-button btn btn-bleu">Voir le produit</a>
 								</div>
 							</div>
 							<div class="infos">
