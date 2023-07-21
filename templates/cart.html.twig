@@ -21,7 +21,10 @@
 			{% for article in articles %}
 
 				<div class="article_panier" data-id="{{ article.id_article}}">
-					<div class="panier_image_article"><img src="{{ article.photos }}" alt="{{article.type_article}} {{article.nom}}">
+					<div class="panier_image_article">
+						<a href="article/{{ article.id_article }}">
+							<img src="{{ article.photos }}" alt="{{article.type_article}} {{article.nom}}">
+						</a>
 					</div>
 					<div class="panier_titre_article">
 						<h2>{{article.type_article}}

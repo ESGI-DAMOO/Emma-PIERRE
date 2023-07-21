@@ -17,10 +17,10 @@
 	<div class="container">
 		<div class="path">
 			<p>
-				<a href="#">Accueil
+				<a href="/">Accueil
 				</a>
 				>
-				<a href="#">Tous les produits
+				<a href="/articles">Tous les produits
 				</a>
 			</p>
 		</div>
@@ -52,7 +52,9 @@
 				<p>Matériaux</p>
 
 				{% for couleur in couleurs |slice (0 ,5) %}
-					<a><span class="circle filter" data-couleur="{{ couleur.code }}" style="background-color: {{ couleur.code }};"></span></a>
+					<a>
+						<span class="circle filter" data-couleur="{{ couleur.code }}" style="background-color: {{ couleur.code }};"></span>
+					</a>
 				{% endfor %}
 
 				<p>Prix</p>

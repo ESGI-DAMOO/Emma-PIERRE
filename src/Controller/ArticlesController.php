@@ -137,7 +137,8 @@ class ArticlesController extends AbstractController
       cou.nom_couleur couleur, 
       cou.code code_couleur,
       mat.nom_matiere matiere, 
-      typ.type  
+      typ.type,
+      (a.prix - (a.prix * a.remise / 100)) as prix_remise
     FROM article a
     JOIN categorie cat ON cat.id_categorie = a.id_categorie
     JOIN collection col on col.id_collection = a.id_collection
@@ -165,8 +166,8 @@ class ArticlesController extends AbstractController
     $idUser = $this->getIdUser();
     $context['session'] = $_SESSION;
 
-    $article["prixEntier"] = floor($article["prix"]);
-    $article["prixFraction"] = sprintf("%02d", fmod($article["prix"], 1) * 100);
+    $article["prixEntier"] = floor($article["prix_remise"]);
+    $article["prixFraction"] = sprintf("%02d", fmod($article["prix_remise"], 1) * 100);
     $article["photos"] = json_decode($article["photos"])[0]->url ?? [];
     $context['article'] = $article;
 

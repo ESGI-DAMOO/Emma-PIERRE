@@ -40,7 +40,10 @@
 
 
 					<span class="prix-cent">.{{ article.prixFraction}}</span>
-
+					{% if article.remise > 0 %}
+						<span style="text-decoration:line-through">
+							{{ article.prix | round(2, 'floor') }}</span>
+					{% endif %}
 
 				</p>
 				<button id="add-to-cart" class="btn btn-bleu" data-id="{{ article.id_article }}">Ajouter au panier</button>
