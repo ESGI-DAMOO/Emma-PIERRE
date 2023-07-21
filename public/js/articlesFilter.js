@@ -10,11 +10,15 @@ let promo = false;
 
 let colorSelected = document.querySelector('.circle');
 
-function clickColor(event) {
+function clickColor(element) {
     colorSelected.classList.remove('selected')
-    colorSelected = event.target;
-    colorSelected.classList.add('selected');
-    couleur = event.target.dataset.couleur;
+    if (colorSelected !== element) {
+        colorSelected = element;
+        colorSelected.classList.add('selected');
+        couleur = element.dataset.couleur;
+    } else {
+        couleur = null;
+    }
 }
 
 function getTypesSelectionnes() {
@@ -23,60 +27,70 @@ function getTypesSelectionnes() {
 
 function updateTypesSelectionnes() {
     type = [];
-    const filters = document.querySelectorAll("#check-types .filter");
+    const filters = document.querySelectorAll(".type:checked");
 
     filters.forEach(element => {
-        if (element.checked) {
-            type.push(element.id);
-        }
+            type.push(element.dataset.type);
     });
 }
 
 filterElements.forEach(function (element) {
-    element.addEventListener("change", function () {
-        if (element.type === "checkbox") {
-            if (element.id === "dispo") {
-                dispo = element.checked;
-            } else if (element.id === "promo") {
-                promo = element.checked;
-            }
-            updateTypesSelectionnes();
-        } else if (element.id === "range-price") {
-            prixMin = element.min;
-            prixMax = element.value;
-        } else if (element.id === "input-number") {
-            prixMax = element.value;
-        }
+    if(element.classList.contains("circle")) {
+        element.addEventListener("click", () => filter(element))
+    } else {
+        element.addEventListener("change", () => filter(element))
+    }
 
-        const data = new FormData();
-        data.append('type', getTypesSelectionnes() ?? '');
-        data.append('couleur', couleur ?? '');
-        data.append('prix_min', prixMin);
-        data.append('prix_max', prixMax);
-        data.append('dispo', dispo);
-        data.append('promo', promo);
-        //console.log(type, prixMin, prixMax, dispo, promo);
-        fetch('/api/articles', {
-            method: 'POST',
-            body: data,
-        }).then((response) => response.json())
-            .then(data => {
-                // Traitement des données retournées par la route
-                const container = document.querySelector('.container-list-produit');
-                container.innerHTML = "";
-                data.articles.forEach(article => {
-                    const div = document.createElement('div');
-                    div.className = "produit-card"
-                    //debugger
-                    let url = article.photos != null ? JSON.parse(article.photos)[0].url : "/img/products/collier1.jpg";
-                    if (!testUrl(url)) {
-                        url = "/img/products/collier1.jpg";
-                    }
-                    div.innerHTML = `
+});
+
+function filter(element) {
+    if (element.type === "checkbox") {
+        if (element.id === "dispo") {
+            dispo = element.checked;
+        } else if (element.id === "promo") {
+            promo = element.checked;
+        }
+        updateTypesSelectionnes();
+    } else if (element.id === "range-price") {
+        prixMin = element.min;
+        prixMax = element.value;
+    } else if (element.id === "input-number") {
+        prixMax = element.value;
+    } else if (element.classList.contains('circle')) {
+        clickColor(element)
+    }
+
+    console.log(type, couleur, prixMax, dispo, promo);
+
+    const data = new FormData();
+    data.append('type', getTypesSelectionnes() ?? '');
+    data.append('couleur', couleur ?? '');
+    data.append('prix_min', prixMin);
+    data.append('prix_max', prixMax);
+    data.append('dispo', dispo);
+    data.append('promo', promo);
+
+    fetch('/api/articles', {
+        method: 'POST',
+        body: data,
+    }).then((response) => response.json())
+        .then(data => {
+            // Traitement des données retournées par la route
+            const container = document.querySelector('.container-list-produit');
+            container.innerHTML = "";
+            data.articles.forEach(article => {
+                const div = document.createElement('div');
+                div.className = "produit-card"
+                //debugger
+                let url = article.photos != null ? JSON.parse(article.photos)[0].url : "/img/products/collier1.jpg";
+                if (!testUrl(url)) {
+                    url = "/img/products/collier1.jpg";
+                }
+                div.innerHTML = `
                     <div class="product-hover">
                         <img class="boucle-doreilles" src="${url}" alt="${article.nom}"/>
                         <div class="product-hover-contain">
-                            <a href="/article/{{ article.id_article }}" class="product-hover-button btn btn-bleu">Voir le produit</a>
+                            <a href="/article/${article.id_article}" class="product-hover-button btn btn-bleu">Voir le produit</a>
                         </div>
                     </div>
                     <div class="infos">
@@ -88,18 +102,17 @@ filterElements.forEach(function (element) {
                         </div>
                     </div>
                     `;
-                    container.appendChild(div);
-                });
+                container.appendChild(div);
             });
-    })
+        })
         .catch(error => {
             console.error('Erreur lors de la requête fetch :', error);
         });
-
-});
+    console.log(data)
+}
 
 function testUrl(url) {
-    debugger
+    // debugger
     fetch(url)
         .then(response => {
             if (response.status === 404) {
